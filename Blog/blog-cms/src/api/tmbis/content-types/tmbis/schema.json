@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tmbiss",
+  "info": {
+    "singularName": "tmbis",
+    "pluralName": "tmbiss",
+    "displayName": "TMBIS"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "header": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "Content": {
+      "type": "blocks"
+    },
+    "url": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "publishedTime": {
+      "type": "datetime"
+    }
+  }
+}
