@@ -219,7 +219,7 @@ const Cart = ({ addedPrograms, suggestedPrograms }) => {
                                 </div>
                                 {upload && (
                                     <div className='w-full'>
-                                        <p className='sd:text-lg font-[350] pb-2'>Upload Certificate {selectedPrograms === `Associate Bachelor's Degree` ? '(SSCE)' : '(OND)'}</p>
+                                        <p className='sd:text-lg font-[350] pb-2'>Upload Certificate {selectedPrograms === `Associate Bachelor's Degree` ? '(SSCE)' : '(OND, HND or BSc)'}</p>
                                         <label htmlFor="passport">
                                             <input
                                                 type="file"

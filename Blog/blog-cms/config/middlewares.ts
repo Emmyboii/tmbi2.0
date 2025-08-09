@@ -6,8 +6,8 @@ module.exports = [
       origin: [
         'http://localhost:3001',
         'http://localhost:3000',
-        'https://tmbi-black.vercel.app/',
-        'https://thronebusinessinstituteswitzerland.com/',
+        'https://tmbi-black.vercel.app',
+        'https://thronebusinessinstituteswitzerland.com',
       ],
       credentials: true,
     },
