@@ -37,7 +37,7 @@ const ProgramsDesignedForYou = () => {
     return (
         <div className='xl:px-16 sh:pl-6 sh:pr-6'>
             <p className='text-[#ffffff] mx-auto px-7 bg-gradient-to-r from-[#002B5B] to-[#005BC1] py-5 bg-clip-text text-transparent lf:text-[40px] mm:text-[32px] sk:text-[25px] text-xl mm:text-start text-center font-semibold'>Programs Designed for Future Business Leaders</p>
-            <div className='flex justify-between items-center md:flex-row flex-col gap-5 sh:border-b border-[#797979B2] lf:text-[14px] px-2 mk:text-sm md:text-xs sa:text-base text-xs w-full mx-auto pb-2 mt-10'>
+            <div className='flex justify-between items-center md:flex-row flex-col gap-20 2xl:gap-32 3xl:gap-48 sh:border-b border-[#797979B2] lf:text-[14px] px-2 mk:text-sm md:text-xs sa:text-base text-xs w-full mx-auto pb-2 mt-10'>
                 <div className='flex items-center border-b md:border-none pb-1 border-[#797979B2] justify-between w-full'>
                     <p onClick={() => setPrograms('ABD')} className={`py-[10px] px-5 mr-2 cursor-pointer -full text-center rounded-[10px] ${programs === 'ABD' ? 'bg-[#002B5B33]' : ''}`}>Associate Bachelor’s Degree</p>
                     <p onClick={() => setPrograms('AD')} className={`py-[10px] px-5 cursor-pointer w-ful text-center rounded-[10px] ${programs === 'AD' ? 'bg-[#002B5B33]' : ''}`}>Advanced Diploma</p>

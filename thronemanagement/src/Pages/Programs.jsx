@@ -51,10 +51,10 @@ const Programs = ({ setOpenCart }) => {
                 </div>
                 <div id='label' className='pb-20 flex flex-col gap-8'>
                     <p className='sh:text-[30px] sp:text-2xl text-lg font-semibold text-center'>{label}</p>
-                    <div className='grid mk:grid-cols-3 sd:grid-cols-2 gap-x-3 gap-y-7 md:px-24 px-7'>
+                    <div className='gri flex flex-wrap items-center justify-center mk:grid-cols-4 sd:grid-cols-2 gap-x-3 gap-y-7 md:px-24 px-7'>
                         {programDetails.slice(0, visibleCount).map(
                             ({ programImg, programLabel, programText, programPrice, projectPath }) => (
-                                <div key={programLabel} className='bg-[#002B5B26] border-[0.5px] flex flex-col gap-1 border-[#002B5B40] shadow-md rounded-[10px] p-3 justify-between'>
+                                <div key={programLabel} className='bg-[#002B5B26] h-[500px] mk:w-[300px] sh:w-[250px] border-[0.5px] flex flex-col gap-1 border-[#002B5B40] shadow-md rounded-[10px] p-3 justify-between'>
                                     <div className='flex flex-col gap-2'>
                                         <Link onClick={() => window.scrollTo(0, 0)} to={projectPath}>
                                             <img className='w-full h-[170px] rounded-[10px] hover:scale-105 transition-all duration-700 object-cover' src={programImg} alt="" />

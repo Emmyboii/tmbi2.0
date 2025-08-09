@@ -19,7 +19,7 @@ const CustomPrevArrow = (props) => {
     return (
         <img
             src={prevBtn}
-            className='size-[50px] absolute bottom-[-50px] md:left-[47%] md:-translate-x-[47%] left-[40%] -translate-x-[40%] cursor-pointer'
+            className='size-[50px] absolute bottom-[-50px] md:left-[47%] 2xl:left-1/2 2xl:-translate-x-1/2 md:-translate-x-[47%] left-[40%] -translate-x-[40%] cursor-pointer'
             alt=""
             onClick={onClick}
         />
@@ -32,7 +32,7 @@ const CustomNextArrow = (props) => {
     return (
         <img
             src={nextBtn}
-            className='size-[50px] absolute md:left-[55%] left-[60%] -translate-x-[60%] md:-translate-x-[55%] cursor-pointer'
+            className='size-[50px] absolute md:left-[55%] left-[60%] 2xl:right-1/2 2xl:-translate-x-1/2 -translate-x-[60%] md:-translate-x-[55%] cursor-pointer'
             alt=""
             onClick={onClick}
         />

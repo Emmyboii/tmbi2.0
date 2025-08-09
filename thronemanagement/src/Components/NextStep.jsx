@@ -11,6 +11,7 @@ import chad from '../Images/chad.png';
 import SWL from '../Images/SWL.jpg';
 import MEC from '../Images/MEC.jpg';
 import CAR from '../Images/CAR.jpg';
+import NUC from '../Images/NUC2.png';
 import AccreditationImg from '../Images/AccreditationImg.svg';
 import { useState } from "react";
 
@@ -58,7 +59,7 @@ const NextStep = () => {
                                     The Republic Of Chad
                                     <img src={chad} className='w-8' alt="" />
                                 </p>
-                                <p className='font-normal mf:text-base text-[14px]'>The PIET sets out the Government of Chad's policy on education for the period 2018-2020. It covers all levels of education (from pre- school to higher education).</p>
+                                <p className='font-normal mf:text-base text-[14px]'>The PIET sets out the Government of Chad's policy on education. It covers all levels of education (from pre- school to higher education).</p>
                             </div>
                             {acc === 'chad' && (
                                 <img className='w-[400px] relative z-10 border-2 md:hidden block border-[#002B5B33] shadow-md shadow-[#002B5BA6]' src={MEC} alt="" />
@@ -76,14 +77,28 @@ const NextStep = () => {
                                 <img className='w-[400px] relative z-10 border-2 md:hidden block border-[#002B5B33] shadow-md shadow-[#002B5BA6]' src={CAR} alt="" />
                             )}
                         </div>
+                        <div className='flex flex-col items-center gap-5 z-10'>
+                            <div onClick={() => setAcc('nuc')} className={`rounded-[20px] min-h-[200px] cursor-pointer flex flex-col gap-2 border p-3 border-[#797979B2] ${acc === 'nuc' ? 'bg-[#C0943E33] shadow-md shadow-[#00000040]' : 'bg-white'}`}>
+                                <p className='flex gap-2 items-center mf:text-[25px] text-[21px] font-medium'>
+                                    National Universities Commission
+                                    <img src={CAR2} className='w-6' alt="" />
+                                </p>
+                                <p className='font-normal mf:text-base text-[14px]'>The Ministry of Higher Education (Ministère de l'Enseignement Supérieur) is a government ministry responsible for overseeing and regulating higher education institutions in the country, as well as developing policies and strategies to improve the quality of education.</p>
+                            </div>
+                            {acc === 'nuc' && (
+                                <img className='w-[400px] relative z-10 border-2 md:hidden block border-[#002B5B33] shadow-md shadow-[#002B5BA6]' src={NUC} alt="" />
+                            )}
+                        </div>
                     </div>
                     <div className='w-full relative'>
                         {acc === 'switzerland' ? (
-                            <img className='w-[400px] relative z-10 border-2 md:block hidden border-[#002B5B33] shadow-md shadow-[#002B5BA6]' src={SWL} alt="" />
+                            <img className='min-w-[400px] w-[80%] relative z-10 border-2 md:block hidden border-[#002B5B33] shadow-md shadow-[#002B5BA6]' src={SWL} alt="" />
                         ) : acc === 'chad' ? (
-                            <img className='w-[400px] relative z-10 border-2 md:block hidden border-[#002B5B33] shadow-md shadow-[#002B5BA6]' src={MEC} alt="" />
+                            <img className='min-w-[400px] w-[80%] relative z-10 border-2 md:block hidden border-[#002B5B33] shadow-md shadow-[#002B5BA6]' src={MEC} alt="" />
+                        ) : acc === 'car' ? (
+                            <img className='min-w-[400px] w-[80%] relative z-10 border-2 md:block hidden border-[#002B5B33] shadow-md shadow-[#002B5BA6]' src={CAR} alt="" />
                         ) : (
-                            <img className='w-[400px] relative z-10 border-2 md:block hidden border-[#002B5B33] shadow-md shadow-[#002B5BA6]' src={CAR} alt="" />
+                            <img className='min-w-[400px] w-[80%] relative z-10 md:block hidden' src={NUC} alt="" />
                         )}
                         <img src={AccreditationImg} className='absolute z-0 bottom-[-30%] right-[-10%]' alt="" />
                     </div>
@@ -127,12 +142,16 @@ const NextStep = () => {
                         <TiTimes /><TiTimes /><TiTimes /><TiTimes /><TiTimes /><TiTimes /><TiTimes /><TiTimes /><TiTimes /><TiTimes /><TiTimes /><TiTimes /><TiTimes /><TiTimes /><TiTimes /><TiTimes /><TiTimes />
                     </div>
                 </div>
-                <div className="text-white flex flex-col mx-auto items-center justify-center text-center h-full mc:px-32 sa:px-7 px-2">
+                <div className="text-white flex flex-col mx-auto items-center z-50 justify-center text-center h-full mc:px-32 sa:px-7 px-2">
                     <p className="mh:text-[38px] sd:text-[28px] sk:text-[22px] text-lg font-semibold">Take the Next Step Towards your Future</p>
                     <p className="mh:text-[18px] leading-snug mt-7 sk:text-[14px] text-xs font-medium">Unlock new opportunities with a globally recognized program. Gain the skills, flexibility, and support you need to succeed.</p>
                     <div className="flex gap-5 mt-5">
-                        <button className="rounded-[10px] bg-white sm:p-4 p-2 sm:text-base text-sm px-7 shadow-xl shadow-[#C0943E40] text-[#C0943E] font-semibold">Apply Now</button>
-                        <button className="rounded-[10px] bg-white sm:p-4 p-2 sm:text-base text-sm shadow-xl shadow-[#C0943E40] text-[#C0943E] font-semibold">Speak to an Advisor</button>
+                        <a href="#apply">
+                            <button className="rounded-[10px] bg-white sm:p-4 cursor-pointer p-2 sm:text-base text-sm px-7 shadow-xl shadow-[#C0943E40] text-[#C0943E] font-semibold">Apply Now</button>
+                        </a>
+                        <a href="http://surl.li/mumpei" rel='noreferrer' target='_blank'>
+                            <button className="rounded-[10px] bg-white sm:p-4 p-2 sm:text-base text-sm shadow-xl shadow-[#C0943E40] text-[#C0943E] font-semibold">Speak to an Advisor</button>
+                        </a>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import ProgramDetails from './ProgramDetails';
 import stars from '../Images/stargroup2.png';
 import durations from '../Images/duration.png';
@@ -9,13 +9,17 @@ import UDME from '../Images/UDME.png';
 import certificates from '../Images/certificate.png';
 import CV from '../Images/CV.png';
 import line from '../Images/Line.png';
-import acc1 from '../Images/acc1.png';
-import acc2 from '../Images/acc2.png';
-import acc3 from '../Images/acc3.png';
-import acc4 from '../Images/acc4.png';
-import acc5 from '../Images/acc5.png';
+// import acc1 from '../Images/acc1.png';
+// import acc2 from '../Images/acc2.png';
+// import acc3 from '../Images/acc3.png';
+// import acc4 from '../Images/acc4.png';
+// import acc5 from '../Images/acc5.png';
+import SWL from '../Images/SWL.jpg';
+import MEC from '../Images/MEC.jpg';
+import CAR from '../Images/CAR.jpg';
+import { HiMiniArrowRight } from 'react-icons/hi2';
 
-const EachPrograms = ({ setOpenCart }) => {
+const EachPrograms = ({ setOpenCart, addedPrograms, suggestedPrograms }) => {
     const { pathname } = useLocation();
     const [learnAbout, setLearnAbout] = useState('program');
     const [currentProgram, setCurrentProgram] = useState(null);
@@ -244,9 +248,9 @@ const EachPrograms = ({ setOpenCart }) => {
                     <div className='mh:grid flex flex-col mh:grid-cols-3 mh:gap-20 gap-10 mt-10'>
                         <div className='flex flex-col w-full gap-3'>
                             <p onClick={() => setLearnAbout('program')} className={`mh:p-[10px] p-[6.5px] border border-[#79797940] text-center text-[#002B5B] mh:text-[20px] text-base font-normal cursor-pointer ${learnAbout === 'program' && 'shadow-md shadow-[#00000040]'}`}>Program details</p>
-                            {(MBA || ABD) && (
+                            {/* {(MBA || ABD) && (
                                 <p onClick={() => setLearnAbout('course')} className={`mh:p-[10px] p-[6.5px] border border-[#79797940] text-center text-[#002B5B] mh:text-[20px] text-base font-normal cursor-pointer ${learnAbout === 'course' && 'shadow-md shadow-[#00000040]'}`}>Course details</p>
-                            )}
+                            )} */}
                             <p onClick={() => setLearnAbout('acc')} className={`mh:p-[10px] p-[6.5px] border border-[#79797940] text-center text-[#002B5B] mh:text-[20px] text-base font-normal cursor-pointer ${learnAbout === 'acc' && 'shadow-md shadow-[#00000040]'}`}>Accreditations</p>
                             <p onClick={() => setLearnAbout('req')} className={`mh:p-[10px] p-[6.5px] border border-[#79797940] text-center text-[#002B5B] mh:text-[20px] text-base font-normal cursor-pointer ${learnAbout === 'req' && 'shadow-md shadow-[#00000040]'}`}>Program requirements</p>
                         </div>
@@ -296,17 +300,47 @@ const EachPrograms = ({ setOpenCart }) => {
                             <div className='flex flex-col gap-10 mh:ml-9 w-full col-span-2'>
                                 <p className='sp:text-base text-[13px]'>TMBI is registered as a foreign education provider in Switzerland. All <span className='lowercase'>{programName}</span> programs are certified and meet international business education standards. Graduates receive a verifiable certificate to showcase professional development.</p>
                                 <div className='grid sh:grid-cols-4 sp:grid-cols-3 grid-cols-2 items-center gap-y-12'>
-                                    <img className='sp:w-[80px] w-[60px]' src={acc1} alt="" />
-                                    <img className='sp:w-[120px] w-[100px]' src={acc2} alt="" />
-                                    <img className='sp:w-[110px] w-[90px]' src={acc3} alt="" />
-                                    <img className='sp:w-[120px] w-[100px]' src={acc4} alt="" />
-                                    <img className='sp:w-[80px] w-[60px]' src={acc5} alt="" />
+                                    <img className='sp:w-[120px] w-[100px] border border-black/30' src={SWL} alt="" />
+                                    <img className='sp:w-[120px] w-[100px]' src={MEC} alt="" />
+                                    <img className='sp:w-[120px] w-[100px]' src={CAR} alt="" />
+                                    {/* <img className='sp:w-[120px] w-[100px]' src={acc4} alt="" /> */}
+                                    {/* <img className='sp:w-[80px] w-[60px]' src={acc5} alt="" /> */}
                                 </div>
                             </div>
                         )}
                     </div>
                 </div>
             </div>
+
+            {suggestedPrograms.length > 0 && (
+                <>
+                    {/* <hr className='border border-[#797979B2]' /> */}
+                    <p className='font-medium text-[19px] px-16'>You might be interested in</p>
+                    <div className='grid md:grid-cols-3 lg:grid-cols-4 px-16 pb-16 gap-6'>
+                        {suggestedPrograms.map(({ programImg, programLabel, programText, programPrice, projectPath, programNamesOnCart }, i) => (
+                            <div key={i} className='bg-[#002B5B26] border-[0.5px] flex flex-col gap-1 border-[#002B5B40] shadow-md rounded-[10px] p-3 justify-between'>
+                                <div className='flex flex-col gap-2'>
+                                    <Link onClick={() => window.scrollTo(0, 0)} to={projectPath}>
+                                        <img className='w-full h-[170px] rounded-[10px] hover:scale-105 transition-all duration-700 object-cover' src={programImg} alt={programLabel} />
+                                    </Link>
+                                    <p className='text-2xl font-semibold'>{programNamesOnCart}</p>
+                                    <p className='text-[20px] font-medium'>{programLabel}</p>
+                                    <p className='text-[17px] font-normal'>{programText}</p>
+                                </div>
+                                <div className='flex justify-between mt-7 mb-3'>
+                                    <p className='font-medium text-2xl'>${programPrice}</p>
+                                    <Link onClick={() => window.scrollTo(0, 0)} to={projectPath}>
+                                        <button className='flex items-center  text-white bg-[#002B5B] rounded-[5px] p-2 font-semibold gap-2'>
+                                            Enroll Now
+                                            <HiMiniArrowRight className='mt-1' />
+                                        </button>
+                                    </Link>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </>
+            )}
         </div>
     );
 };

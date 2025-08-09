@@ -63,47 +63,50 @@ function App() {
     const allPrograms = stored ? JSON.parse(stored) : ProgramDetails;
 
     const cartPaths = new Set(addedPrograms.map(p => p.projectPath));
-    const cartNames = [...new Set(addedPrograms.map(p => p.programName))];
+    const cartLabels = [...new Set(addedPrograms.map(p => p.programLabel))];
 
     const suggestions = [];
     const addedSuggestionPaths = new Set();
 
-    // Step 1: 1 suggestion per cart programName
-    for (const name of cartNames) {
+    // Step 1: Match same course name (programLabel) but from different programs
+    for (const label of cartLabels) {
       for (const category of allPrograms) {
         const program = category.programDetails.find(p =>
-          p.programName === name && !cartPaths.has(p.projectPath) && !addedSuggestionPaths.has(p.projectPath)
+          p.programLabel === label &&
+          !cartPaths.has(p.projectPath) &&
+          !addedSuggestionPaths.has(p.projectPath)
         );
         if (program) {
           suggestions.push(program);
           addedSuggestionPaths.add(program.projectPath);
-          break;
         }
       }
     }
 
-    // Step 2: Add more from same categories to reach 3–5
+    // Step 2: Ensure minimum 3–5 suggestions
     let i = 0;
-    while (suggestions.length < 3 || (suggestions.length < 5 && cartNames.length > 1)) {
-      const currentName = cartNames[i % cartNames.length];
+    while (suggestions.length < 3 || (suggestions.length < 5 && cartLabels.length > 1)) {
+      const currentLabel = cartLabels[i % cartLabels.length];
 
       for (const category of allPrograms) {
         const extra = category.programDetails.find(p =>
-          p.programName === currentName && !cartPaths.has(p.projectPath) && !addedSuggestionPaths.has(p.projectPath)
+          p.programLabel === currentLabel &&
+          !cartPaths.has(p.projectPath) &&
+          !addedSuggestionPaths.has(p.projectPath)
         );
         if (extra) {
           suggestions.push(extra);
           addedSuggestionPaths.add(extra.projectPath);
-          break;
         }
       }
 
       i++;
-      if (i > 10) break; // fallback to avoid infinite loops
+      if (i > 10) break; // avoid infinite loop
     }
 
     return suggestions;
   })();
+
 
   useEffect(() => {
     if (openCart) {
@@ -118,7 +121,7 @@ function App() {
   }, [openCart])
 
   return (
-    <div className="App overflow-x-hidden">
+    <div className="overflow-x-hidden w-full">
       {openCart && (
         <div
           onClick={() => {
@@ -140,7 +143,7 @@ function App() {
           <Route path="/articles" element={<Articles />} />
           <Route path="/articles/:slug" element={<ArticlesDetails />} />
           <Route path="/:category" element={<Programs setOpenCart={setOpenCart} />} />
-          <Route path="/:category/:slug" element={<EachPrograms setOpenCart={setOpenCart} />} />
+          <Route path="/:category/:slug" element={<EachPrograms suggestedPrograms={suggestedPrograms} setAddedPrograms={setAddedPrograms} addedPrograms={addedPrograms} setOpenCart={setOpenCart} />} />
           <Route path="/404" element={<NotFound />} />
           <Route path="/cart" element={<CartPage suggestedPrograms={suggestedPrograms} setAddedPrograms={setAddedPrograms} addedPrograms={addedPrograms} />} />
           <Route path="*" element={<Navigate to="/404" />} />

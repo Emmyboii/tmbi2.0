@@ -42,10 +42,12 @@ const Navbar = ({ addedPrograms }) => {
   }, [smScreens])
 
   return (
-    <div className='flex items-center justify-between xl:px-16 w-full mf:px-2 sa:px-10 px-4 py-3 border-b-[0.5px] border-[#797979B2]'>
-      <Link to='/'>
-        <img className='w-32' src={Logo} alt="" />
-      </Link>
+    <div className='flex items-center justify-between xl:px-16 w-ful mf:px-2 sa:px-10 px-4 py-3 border-b-[0.5px] border-[#797979B2]'>
+      <div>
+        <Link to='/'>
+          <img className='w-32' src={Logo} alt="" />
+        </Link>
+      </div>
       <div className='mf:flex hidden items-center gap-6 ml-[120px] xl:text-[14px] text-xs font-normal'>
         <Link to='/'>
           <p onClick={() => setPrograms(false)} className='flex gap-[5px] items-center'>
@@ -128,13 +130,15 @@ const Navbar = ({ addedPrograms }) => {
             <p>CART</p>
             <div className='relative'>
               <MdOutlineShoppingCart className='text-xl' />
-              <p className='bg-red-500 px-[6px] py-[3px] rounded-full top-[-10px] right-[-10px] text-white absolute'>{addedPrograms.length}</p>
+              <p className='bg-red-500 mk:px-[6px] mk:py-[1px] rounded-full top-[-10px] right-[-10px] text-white absolute'>{addedPrograms.length}</p>
             </div>
           </div>
         </Link>
       </div>
-      <div className='text-[12px] font-normal mf:flex hidden gap-3'>
-        <button className='py-[10px] px-3 rounded-[5px] border-2 border-[#FFFFFF80] text-white bg-gradient-to-r from-[#C0943E] to-[#5A451D]'>APPLY NOW</button>
+      <div className='text-[12px] font-normal mf:flex justify-end hidden gap-3'>
+        <a href="#apply">
+          <button className='py-[10px] px-3 rounded-[5px] border-2 border-[#FFFFFF80] text-white bg-gradient-to-r from-[#C0943E] to-[#5A451D]'>APPLY NOW</button>
+        </a>
         <button className='py-[10px] px-3 rounded-[5px] border-2 border-[#FFFFFF80] text-white bg-gradient-to-r from-[#005BC1] to-[#002B5B]'>EXPLORE PROGRAMS</button>
       </div>
 
@@ -243,11 +247,12 @@ const Navbar = ({ addedPrograms }) => {
           </div> <hr className='border w-full border-black/40' />
 
           <Link to='/articles'>
-          <p onClick={() => setOpenMenu(false)} className='flex cursor-pointer gap-[5px] items-center'>
-            ARTICLES
-            <MdOutlineKeyboardArrowDown />
-          </p> <hr className='border w-full border-black/40' />
+            <p onClick={() => setOpenMenu(false)} className='flex cursor-pointer gap-[5px] items-center'>
+              ARTICLES
+              <MdOutlineKeyboardArrowDown />
+            </p>
           </Link>
+          <hr className='border w-full border-black/40' />
           <Link to='/about'>
             <p onClick={() => setOpenMenu(false)} className='flex cursor-pointer gap-[5px] items-center'>
               ABOUT US
@@ -255,9 +260,11 @@ const Navbar = ({ addedPrograms }) => {
             </p>
           </Link>
         </div>
-        <div className='text-[12px] font-normal flex flex-col gap-3'>
-          <button className='py-[10px] px-3 rounded-[5px] border-2 border-[#FFFFFF80] text-white bg-gradient-to-r from-[#C0943E] to-[#5A451D]'>APPLY NOW</button>
-          <button className='py-[10px] px-3 rounded-[5px] border-2 border-[#FFFFFF80] text-white bg-gradient-to-r from-[#005BC1] to-[#002B5B]'>EXPLORE PROGRAMS</button>
+        <div className='text-[12px] font-normal w-full flex flex-col gap-3'>
+          <a href="#apply" className='w-full'>
+            <button onClick={() => setOpenMenu(false)} className='py-[10px] px-3 rounded-[5px] w-full border-2 border-[#FFFFFF80] text-white bg-gradient-to-r from-[#C0943E] to-[#5A451D]'>APPLY NOW</button>
+          </a>
+          <button onClick={() => setOpenMenu(false)} className='py-[10px] px-3 rounded-[5px] border-2 border-[#FFFFFF80] text-white bg-gradient-to-r from-[#005BC1] to-[#002B5B]'>EXPLORE PROGRAMS</button>
         </div>
       </div>
     </div>

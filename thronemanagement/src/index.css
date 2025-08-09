@@ -6,6 +6,10 @@
     padding: 0 5px;
 }
 
-*{
+* {
     scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Serif Display', Georgia, sans-serif;
 }

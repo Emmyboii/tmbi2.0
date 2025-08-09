@@ -17,7 +17,7 @@ const AboutAccreditation = () => {
         <div className="xl:px-24 sh:pl-16 sh:pr-10 sp:px-7 px-4 flex flex-col gap-60 pb-9">
             <div className='z-20 flex flex-col gap-8'>
                 <p className='bg-gradient-to-r from-[#002B5B] to-[#005BC1] text-center text-transparent bg-clip-text font-bold sm:text-[35px] text-[28.4px]'>Commitment to Quality & Accreditation</p>
-                <div className='flex md:flex-row flex-col justify-between w-full gap-20 items-center'>
+                <div className='flex md:flex-row flex-col justify-between  w-full gap-20 items-center'>
                     <div className='flex flex-col w-full gap-4'>
                         <div className='flex flex-col items-center gap-5 z-10'>
                             <div onClick={() => setAcc('switzerland')} className={`rounded-[20px] min-h-[200px] cursor-pointer flex flex-col gap-2 border p-3 border-[#797979B2] ${acc === 'switzerland' ? 'bg-[#C0943E33] shadow-md shadow-[#00000040]' : 'bg-white'}`}>

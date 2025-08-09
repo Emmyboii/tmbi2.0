@@ -3,6 +3,7 @@ import PUDD from '../Images/PUDD.webp'
 import PUDD2 from '../Images/PUDD2.png'
 import PUDD3 from '../Images/PUDD3.png'
 import PUDD4 from '../Images/PUDD4.png'
+import { Link } from 'react-router-dom'
 
 const FeaturedArticles = () => {
     return (
@@ -11,10 +12,13 @@ const FeaturedArticles = () => {
                 <div className='mk:col-span-1 col-span-2'>
                     <p className='font-bold sp:text-[45px] sr:text-3xl text-2xl'>Featured Articles</p>
                     <p className='font-normal mt-2 sp:text-lg sr:text-base text-sm'>Stay connected with the latest business insights, research <br className='sd:block hidden' />findings, and success stories from our students, and alumni network.</p>
-                    <button className='flex items-center sr:text-base text-xs underline mt-7 font-medium gap-2'>
-                        Browse Featured Articles
-                        <HiMiniArrowRight className='mt-1' />
-                    </button>
+                    <Link to='/articles'>
+                        <button className='flex items-center sr:text-base text-xs underline mt-7 font-medium gap-2'>
+                            Browse Featured Articles
+                            <HiMiniArrowRight className='mt-1' />
+                        </button>
+                    </Link>
+
                 </div>
             </div>
             <div className='grid mk:grid-cols-2 gap-10 mt-8'>
@@ -36,7 +40,7 @@ const FeaturedArticles = () => {
                                 <p className='font-extralight text-base'>5 mins read.</p>
                             </div>
                         </div>
-                        <img className='w-full object-cover sp:h-[110px]' src={PUDD2} alt="" />
+                        <img className='w-full object-cover sp:min-h-[110px]' src={PUDD2} alt="" />
                     </div>
                     <div className='sp:grid flex flex-col-reverse grid-cols-3 gap-5 border-t pt-8 pb-5'>
                         <div className='flex flex-col gap-1 col-span-2'>
@@ -47,7 +51,7 @@ const FeaturedArticles = () => {
                                 <p className='font-extralight text-base'>5 mins read.</p>
                             </div>
                         </div>
-                        <img className='w-full object-cover sp:h-[110px]' src={PUDD3} alt="" />
+                        <img className='w-full object-cover sp:min-h-[110px]' src={PUDD3} alt="" />
                     </div>
                     <div className='sp:grid flex flex-col-reverse grid-cols-3 gap-5 border-t pt-8 pb-5'>
                         <div className='flex flex-col gap-1 col-span-2'>
@@ -58,8 +62,8 @@ const FeaturedArticles = () => {
                                 <p className='font-extralight text-base'>5 mins read.</p>
                             </div>
                         </div>
-                        <img className='w-full object-cover sp:h-[110px]' src={PUDD4} alt="" />
-      sp:     flex flex-col-reverse          </div>
+                        <img className='w-full object-cover sp:min-h-[110px]' src={PUDD4} alt="" />
+                    </div>
                 </div>
             </div>
         </div>
