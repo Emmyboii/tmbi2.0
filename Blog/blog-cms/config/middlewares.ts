@@ -5,8 +5,9 @@ module.exports = [
     config: {
       origin: [
         'http://localhost:3001',
-        'https://my-frontend.netlify.app',
-        'https://my-production-site.com',
+        'http://localhost:3000',
+        'https://tmbi-black.vercel.app/',
+        'https://thronebusinessinstituteswitzerland.com/',
       ],
       credentials: true,
     },
