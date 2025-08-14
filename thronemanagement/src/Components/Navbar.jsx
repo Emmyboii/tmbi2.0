@@ -42,13 +42,13 @@ const Navbar = ({ addedPrograms }) => {
   }, [smScreens])
 
   return (
-    <div className='flex items-center justify-between xl:px-16 w-ful mf:px-2 sa:px-10 px-4 py-3 border-b-[0.5px] border-[#797979B2]'>
+    <div className='flex items-center justify-between xl:px-16 w-full sticky z-50 bg-whit top-0 left-0 mf:px-2 sa:px-10 px-4 py-3 border-b-[0.5px] border-[#797979B2]'>
       <div>
         <Link to='/'>
           <img className='w-32' src={Logo} alt="" />
         </Link>
       </div>
-      <div className='mf:flex hidden items-center gap-6 ml-[120px] xl:text-[14px] text-xs font-normal'>
+      <div className='mf:flex hidden items-center gap-6 flex-1 justify-center xl:text-[14px] text-xs font-normal'>
         <Link to='/'>
           <p onClick={() => setPrograms(false)} className='flex gap-[5px] items-center'>
             HOME

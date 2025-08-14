@@ -131,7 +131,7 @@ function App() {
           }}
           className="w-full h-[200%] bg-black/30 absolute z-50"></div>
       )}
-      <div onClick={() => {
+      <div className="w-full" onClick={() => {
         if (openCart) {
           setOpenCart(false)
         }

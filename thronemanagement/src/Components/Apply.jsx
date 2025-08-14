@@ -1,7 +1,77 @@
+import { useState } from 'react'
 import applyImg from '../Images/applyImg.png'
 import applybtn from '../Images/applybtn.png'
 
 const Apply = () => {
+
+    const [status, setStatus] = useState({ message: '', type: '' })
+    const [modal, setModal] = useState(false)
+    const [form, setForm] = useState({
+        firstname: '',
+        lastname: '',
+        email: '',
+        phone: '',
+        courseName: '',
+        highestEducationLevel: '',
+    })
+
+    const handleChange = (e) => {
+        const { value, name } = e.target
+
+        setForm((prev) => ({
+            ...prev,
+            [name]: value
+        }))
+    }
+
+    const apply = async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData();
+        formData.append("firstname", form.firstname);
+        formData.append("lastname", form.lastname);
+        formData.append("email", form.email);
+        formData.append("phone", form.phone);
+        formData.append("courseName", form.courseName);
+        formData.append("highestEducationLevel", form.highestEducationLevel);
+        formData.append("scholarshipApplied", true)
+
+        try {
+            const res = await fetch('https://devm.westus2.cloudapp.azure.com/thorne/api/apply', {
+                method: 'POST',
+                body: formData
+            })
+            const data = await res.json();
+
+            if (!res.ok) {
+                setStatus({ message: 'Sorry, an error occured. Please try again later or contact the admin', type: 'error' })
+                setModal(true)
+                return
+            }
+
+            setStatus({ message: 'Application Submitted successfully', type: 'success' })
+            setModal(true)
+
+            console.log("Application saved:", data);
+
+            // const applicantId = data._id;
+
+            // if (applicantId) {
+            //     // Redirect to Paystack checkout page
+            //     if (selectedPrograms === "Associate Bachelor's Degree" || selectedPrograms === 'Executive MBA') {
+            //         window.location.href = `https://w3hwvtdm-5000.uks1.devtunnels.ms/api/apply/${applicantId}/checkout-apply`;
+            //     } else {
+            //         window.location.href = `https://w3hwvtdm-5000.uks1.devtunnels.ms/api/apply/${applicantId}/checkout`;
+            //     }
+            // } else {
+            //     console.error("No applicant_id returned from API");
+            // }
+        } catch (err) {
+            console.error("Error:", err);
+        }
+    }
+
+
     return (
         <div id='apply' className='mt-7 xl:px-24 sh:pl-16 sh:pr-10 sp:px-7 pt-7 px-4'>
             <div className='flex sm:flex-row flex-col items-center justify-start gap-5'>
@@ -12,14 +82,25 @@ const Apply = () => {
                 <img className='md:max-w-[40%] 2xl:max-w-[30%] max-w-[400px] w-full md:self-end' src={applyImg} alt="" />
                 <div className='relative md:pr-10'>
                     <img src={applybtn} className='absolute sd:block hidden bottom-7 size-[100px] md:right-[-70px] right-[-102px] z-30' alt="" />
-                    <form className='rounded-[30px] flex flex-col gap-3 relative z-10 shadow-md shadow-[#00000040] border border-[#797979B2] p-4 bg-white'>
+                    <form onSubmit={apply} className='rounded-[30px] flex flex-col gap-3 relative z-10 shadow-md shadow-[#00000040] border border-[#797979B2] p-4 bg-white'>
+
+                        {modal && (
+                            <div className={`${status.type === 'error' ? 'bg-red-500' : 'bg-green-500'} text-white absolute top-[0px] z-50 right-0 p-3 rounded-md flex items-center text-center justify-between`}>
+                                <p className='md:text-[16px] text-[13px] 3xl:text-[22px] font-bold'>
+                                    {status.type === 'error' ? `${status.message}` : `${status.message}. Redirecting...`}
+                                </p>
+                            </div>
+                        )}
                         <div className='flex flex-col gap-1'>
                             <p className='text-lg font-[350]'>First Name</p>
                             <input
                                 className='border border-[#797979B2] outline-none rounded-[15px] w-full py-3 px-3'
                                 type="text"
-                                name=""
+                                value={form.firstname}
+                                onChange={handleChange}
+                                name="firstname"
                                 id=""
+                                required
                                 placeholder='John'
                             />
                         </div>
@@ -28,8 +109,11 @@ const Apply = () => {
                             <input
                                 className='border border-[#797979B2] outline-none rounded-[15px] w-full py-3 px-3'
                                 type="text"
-                                name=""
+                                value={form.lastname}
+                                onChange={handleChange}
+                                name="lastname"
                                 id=""
+                                required
                                 placeholder='Doe'
                             />
                         </div>
@@ -38,8 +122,11 @@ const Apply = () => {
                             <input
                                 className='border border-[#797979B2] outline-none rounded-[15px] w-full py-3 px-3'
                                 type="number"
-                                name=""
+                                value={form.phone}
+                                onChange={handleChange}
+                                name="phone"
                                 id=""
+                                required
                                 placeholder='+2348109876543'
                             />
                         </div>
@@ -48,8 +135,11 @@ const Apply = () => {
                             <input
                                 className='border border-[#797979B2] outline-none rounded-[15px] w-full py-3 px-3'
                                 type="email"
-                                name=""
+                                value={form.email}
+                                onChange={handleChange}
+                                name="email"
                                 id=""
+                                required
                                 placeholder='johndoe@gmail.com'
                             />
                         </div>
@@ -57,8 +147,11 @@ const Apply = () => {
                             <p className='text-lg font-[350]'>Highest Education Level</p>
                             <select
                                 className='border border-[#797979B2] outline-none rounded-[15px] w-full py-3 px-3'
-                                name=""
+                                value={form.highestEducationLevel}
+                                name="highestEducationLevel"
+                                onChange={handleChange}
                                 id=""
+                                required
                             >
                                 <option value=""></option>
                                 <option className="text-[18px] font-normal" value="ssce">Senior Secondary School Certificate Examination(SSCE)</option>
@@ -73,8 +166,11 @@ const Apply = () => {
                             <p className='text-lg font-[350]'>Available Programs</p>
                             <select
                                 className='border border-[#797979B2] outline-none rounded-[15px] w-full py-3 px-3'
-                                name=""
+                                name="courseName"
+                                value={form.courseName}
+                                onChange={handleChange}
                                 id=""
+                                required
                             >
                                 <option className="text-[18px]" value="">Available Programme(s)</option>
                                 <optgroup className="text-[22px]" label="Associate Bachelor's Degree's (ABD)">
@@ -140,7 +236,7 @@ const Apply = () => {
                                 </optgroup>
                             </select>
                         </div>
-                        <button className='text-[21px] text-white font-medium py-3 w-full bg-[#005BC1BF] rounded-[15px]'>Submit Application</button>
+                        <button type='submit' className='text-[21px] text-white font-medium py-3 w-full bg-[#005BC1BF] rounded-[15px]'>Submit Application</button>
                     </form>
                 </div>
             </div>
