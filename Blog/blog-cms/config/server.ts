@@ -1,5 +1,5 @@
-// config/server.js
-module.exports = ({ env }) => ({
+// config/server.ts
+export default ({ env }) => ({
   host: env('HOST', '0.0.0.0'),
   port: env.int('PORT', 1337),
   app: {
@@ -9,5 +9,5 @@ module.exports = ({ env }) => ({
     'localhost',
     '127.0.0.1',
     'devm.westus2.cloudapp.azure.com'
-  ]
+  ],
 });
