@@ -1,12 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import Logo from '../Images/Logo.png'
-import pro1 from '../Images/program1.webp'
-import pro2 from '../Images/program2.webp'
-import pro3 from '../Images/program3.webp'
-import pro4 from '../Images/program4.webp'
-import pro5 from '../Images/program5.webp'
-import pro6 from '../Images/program6.webp'
-import { HiMiniArrowUpRight } from "react-icons/hi2";
+import Logo from '../NewImages/logo.png'
 import { MdMenu, MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import { MdOutlineShoppingCart } from "react-icons/md";
@@ -42,17 +35,16 @@ const Navbar = ({ addedPrograms }) => {
   }, [smScreens])
 
   return (
-    <div className='flex items-center justify-between xl:px-16 w-full sticky z-50 bg-whit top-0 left-0 mf:px-2 sa:px-10 px-4 py-3 border-b-[0.5px] border-[#797979B2]'>
+    <div className='flex items-center 3xl:text-xl xl:text-lg text-sm justify-between xl:px-16 w-full sticky z-50 top-0 left-0 mf:px-2 sa:px-10 px-4 py-4 bg-[#002B5B] text-white'>
       <div>
         <Link to='/'>
-          <img className='w-32' src={Logo} alt="" />
+          <img className='2xl:w-40 w-32' src={Logo} alt="" />
         </Link>
       </div>
-      <div className='mf:flex hidden items-center gap-6 flex-1 justify-center xl:text-[14px] text-xs font-normal'>
+      <div className='mf:flex hidden items-center gap-10 flex-1 justify-center font-normal'>
         <Link to='/'>
           <p onClick={() => setPrograms(false)} className='flex gap-[5px] items-center'>
-            HOME
-            <HiMiniArrowUpRight />
+            Home
           </p>
         </Link>
         <div
@@ -60,108 +52,104 @@ const Navbar = ({ addedPrograms }) => {
           onMouseLeave={handleMouseLeave}
         >
           <p className='flex gap-[5px] cursor-pointer items-center'>
-            PROGRAMS
+            Programs
             <MdOutlineKeyboardArrowDown className={`transition-transform duration-300 ${programs ? 'rotate-180' : ''}`} />
           </p>
-
           {programs && (
             <div
-              className='bg-white shadow-lg px-[150px] absolute left-0 w-full z-50 grid grid-cols-3 gap-y-7 gap-x-4 top-[88px] p-5 border border-gray-200'>
+              className='bg-white shadow-md rounded shadow-[#FFFFFF40] text-black absolute left-[39%] z-50 gap-3 flex flex-col top-[88px] p-5 border border-gray-200'>
               <Link onClick={() => setPrograms(false)} to='/associate-bachelor-degree' className='hover:text-blue-600 transition'>
                 <div>
-                  <img className='h-[210px] object-cover w-full' src={pro1} alt="" />
                   <p className='py-2'>Associate Bachelor's Degree</p>
                 </div>
               </Link>
 
               <Link onClick={() => setPrograms(false)} to='/executive-mba' className='hover:text-blue-600 transition'>
                 <div className='bg-blac'>
-                  <img className='h-[210px] object-cover w-full' src={pro2} alt="" />
                   <p className='py-2'>Executive MBA</p>
                 </div>
               </Link>
 
               <Link onClick={() => setPrograms(false)} to='/executive-advanced-diploma' className='hover:text-blue-600 transition'>
                 <div>
-                  <img className='h-[210px] object-cover w-full' src={pro3} alt="" />
                   <p className='py-2'>Executive Advanced Diploma</p>
                 </div>
               </Link>
 
               <Link onClick={() => setPrograms(false)} to='/mini-mba' className='hover:text-blue-600 transition'>
                 <div>
-                  <img className='h-[210px] object-cover w-full' src={pro4} alt="" />
                   <p className='py-2'>Executive Mini MBA</p>
                 </div>
               </Link>
 
               <Link onClick={() => setPrograms(false)} to='/professional-certificate' className='hover:text-blue-600 transition'>
                 <div>
-                  <img className='h-[210px] object-cover w-full' src={pro5} alt="" />
                   <p className='py-2'>Professional Certificate</p>
                 </div>
               </Link>
 
               <Link onClick={() => setPrograms(false)} to='/executive-diploma' className='hover:text-blue-600 transition'>
                 <div>
-                  <img className='h-[210px] object-cover w-full' src={pro6} alt="" />
                   <p className='py-2'>Executive Diploma</p>
                 </div>
               </Link>
-
             </div>
           )}
         </div>
 
         <Link to='/articles'>
           <p onClick={() => setPrograms(false)} className='flex gap-[5px] items-center'>
-            ARTICLES
-            <HiMiniArrowUpRight />
+            Articles
           </p>
         </Link>
         <Link to='/about'>
           <p onClick={() => setPrograms(false)} className='flex gap-[5px] items-center'>
-            ABOUT US
-            <HiMiniArrowUpRight />
+            About Us
           </p>
         </Link>
+      </div>
+      <div className='font-normal mf:flex justify-end items-center hidden gap-5'>
+        <a href="#apply">
+          <button className='py-[9px] px-6 border-2 border-[#FFFFFF80] bg-white text-[#002B5B] rounded-full'>Enroll Now</button>
+        </a>
         <Link to='/cart'>
           <div onClick={() => setPrograms(false)} className='flex relative gap-[5px] items-center'>
-            <p>CART</p>
+            <p>Cart</p>
             <div className='relative'>
-              <MdOutlineShoppingCart className='text-xl' />
-              <p className='bg-red-500 mk:px-[6px] mk:py-[1px] rounded-full top-[-10px] right-[-10px] text-white absolute'>{addedPrograms.length}</p>
+              <MdOutlineShoppingCart className='text-2xl' />
+              <p className="bg-red-500 w-6 h-6 flex items-center justify-center rounded-full 
+               top-[-13px] right-[-13px] text-white text-sm leading-none absolute m-0 p-0">
+                {addedPrograms.length}
+              </p>
+
             </div>
           </div>
         </Link>
-      </div>
-      <div className='text-[12px] font-normal mf:flex justify-end hidden gap-3'>
-        <a href="#apply">
-          <button className='py-[10px] px-3 rounded-[5px] border-2 border-[#FFFFFF80] text-white bg-gradient-to-r from-[#C0943E] to-[#5A451D]'>APPLY NOW</button>
-        </a>
-        <button className='py-[10px] px-3 rounded-[5px] border-2 border-[#FFFFFF80] text-white bg-gradient-to-r from-[#005BC1] to-[#002B5B]'>EXPLORE PROGRAMS</button>
       </div>
 
       <div className='flex items-center gap-5'>
         <Link to='/cart'>
           <div onClick={() => setPrograms(false)} className='flex mf:hidden relative gap-[5px] items-center'>
-            <p>CART</p>
+            <p>Cart</p>
             <div className='relative'>
               <MdOutlineShoppingCart className='text-xl' />
-              <p className='bg-red-500 px-[6px] py-[0px] rounded-full top-[-10px] right-[-10px] text-white absolute'>{addedPrograms.length}</p>
+              <p className="bg-red-500 w-6 h-6 flex items-center justify-center rounded-full 
+               top-[-13px] right-[-13px] text-white text-sm leading-none absolute m-0 p-0">
+                {addedPrograms.length}
+              </p>
+
             </div>
           </div>
         </Link>
         <MdMenu onClick={() => setOpenMenu(!openMenu)} className='cursor-pointer sa:text-[30px] text-2xl mf:hidden block' />
       </div>
 
-      <div className={`absolute sa:top-[87px] top-16 left-0 z-50 sa:p-7 p-4 flex mf:hidden flex-col gap-6 bg-white transition-all duration-300 w-full
-  ${openMenu ? 'h-[405px] opacity-100 pointer-events-auto' : 'h-0 opacity-0 pointer-events-none'}`}>
+      <div className={`absolute sa:top-[87px] text-black top-16 left-0 z-50 sa:p-7 p-4 flex mf:hidden flex-col gap-6 bg-white transition-all duration-300 w-full
+  ${openMenu ? 'min-h-[250px] opacity-100 pointer-events-auto' : 'h-0 opacity-0 pointer-events-none'}`}>
         <div className='flex flex-col items-start gap-6 xl:text-[14px] text-xs font-normal'>
           <Link to='/'>
             <p onClick={() => setOpenMenu(false)} className='flex cursor-pointer gap-[5px] items-center'>
-              HOME
-              <HiMiniArrowUpRight />
+              Home
             </p>
           </Link> <hr className='border w-full border-black/40' />
           <div
@@ -169,20 +157,19 @@ const Navbar = ({ addedPrograms }) => {
             onMouseLeave={handleMouseLeave}
           >
             <p className='flex gap-[5px] cursor-pointer items-center'>
-              PROGRAMS
+              Programs
               <MdOutlineKeyboardArrowDown className={`transition-transform duration-300 ${programs ? 'rotate-180' : ''}`} />
             </p>
 
             {programs && (
               <div
-                className='bg-white shadow-lg absolute left-0 w-full z-50 grid md:grid-cols-3 grid-cols-2 gap-y-7 gap-x-4 top-32 p-5 border border-gray-200'>
+                className='bg-white shadow-lg absolute left-32 z-50 gap-3 flex flex-col top-24 rounded p-5 border border-gray-200'>
                 <Link onClick={() => {
                   setOpenMenu(false)
                   setPrograms(false)
                 }}
                   to='/associate-bachelor-degree' className='hover:text-blue-600 transition'>
                   <div>
-                    <img className='h-[210px] object-cover w-full' src={pro1} alt="" />
                     <p className='py-2'>Associate Bachelor's Degree</p>
                   </div>
                 </Link>
@@ -193,7 +180,6 @@ const Navbar = ({ addedPrograms }) => {
                 }}
                   to='/executive-mba' className='hover:text-blue-600 transition'>
                   <div className='bg-blac'>
-                    <img className='h-[210px] object-cover w-full' src={pro2} alt="" />
                     <p className='py-2'>Executive MBA</p>
                   </div>
                 </Link>
@@ -204,7 +190,6 @@ const Navbar = ({ addedPrograms }) => {
                 }}
                   to='/executive-advanced-diploma' className='hover:text-blue-600 transition'>
                   <div>
-                    <img className='h-[210px] object-cover w-full' src={pro3} alt="" />
                     <p className='py-2'>Executive Advanced Diploma</p>
                   </div>
                 </Link>
@@ -215,7 +200,6 @@ const Navbar = ({ addedPrograms }) => {
                 }}
                   to='/mini-mba' className='hover:text-blue-600 transition'>
                   <div>
-                    <img className='h-[210px] object-cover w-full' src={pro4} alt="" />
                     <p className='py-2'>Executive Mini MBA</p>
                   </div>
                 </Link>
@@ -226,7 +210,6 @@ const Navbar = ({ addedPrograms }) => {
                 }}
                   to='/professional-certificate' className='hover:text-blue-600 transition'>
                   <div>
-                    <img className='h-[210px] object-cover w-full' src={pro5} alt="" />
                     <p className='py-2'>Professional Courses</p>
                   </div>
                 </Link>
@@ -237,7 +220,6 @@ const Navbar = ({ addedPrograms }) => {
                 }}
                   to='/executive-diploma' className='hover:text-blue-600 transition'>
                   <div>
-                    <img className='h-[210px] object-cover w-full' src={pro6} alt="" />
                     <p className='py-2'>Executive Diploma</p>
                   </div>
                 </Link>
@@ -248,24 +230,22 @@ const Navbar = ({ addedPrograms }) => {
 
           <Link to='/articles'>
             <p onClick={() => setOpenMenu(false)} className='flex cursor-pointer gap-[5px] items-center'>
-              ARTICLES
-              <MdOutlineKeyboardArrowDown />
+              Articles
             </p>
           </Link>
           <hr className='border w-full border-black/40' />
           <Link to='/about'>
             <p onClick={() => setOpenMenu(false)} className='flex cursor-pointer gap-[5px] items-center'>
-              ABOUT US
-              <HiMiniArrowUpRight />
+              About Us
             </p>
           </Link>
         </div>
-        <div className='text-[12px] font-normal w-full flex flex-col gap-3'>
+        {/* <div className='text-[12px] font-normal w-full flex flex-col gap-3'>
           <a href="#apply" className='w-full'>
             <button onClick={() => setOpenMenu(false)} className='py-[10px] px-3 rounded-[5px] w-full border-2 border-[#FFFFFF80] text-white bg-gradient-to-r from-[#C0943E] to-[#5A451D]'>APPLY NOW</button>
           </a>
           <button onClick={() => setOpenMenu(false)} className='py-[10px] px-3 rounded-[5px] border-2 border-[#FFFFFF80] text-white bg-gradient-to-r from-[#005BC1] to-[#002B5B]'>EXPLORE PROGRAMS</button>
-        </div>
+        </div> */}
       </div>
     </div>
   )

@@ -1,9 +1,9 @@
-import ED from '../Images/ed.webp'
-import EAD from '../Images/ead.webp'
-import PC from '../Images/pc.webp'
-import MINI from '../Images/mini.webp'
-import ABD from '../Images/abd.webp'
-import MBA from '../Images/mba.webp'
+import ED from '../NewImages/ED.png'
+import EAD from '../NewImages/AD.png'
+import PC from '../NewImages/PC.png'
+import MINI from '../NewImages/Mini.png'
+import ABD from '../NewImages/ABD.png'
+import MBA from '../NewImages/MBA.png'
 import projectManager from '../Images/pm.jpg'
 import InformationManagement from '../Images/im.jpg'
 import accounting from '../Images/accounting.webp'
@@ -83,8 +83,9 @@ const ProgramDetails = [
         path: '/executive-advanced-diploma',
         programName: "EXECUTIVE ADVANCED DIPLOMA",
         programNamesOnCart: "Executive Advanced Diploma",
+        programPrice: '20',
         heroImg: EAD,
-        heroBigText: 'Get Certified in Just 4 Weeks — for Only $12',
+        heroBigText: 'Get Certified in Just 4 Weeks   for Only $20',
         heroSmallText:
             'This fast, focused program delivers foundational business skills in just 4 weeks, making it perfect for aspiring professionals and early-career learners.',
         label: 'Explore Executive Advanced Diploma’s',
@@ -273,7 +274,9 @@ const ProgramDetails = [
         path: '/associate-bachelor-degree',
         programName: 'ASSOCIATE BACHELOR DEGREE',
         heroImg: ABD,
-        heroBigText: `Build a Strong Business Foundation — with an Ass. Bachelor's Degree`,
+        heroBigText: `Build a Strong Business Foundation   with an`,
+        heroBigTextColored: `Associate Bachelor's Degree`,
+        programPrice: "196",
         heroSmallText:
             'Get career-ready with flexible, self-paced Associate Bachelor’s programs in business, marketing, HR, and more. Fully online. Industry-relevant. Globally accessible.',
         label: `Explore Associate Bachelor's Degrees`,
@@ -404,7 +407,7 @@ const ProgramDetails = [
                 duration: "2 Years",
                 mode: "Online & Self-Paced",
                 certificate: "Associate Bachelor's Degrees upon completion",
-                note: "The curriculum connects theory with industry practices—equipping you to manage procurement, inventory, and distribution systems."
+                note: "The curriculum connects theory with industry practices equipping you to manage procurement, inventory, and distribution systems."
             },
             {
                 addToCart: false,
@@ -443,8 +446,11 @@ const ProgramDetails = [
     {
         path: '/executive-mba',
         programName: 'EXECUTIVE MBA',
+        programPrice: "490",
         heroImg: MBA,
-        heroBigText: 'Lead with Impact — Earn Your Executive MBA Online',
+        heroBigText: 'Lead with Impact Earn Your',
+        heroBigText2: ' Online',
+        heroBigTextColored: 'Executive MBA',
         heroSmallText:
             'Accelerate your leadership journey with advanced business training built for professionals.Flexible. Globally recognized. Career-transforming.',
         label: 'Explore Executive MBA Programs',
@@ -599,10 +605,13 @@ const ProgramDetails = [
         path: '/mini-mba',
         programName: "EXECUTIVE MINI MBA",
         programNamesOnCart: "Executive Mini MBA",
+        programPrice: "39",
         heroImg: MINI,
-        heroBigText: 'Executive Mini MBA — Everything You Need to Lead',
+        heroBigText: 'Executive',
+        heroBigText2: ' Everything You Need to Lead',
+        heroBigTextColored: 'Mini MBA',
         heroSmallText:
-            'Take the next big step in your career with our 2-month online Executive Mini MBA—designed for professionals who want flexible, world-class business training without the high cost.',
+            'Take the next big step in your career with our 2-month online Executive Mini MBA designed for professionals who want flexible, world-class business training without the high cost.',
         label: `Explore Executive Mini MBA's`,
         programDetails: [
             {
@@ -808,9 +817,11 @@ const ProgramDetails = [
     {
         path: '/professional-certificate',
         programName: 'PROFESSIONAL COURSES',
+        programPrice: "4",
         heroImg: PC,
-        heroBigText: 'Get Certified in Just 14 Days with Our Professional Online Courses',
-        heroSmallText: 'Upgrade your skills quickly with self-paced, expert-led courses. Fully online, flexible, and designed for busy professionals—complete with a certificate you can showcase immediately.',
+        heroBigText: 'Get Certified in Just 14 Days with Our',
+        heroBigTextColored: `Professional Online Courses`,
+        heroSmallText: 'Upgrade your skills quickly with self-paced, expert-led courses. Fully online, flexible, and designed for busy professionals complete with a certificate you can showcase immediately.',
         label: 'Explore Professional Online Courses',
         programDetails: [
             {
@@ -939,7 +950,7 @@ const ProgramDetails = [
                 duration: "14 days",
                 mode: "Online & Self-Paced",
                 certificate: "Professional Certificate in SQL Pro Course",
-                note: "This course walks you through structured query language (SQL) in detail—from basic CRUD operations to complex joins, subqueries, and performance tuning. Whether you're managing databases or building reports, this course equips you to handle real-world data analysis tasks with confidence. You’ll also gain exposure to relational database management systems like MySQL and PostgreSQL, making this an essential toolkit for any data-driven career."
+                note: "This course walks you through structured query language (SQL) in detail from basic CRUD operations to complex joins, subqueries, and performance tuning. Whether you're managing databases or building reports, this course equips you to handle real-world data analysis tasks with confidence. You’ll also gain exposure to relational database management systems like MySQL and PostgreSQL, making this an essential toolkit for any data-driven career."
             },
             {
                 addToCart: false,
@@ -1035,7 +1046,7 @@ const ProgramDetails = [
                 duration: "14 days",
                 mode: "Online & Self-Paced",
                 certificate: "Professional Certificate in Dart Programming Course",
-                note: "Learn to code in Dart—a fast-growing, object-oriented language used primarily for building mobile apps with Flutter. This course covers syntax, functions, OOP principles, and error handling through real-world app scenarios. Ideal for beginners and experienced coders looking to expand their toolkit for mobile-first development, this course sets the foundation for cross-platform success."
+                note: "Learn to code in Dart a fast-growing, object-oriented language used primarily for building mobile apps with Flutter. This course covers syntax, functions, OOP principles, and error handling through real-world app scenarios. Ideal for beginners and experienced coders looking to expand their toolkit for mobile-first development, this course sets the foundation for cross-platform success."
             },
             {
                 addToCart: false,
@@ -1147,7 +1158,7 @@ const ProgramDetails = [
                 duration: "14 days",
                 mode: "Online & Self-Paced",
                 certificate: "Professional Certificate in Artificial Intelligence",
-                note: "In this course, learners are introduced to the fascinating world of AI—from machine learning algorithms to intelligent decision-making systems. You’ll explore supervised and unsupervised learning, neural networks, and real-life use cases such as recommendation engines and chatbots. This is more than just theory; each module comes with practical implementations using tools like Python and TensorFlow, preparing you for future roles in automation and intelligent system design."
+                note: "In this course, learners are introduced to the fascinating world of AI from machine learning algorithms to intelligent decision-making systems. You’ll explore supervised and unsupervised learning, neural networks, and real-life use cases such as recommendation engines and chatbots. This is more than just theory; each module comes with practical implementations using tools like Python and TensorFlow, preparing you for future roles in automation and intelligent system design."
             },
             {
                 addToCart: false,
@@ -1339,7 +1350,7 @@ const ProgramDetails = [
                 duration: "14 days",
                 mode: "Online & Self-Paced",
                 certificate: "Professional Certificate in Supply Chain Management",
-                note: "This course provides a practical and strategic overview of supply chain operations, covering procurement, logistics, inventory control, demand planning, and supplier relationship management. You’ll explore global sourcing strategies, warehouse systems, distribution networks, and how data drives decision-making in modern supply chains. With hands-on simulations and industry case studies, learners develop the ability to enhance efficiency, reduce costs, and manage risks in complex supply networks—skills that are vital in today's interconnected business world."
+                note: "This course provides a practical and strategic overview of supply chain operations, covering procurement, logistics, inventory control, demand planning, and supplier relationship management. You’ll explore global sourcing strategies, warehouse systems, distribution networks, and how data drives decision-making in modern supply chains. With hands-on simulations and industry case studies, learners develop the ability to enhance efficiency, reduce costs, and manage risks in complex supply networks skills that are vital in today's interconnected business world."
             },
             {
                 addToCart: false,
@@ -1371,7 +1382,7 @@ const ProgramDetails = [
                 duration: "14 days",
                 mode: "Online & Self-Paced",
                 certificate: "Professional Certificate in Product Design",
-                note: "This hands-on course explores the full spectrum of product design—from user research and wireframing to visual aesthetics and interaction design. You'll dive into tools like Figma or Sketch, apply design thinking principles, and test your ideas through prototyping and user feedback. Emphasis is placed on creating accessible, functional, and beautiful interfaces that solve real problems. Ideal for aspiring designers, this course helps you build a portfolio while sharpening the critical thinking and creativity needed to thrive in tech and product-driven industries."
+                note: "This hands-on course explores the full spectrum of product design from user research and wireframing to visual aesthetics and interaction design. You'll dive into tools like Figma or Sketch, apply design thinking principles, and test your ideas through prototyping and user feedback. Emphasis is placed on creating accessible, functional, and beautiful interfaces that solve real problems. Ideal for aspiring designers, this course helps you build a portfolio while sharpening the critical thinking and creativity needed to thrive in tech and product-driven industries."
             },
             {
                 addToCart: false,
@@ -1387,7 +1398,7 @@ const ProgramDetails = [
                 duration: "14 days",
                 mode: "Online & Self-Paced",
                 certificate: "Professional Certificate in Design Thinking",
-                note: "This immersive course guides learners through each stage of the design thinking process—from empathizing with users to prototyping solutions and testing ideas. You’ll explore real-world case studies, ideation techniques, and collaborative problem-solving strategies that foster creativity, agility, and innovation. Whether you're in tech, education, or entrepreneurship, this course provides practical tools for designing impactful and user-driven solutions."
+                note: "This immersive course guides learners through each stage of the design thinking process from empathizing with users to prototyping solutions and testing ideas. You’ll explore real-world case studies, ideation techniques, and collaborative problem-solving strategies that foster creativity, agility, and innovation. Whether you're in tech, education, or entrepreneurship, this course provides practical tools for designing impactful and user-driven solutions."
             },
             {
                 addToCart: false,
@@ -1531,7 +1542,7 @@ const ProgramDetails = [
                 duration: "14 days",
                 mode: "Online & Self-Paced",
                 certificate: "Professional Certificate in Talent Acquisition",
-                note: "This course covers every stage of modern recruitment—from writing compelling job descriptions and sourcing candidates to interviewing and onboarding. You'll explore tools like ATS systems, recruitment marketing, behavioral assessments, and metrics for measuring hiring effectiveness. It's perfect for HR professionals and hiring managers who want to attract and retain high-caliber talent."
+                note: "This course covers every stage of modern recruitment from writing compelling job descriptions and sourcing candidates to interviewing and onboarding. You'll explore tools like ATS systems, recruitment marketing, behavioral assessments, and metrics for measuring hiring effectiveness. It's perfect for HR professionals and hiring managers who want to attract and retain high-caliber talent."
             },
             {
                 addToCart: false,
@@ -1659,7 +1670,7 @@ const ProgramDetails = [
                 duration: "14 days",
                 mode: "Online & Self-Paced",
                 certificate: "Professional Certificate in Operations Management",
-                note: "This course teaches the fundamentals of operations—from process analysis and workflow optimization to inventory control and supply chain alignment. You’ll apply techniques like Lean, Six Sigma, and continuous improvement to real-world business scenarios. It’s suited for professionals looking to boost efficiency, reduce waste, and enhance overall operational performance."
+                note: "This course teaches the fundamentals of operations from process analysis and workflow optimization to inventory control and supply chain alignment. You’ll apply techniques like Lean, Six Sigma, and continuous improvement to real-world business scenarios. It’s suited for professionals looking to boost efficiency, reduce waste, and enhance overall operational performance."
             },
             {
                 addToCart: false,
@@ -1723,7 +1734,7 @@ const ProgramDetails = [
                 duration: "14 days",
                 mode: "Online & Self-Paced",
                 certificate: "Professional Certificate in Digital Marketing",
-                note: "This course equips you with a full digital marketing toolkit—SEO, Google Ads, content marketing, and more—tailored for real-world business goals. Learn how to build customer funnels, boost conversions, and analyze performance using modern tools and data. Ideal for business owners, marketers, and freelancers."
+                note: "This course equips you with a full digital marketing toolkit SEO, Google Ads, content marketing, and more tailored for real-world business goals. Learn how to build customer funnels, boost conversions, and analyze performance using modern tools and data. Ideal for business owners, marketers, and freelancers."
             },
             {
                 addToCart: false,
@@ -1803,7 +1814,7 @@ const ProgramDetails = [
                 duration: "14 days",
                 mode: "Online & Self-Paced",
                 certificate: "Professional Certificate in HSE Management",
-                note: "This course covers risk assessment, occupational health regulations, safety planning, and environmental controls. You’ll gain practical tools for accident prevention, incident response, and audits—essential for HSE officers, facility managers, and engineers in high-risk industries."
+                note: "This course covers risk assessment, occupational health regulations, safety planning, and environmental controls. You’ll gain practical tools for accident prevention, incident response, and audits essential for HSE officers, facility managers, and engineers in high-risk industries."
             },
             {
                 addToCart: false,
@@ -1851,7 +1862,7 @@ const ProgramDetails = [
                 duration: "14 days",
                 mode: "Online & Self-Paced",
                 certificate: "Professional Certificate in Logistics Management",
-                note: "This course explores shipping methods, third-party logistics, tracking systems, and demand forecasting. You’ll develop operational strategies that reduce delays and improve delivery reliability—essential for logistics coordinators and managers."
+                note: "This course explores shipping methods, third-party logistics, tracking systems, and demand forecasting. You’ll develop operational strategies that reduce delays and improve delivery reliability essential for logistics coordinators and managers."
             },
             {
                 addToCart: false,
@@ -1867,7 +1878,7 @@ const ProgramDetails = [
                 duration: "14 days",
                 mode: "Online & Self-Paced",
                 certificate: "Professional Certificate in Materials Management",
-                note: "This course trains professionals to manage materials and supplies effectively within any organization. It covers key areas such as stock level control, procurement planning, logistics coordination, and waste reduction — all aimed at improving operational efficiency and reducing overhead costs."
+                note: "This course trains professionals to manage materials and supplies effectively within any organization. It covers key areas such as stock level control, procurement planning, logistics coordination, and waste reduction   all aimed at improving operational efficiency and reducing overhead costs."
             },
             {
                 addToCart: false,
@@ -1931,7 +1942,7 @@ const ProgramDetails = [
                 duration: "14 days",
                 mode: "Online & Self-Paced",
                 certificate: "Professional Certificate in Instagram Marketing & Management",
-                note: "This course walks you through Instagram content strategy, analytics, ad management, and influencer collaborations. Learners will explore real case studies, learn algorithm hacks, and practice storytelling methods that convert followers into loyal customers — all within the Instagram ecosystem."
+                note: "This course walks you through Instagram content strategy, analytics, ad management, and influencer collaborations. Learners will explore real case studies, learn algorithm hacks, and practice storytelling methods that convert followers into loyal customers   all within the Instagram ecosystem."
             },
             {
                 addToCart: false,
@@ -1947,14 +1958,14 @@ const ProgramDetails = [
                 duration: "14 days",
                 mode: "Online & Self-Paced",
                 certificate: "Professional Certificate in Facebook Ads and Management",
-                note: "This hands-on course covers the full spectrum of Facebook Ads—from creating ad creatives and setting up pixel tracking to targeting audiences and analyzing ad reports. Learners will gain the tools and templates to manage ad accounts, scale campaigns efficiently, and drive measurable growth for businesses or clients."
+                note: "This hands-on course covers the full spectrum of Facebook Ads from creating ad creatives and setting up pixel tracking to targeting audiences and analyzing ad reports. Learners will gain the tools and templates to manage ad accounts, scale campaigns efficiently, and drive measurable growth for businesses or clients."
             },
             {
                 addToCart: false,
                 projectPath: "/professional-certificate/twitter-operations-and-management",
                 programImg: twitter,
                 programLabel: "Twitter Operations and Management",
-                programText: "Learn to manage Twitter accounts with an edge—through content planning, trends leverage, and engagement analytics.",
+                programText: "Learn to manage Twitter accounts with an edge through content planning, trends leverage, and engagement analytics.",
                 programPrice: "4",
                 programPriceInNG: '5,000',
                 programName: "PROFESSIONAL COURSES",
@@ -1970,8 +1981,10 @@ const ProgramDetails = [
     {
         path: '/executive-diploma',
         programName: 'EXECUTIVE DIPLOMA',
+        programPrice: "10",
         heroImg: ED,
-        heroBigText: 'Accelerate Your Career with a 1-Month Executive Diploma',
+        heroBigText: 'Accelerate Your Career with a 1-Month',
+        heroBigTextColored: `Executive Diploma`,
         heroSmallText: 'Advance your business skills through a 1-month, self-paced online program. Earn a recognized Executive Diploma Certificate and boost your credibility in just 30 days.',
         label: 'Explore Executive Diploma’s',
         programDetails: [
@@ -2101,7 +2114,7 @@ const ProgramDetails = [
                 duration: "1 Month",
                 mode: "Online & Self-Paced",
                 certificate: "Executive Diploma Certificate in sql-pro-course",
-                note: "This course walks you through structured query language (SQL) in detail—from basic CRUD operations to complex joins, subqueries, and performance tuning. Whether you're managing databases or building reports, this course equips you to handle real-world data analysis tasks with confidence. You’ll also gain exposure to relational database management systems like MySQL and PostgreSQL, making this an essential toolkit for any data-driven career."
+                note: "This course walks you through structured query language (SQL) in detail from basic CRUD operations to complex joins, subqueries, and performance tuning. Whether you're managing databases or building reports, this course equips you to handle real-world data analysis tasks with confidence. You’ll also gain exposure to relational database management systems like MySQL and PostgreSQL, making this an essential toolkit for any data-driven career."
             },
             {
                 addToCart: false,
@@ -2197,7 +2210,7 @@ const ProgramDetails = [
                 duration: "1 Month",
                 mode: "Online & Self-Paced",
                 certificate: "Executive Diploma Certificate in dart-programming-course",
-                note: "Learn to code in Dart—a fast-growing, object-oriented language used primarily for building mobile apps with Flutter. This course covers syntax, functions, OOP principles, and error handling through real-world app scenarios. Ideal for beginners and experienced coders looking to expand their toolkit for mobile-first development, this course sets the foundation for cross-platform success."
+                note: "Learn to code in Dart a fast-growing, object-oriented language used primarily for building mobile apps with Flutter. This course covers syntax, functions, OOP principles, and error handling through real-world app scenarios. Ideal for beginners and experienced coders looking to expand their toolkit for mobile-first development, this course sets the foundation for cross-platform success."
             },
             {
                 addToCart: false,
@@ -2309,7 +2322,7 @@ const ProgramDetails = [
                 duration: "1 Month",
                 mode: "Online & Self-Paced",
                 certificate: "Executive Diploma Certificate in artificial-intelligence",
-                note: "In this course, learners are introduced to the fascinating world of AI—from machine learning algorithms to intelligent decision-making systems. You’ll explore supervised and unsupervised learning, neural networks, and real-life use cases such as recommendation engines and chatbots. This is more than just theory; each module comes with practical implementations using tools like Python and TensorFlow, preparing you for future roles in automation and intelligent system design."
+                note: "In this course, learners are introduced to the fascinating world of AI from machine learning algorithms to intelligent decision-making systems. You’ll explore supervised and unsupervised learning, neural networks, and real-life use cases such as recommendation engines and chatbots. This is more than just theory; each module comes with practical implementations using tools like Python and TensorFlow, preparing you for future roles in automation and intelligent system design."
             },
             {
                 addToCart: false,
@@ -2501,7 +2514,7 @@ const ProgramDetails = [
                 duration: "1 Month",
                 mode: "Online & Self-Paced",
                 certificate: "Executive Diploma Certificate in supply chain management",
-                note: "This course provides a practical and strategic overview of supply chain operations, covering procurement, logistics, inventory control, demand planning, and supplier relationship management. You’ll explore global sourcing strategies, warehouse systems, distribution networks, and how data drives decision-making in modern supply chains. With hands-on simulations and industry case studies, learners develop the ability to enhance efficiency, reduce costs, and manage risks in complex supply networks—skills that are vital in today's interconnected business world."
+                note: "This course provides a practical and strategic overview of supply chain operations, covering procurement, logistics, inventory control, demand planning, and supplier relationship management. You’ll explore global sourcing strategies, warehouse systems, distribution networks, and how data drives decision-making in modern supply chains. With hands-on simulations and industry case studies, learners develop the ability to enhance efficiency, reduce costs, and manage risks in complex supply networks skills that are vital in today's interconnected business world."
             },
             {
                 addToCart: false,
@@ -2533,7 +2546,7 @@ const ProgramDetails = [
                 duration: "1 Month",
                 mode: "Online & Self-Paced",
                 certificate: "Executive Diploma Certificate in product-design",
-                note: "This hands-on course explores the full spectrum of product design—from user research and wireframing to visual aesthetics and interaction design. You'll dive into tools like Figma or Sketch, apply design thinking principles, and test your ideas through prototyping and user feedback. Emphasis is placed on creating accessible, functional, and beautiful interfaces that solve real problems. Ideal for aspiring designers, this course helps you build a portfolio while sharpening the critical thinking and creativity needed to thrive in tech and product-driven industries."
+                note: "This hands-on course explores the full spectrum of product design from user research and wireframing to visual aesthetics and interaction design. You'll dive into tools like Figma or Sketch, apply design thinking principles, and test your ideas through prototyping and user feedback. Emphasis is placed on creating accessible, functional, and beautiful interfaces that solve real problems. Ideal for aspiring designers, this course helps you build a portfolio while sharpening the critical thinking and creativity needed to thrive in tech and product-driven industries."
             },
             {
                 addToCart: false,
@@ -2549,7 +2562,7 @@ const ProgramDetails = [
                 duration: "1 Month",
                 mode: "Online & Self-Paced",
                 certificate: "Executive Diploma Certificate in design-thinking",
-                note: "This immersive course guides learners through each stage of the design thinking process—from empathizing with users to prototyping solutions and testing ideas. You’ll explore real-world case studies, ideation techniques, and collaborative problem-solving strategies that foster creativity, agility, and innovation. Whether you're in tech, education, or entrepreneurship, this course provides practical tools for designing impactful and user-driven solutions."
+                note: "This immersive course guides learners through each stage of the design thinking process from empathizing with users to prototyping solutions and testing ideas. You’ll explore real-world case studies, ideation techniques, and collaborative problem-solving strategies that foster creativity, agility, and innovation. Whether you're in tech, education, or entrepreneurship, this course provides practical tools for designing impactful and user-driven solutions."
             },
             {
                 addToCart: false,
@@ -2693,7 +2706,7 @@ const ProgramDetails = [
                 duration: "1 Month",
                 mode: "Online & Self-Paced",
                 certificate: "Executive Diploma Certificate in talent-acquisition",
-                note: "This course covers every stage of modern recruitment—from writing compelling job descriptions and sourcing candidates to interviewing and onboarding. You'll explore tools like ATS systems, recruitment marketing, behavioral assessments, and metrics for measuring hiring effectiveness. It's perfect for HR professionals and hiring managers who want to attract and retain high-caliber talent."
+                note: "This course covers every stage of modern recruitment from writing compelling job descriptions and sourcing candidates to interviewing and onboarding. You'll explore tools like ATS systems, recruitment marketing, behavioral assessments, and metrics for measuring hiring effectiveness. It's perfect for HR professionals and hiring managers who want to attract and retain high-caliber talent."
             },
             {
                 addToCart: false,
@@ -2821,7 +2834,7 @@ const ProgramDetails = [
                 duration: "1 Month",
                 mode: "Online & Self-Paced",
                 certificate: "Executive Diploma Certificate in operations-management",
-                note: "This course teaches the fundamentals of operations—from process analysis and workflow optimization to inventory control and supply chain alignment. You’ll apply techniques like Lean, Six Sigma, and continuous improvement to real-world business scenarios. It’s suited for professionals looking to boost efficiency, reduce waste, and enhance overall operational performance."
+                note: "This course teaches the fundamentals of operations from process analysis and workflow optimization to inventory control and supply chain alignment. You’ll apply techniques like Lean, Six Sigma, and continuous improvement to real-world business scenarios. It’s suited for professionals looking to boost efficiency, reduce waste, and enhance overall operational performance."
             },
             {
                 addToCart: false,
@@ -2885,7 +2898,7 @@ const ProgramDetails = [
                 duration: "1 Month",
                 mode: "Online & Self-Paced",
                 certificate: "Executive Diploma Certificate in digital-marketing",
-                note: "This course equips you with a full digital marketing toolkit—SEO, Google Ads, content marketing, and more—tailored for real-world business goals. Learn how to build customer funnels, boost conversions, and analyze performance using modern tools and data. Ideal for business owners, marketers, and freelancers."
+                note: "This course equips you with a full digital marketing toolkit SEO, Google Ads, content marketing, and more tailored for real-world business goals. Learn how to build customer funnels, boost conversions, and analyze performance using modern tools and data. Ideal for business owners, marketers, and freelancers."
             },
             {
                 addToCart: false,
@@ -2965,7 +2978,7 @@ const ProgramDetails = [
                 duration: "1 Month",
                 mode: "Online & Self-Paced",
                 certificate: "Executive Diploma Certificate in hse-management",
-                note: "This course covers risk assessment, occupational health regulations, safety planning, and environmental controls. You’ll gain practical tools for accident prevention, incident response, and audits—essential for HSE officers, facility managers, and engineers in high-risk industries."
+                note: "This course covers risk assessment, occupational health regulations, safety planning, and environmental controls. You’ll gain practical tools for accident prevention, incident response, and audits essential for HSE officers, facility managers, and engineers in high-risk industries."
             },
             {
                 addToCart: false,
@@ -3013,7 +3026,7 @@ const ProgramDetails = [
                 duration: "1 Month",
                 mode: "Online & Self-Paced",
                 certificate: "Executive Diploma Certificate in logistics-management",
-                note: "This course explores shipping methods, third-party logistics, tracking systems, and demand forecasting. You’ll develop operational strategies that reduce delays and improve delivery reliability—essential for logistics coordinators and managers."
+                note: "This course explores shipping methods, third-party logistics, tracking systems, and demand forecasting. You’ll develop operational strategies that reduce delays and improve delivery reliability essential for logistics coordinators and managers."
             },
             {
                 addToCart: false,
@@ -3029,7 +3042,7 @@ const ProgramDetails = [
                 duration: "1 Month",
                 mode: "Online & Self-Paced",
                 certificate: "Executive Diploma Certificate in materials-management",
-                note: "This course trains professionals to manage materials and supplies effectively within any organization. It covers key areas such as stock level control, procurement planning, logistics coordination, and waste reduction — all aimed at improving operational efficiency and reducing overhead costs."
+                note: "This course trains professionals to manage materials and supplies effectively within any organization. It covers key areas such as stock level control, procurement planning, logistics coordination, and waste reduction   all aimed at improving operational efficiency and reducing overhead costs."
             },
             {
                 addToCart: false,
@@ -3093,7 +3106,7 @@ const ProgramDetails = [
                 duration: "1 Month",
                 mode: "Online & Self-Paced",
                 certificate: "Executive Diploma Certificate in instagram-marketing-&-management",
-                note: "This course walks you through Instagram content strategy, analytics, ad management, and influencer collaborations. Learners will explore real case studies, learn algorithm hacks, and practice storytelling methods that convert followers into loyal customers — all within the Instagram ecosystem."
+                note: "This course walks you through Instagram content strategy, analytics, ad management, and influencer collaborations. Learners will explore real case studies, learn algorithm hacks, and practice storytelling methods that convert followers into loyal customers   all within the Instagram ecosystem."
             },
             {
                 addToCart: false,
@@ -3109,7 +3122,7 @@ const ProgramDetails = [
                 duration: "1 Month",
                 mode: "Online & Self-Paced",
                 certificate: "Executive Diploma Certificate in facebook-ads-and-management",
-                note: "This hands-on course covers the full spectrum of Facebook Ads—from creating ad creatives and setting up pixel tracking to targeting audiences and analyzing ad reports. Learners will gain the tools and templates to manage ad accounts, scale campaigns efficiently, and drive measurable growth for businesses or clients."
+                note: "This hands-on course covers the full spectrum of Facebook Ads from creating ad creatives and setting up pixel tracking to targeting audiences and analyzing ad reports. Learners will gain the tools and templates to manage ad accounts, scale campaigns efficiently, and drive measurable growth for businesses or clients."
             },
             {
                 addToCart: false,
@@ -3118,7 +3131,7 @@ const ProgramDetails = [
                 programNamesOnCart: "Executive Diploma",
                 programImg: twitter,
                 programLabel: "Twitter Operations and Management",
-                programText: "Learn to manage Twitter accounts with an edge—through content planning, trends leverage, and engagement analytics.",
+                programText: "Learn to manage Twitter accounts with an edge through content planning, trends leverage, and engagement analytics.",
                 programPrice: "10",
                 programPriceInNG: '15,000',
                 reviews: "1253",

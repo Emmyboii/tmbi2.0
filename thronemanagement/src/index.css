@@ -11,5 +11,15 @@
 }
 
 body {
-    font-family: 'DM Serif Display', Georgia, sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+
+.slick-slide {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.slick-center {
+  transform: scale(1.13 );
+  opacity: 1;
+  z-index: 5;
 }

@@ -12,21 +12,26 @@
   "pluginOptions": {},
   "attributes": {
     "header": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
-    "Content": {
-      "type": "blocks"
+    "content": {
+      "type": "blocks",
+      "required": true
     },
     "url": {
       "type": "uid",
-      "targetField": "title"
+      "targetField": "title",
+      "required": true
     },
     "image": {
       "type": "media",
       "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
@@ -35,7 +40,12 @@
       ]
     },
     "publishedTime": {
-      "type": "datetime"
+      "type": "datetime",
+      "required": true
+    },
+    "note": {
+      "type": "text",
+      "required": true
     }
   }
 }

@@ -108,7 +108,7 @@ const AboutAccreditation = () => {
                 </div>
                 <div className="text-white flex flex-col items-center justify-center text-center h-full mx-auto mc:px-32 sa:px-7 px-2">
                     <p className="mh:text-[38px] sd:text-[28px] sk:text-[22px] text-lg leading-tight font-semibold">Your Future in Business Starts Here</p>
-                    <p className="mh:text-[18px] mt-7 leading-snug sk:text-[14px] text-xs font-medium">Choose your program and start learning today—affordable, flexible, globally recognized.</p>
+                    <p className="mh:text-[18px] mt-7 leading-snug sk:text-[14px] text-xs font-medium">Choose your program and start learning today affordable, flexible, globally recognized.</p>
                     <div className="flex sm:gap-5 gap-2 mt-5">
                         <button className="rounded-[10px] bg-white sm:p-4 p-2 sm:text-base text-sm px-7 shadow-xl shadow-[#C0943E40] text-[#C0943E] font-semibold">Explore Programs</button>
                         <button className="rounded-[10px] bg-white sm:p-4 p-2 sm:text-base text-sm shadow-xl shadow-[#C0943E40] text-[#C0943E] font-semibold">Speak to an Advisor</button>

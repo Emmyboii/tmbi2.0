@@ -61,7 +61,7 @@ const ProgramsDesignedForYou = () => {
                     ) : programs === 'ED' ? (
                         <p className='mc:text-[18px] text-base font-normal mt-3'>Our Executive Diploma is a fast-paced, one-month program designed for professionals seeking targeted business knowledge and practical expertise. Delivered online and self-paced, the curriculum blends essential management concepts with real-world applications to help you lead and make confident decisions quickly.</p>
                     ) : programs === 'mini' ? (
-                        <p className='mc:text-[18px] text-base font-normal mt-3'>Our Executive Mini MBA program delivers focused, high-impact business education for professionals seeking fast, flexible upskilling. Designed by experienced business educators, it sharpens your leadership, strategic thinking, and decision-making—ideal for today’s dynamic business environment.</p>
+                        <p className='mc:text-[18px] text-base font-normal mt-3'>Our Executive Mini MBA program delivers focused, high-impact business education for professionals seeking fast, flexible upskilling. Designed by experienced business educators, it sharpens your leadership, strategic thinking, and decision-making ideal for today’s dynamic business environment.</p>
                     ) : (
                         <p className='mc:text-[18px] text-base font-normal mt-3'>Our Professional Courses are designed for quick skill acquisition, empowering learners to gain job-ready expertise in just 14 days. Each course combines hands-on learning with foundational theory to enhance your career profile and day-to-day performance in your business or work environment.</p>
                     )}

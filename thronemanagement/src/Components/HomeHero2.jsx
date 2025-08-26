@@ -1,9 +1,10 @@
-import hero from '../Images/hero.webp'
+import hero from '../NewImages/homeHero.png'
+import target1 from '../NewImages/target1.png'
 
 const HomeHero2 = () => {
     return (
         <div
-            className="relative w-full"
+            className="relative w-full py-20 flex items-center justify-center text-center"
             style={{
                 backgroundImage: `url(${hero})`,
                 backgroundSize: 'cover',
@@ -11,26 +12,23 @@ const HomeHero2 = () => {
                 backgroundRepeat: 'no-repeat',
             }}
         >
-            <div
-                className="absolute inset-0 w-[63%]"
-                style={{
-                    background: 'linear-gradient(to right, #005BC1, #005BC199)',
-                    WebkitMaskImage: 'linear-gradient(to right, black 80%, transparent 100%)',
-                    maskImage: 'linear-gradient(to right, black 80%, transparent 100%)',
-                }}
-            ></div>
-
-            <div className="relative text-white xl:max-w-[62%] mm:max-w-[70%] xl:ml-20 sh:ml-10 sh:px-0 sr:px-3 px-1 py-20">
-                <p className="mh:text-[60px] sh:text-[50px] sp:text-[35px] text-[26px] sh:leading-[73px] font-semibold">
-                    Business Education for Ambitious Professionals Worldwide
+            <div className="text-white max-w-[900px] px-3">
+                <p className="py-3 px-[30px] rounded-full mx-auto w-[270px] flex items-center justify-center gap-3 border-[3px] border-white bg-transparent text-[#ffffff] text-[18px] font-medium">
+                    <img src={target1} alt="" />
+                    Welcome to TMBI
+                </p>
+                <p className="mh:text-[60px] sh:text-[50px] mt-12 sp:text-[35px] text-[26px] sh:leading-[83px] font-semibold">
+                    <span className='text-[#C0943E]'>Business Education</span> for Ambitious Professionals Worldwide
                 </p>
                 <p className="text-[20px] font-normal mt-5">
                     Join the elite ranks of global business leaders through our <br className="sh:block hidden" />
                     world-class programs
                 </p>
-                <button className="py-3 px-[30px] sh:mt-20 mt-10 rounded-full bg-white text-[#005BC1] text-[18px] font-medium">
-                    Enroll Now
-                </button>
+                <a href="#apply">
+                    <button className="py-3 px-[30px] mt-10 rounded-full bg-[#C0943E] text-[#ffffff] text-[18px] font-medium">
+                        Enroll Now
+                    </button>
+                </a>
             </div>
         </div>
     )
