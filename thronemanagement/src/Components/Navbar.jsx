@@ -3,6 +3,7 @@ import Logo from '../NewImages/logo.png'
 import { MdMenu, MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import { MdOutlineShoppingCart } from "react-icons/md";
+import { HashLink } from 'react-router-hash-link';
 
 const Navbar = ({ addedPrograms }) => {
 
@@ -109,9 +110,9 @@ const Navbar = ({ addedPrograms }) => {
         </Link>
       </div>
       <div className='font-normal mf:flex justify-end items-center hidden gap-5'>
-        <a href="#apply">
+        <HashLink smooth to="/#program">
           <button className='py-[9px] px-6 border-2 border-[#FFFFFF80] bg-white text-[#002B5B] rounded-full'>Enroll Now</button>
-        </a>
+        </HashLink>
         <Link to='/cart'>
           <div onClick={() => setPrograms(false)} className='flex relative gap-[5px] items-center'>
             <p>Cart</p>
@@ -241,7 +242,7 @@ const Navbar = ({ addedPrograms }) => {
           </Link>
         </div>
         {/* <div className='text-[12px] font-normal w-full flex flex-col gap-3'>
-          <a href="#apply" className='w-full'>
+          <a href=" #program" className='w-full'>
             <button onClick={() => setOpenMenu(false)} className='py-[10px] px-3 rounded-[5px] w-full border-2 border-[#FFFFFF80] text-white bg-gradient-to-r from-[#C0943E] to-[#5A451D]'>APPLY NOW</button>
           </a>
           <button onClick={() => setOpenMenu(false)} className='py-[10px] px-3 rounded-[5px] border-2 border-[#FFFFFF80] text-white bg-gradient-to-r from-[#005BC1] to-[#002B5B]'>EXPLORE PROGRAMS</button>

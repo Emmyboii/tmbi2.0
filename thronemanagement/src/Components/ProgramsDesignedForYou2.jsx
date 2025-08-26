@@ -8,6 +8,7 @@ import PDU6 from '../NewImages/PDU6.png';
 import nysc from '../Images/nysc.svg';
 import { FaArrowRightLong } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 const ProgramsDesignedForYou2 = () => {
     const navigate = useNavigate()
@@ -53,15 +54,15 @@ const ProgramsDesignedForYou2 = () => {
                             <p className='sh:text-[20px] font-normal'>World Class Educational Quality</p>
                         </div>
                     </div>
-                    <a href="#apply">
+                    <HashLink smooth to="/#program">
                         <button className="py-3 px-[50px] mt-10 rounded-full bg-[#C0943E] text-[#ffffff] text-[18px] font-medium">
                             Enroll Now
                         </button>
-                    </a>
+                    </HashLink>
                 </div>
             </div>
 
-            <div className='bg-[#002B5B] xl:px-32 xl:py-20 sh:p-16 p-5 flex flex-col gap-12'>
+            <div id='program' className='bg-[#002B5B] xl:px-32 xl:py-20 sh:p-16 p-5 flex flex-col gap-12'>
                 <p className='font-bold text-3xl text-center text-white mt-5'>Programs Designed for Future Business Leaders</p>
                 <div className='grid grid-cols-3 gap-10 pb-10'>
                     <div className='rounded-3xl bg-[#F2F2F7]'>

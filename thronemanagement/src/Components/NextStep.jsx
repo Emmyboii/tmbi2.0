@@ -12,6 +12,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useLocation } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 const CustomPrevArrow = (props) => {
     const { onClick } = props
@@ -136,11 +137,11 @@ const NextStep = () => {
                         Unlock new opportunities with a globally recognized program. Gain the skills, <br /> flexibility, and support you need to succeed.
                     </p>
                     <div className="flex items-center gap-5 mt-9">
-                        <a href="#apply">
+                        <HashLink smooth to="/#program">
                             <button className="py-3 px-[30px] rounded-full bg-[#C0943E] text-[#ffffff] text-[18px] font-medium">
                                 Enroll Now
                             </button>
-                        </a>
+                        </HashLink>
                         <a href="http://surl.li/mumpei" rel='noreferrer' target='_blank'>
                             <button className="sm:p-4 p-2 sm:text-base text-sm border-2 border-[#C0943E] rounded-full text-[#C0943E] font-semibold">
                                 Speak to an Advisor

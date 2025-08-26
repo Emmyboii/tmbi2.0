@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { HiMiniArrowRight } from 'react-icons/hi2';
 import { useEffect, useRef, useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
+import { TbTrash } from "react-icons/tb";
 
 const Cart = ({ addedPrograms, suggestedPrograms }) => {
 
@@ -151,29 +152,28 @@ const Cart = ({ addedPrograms, suggestedPrograms }) => {
     return (
         <div className='xl:px-24 sh:px-16 sh:pr-10 px-7 py-10 flex flex-col gap-8'>
             {addedPrograms.length > 0 ? (
-                <p className='text-[30px] font-medium text-[#000000]'>Shopping Cart</p>
+                <p className='text-[30px] font-bold text-[#000000]'>Cart</p>
             ) : (
-                <p className='text-[30px] text-center font-medium text-[#000000]'>Shopping Cart</p>
+                <p className='text-[30px] text-center font-bold text-[#000000]'>Cart</p>
             )}
+
+            <hr className='w-full border-[#F5F5F5] border' />
 
             {addedPrograms.length > 0 ? (
                 <>
-                    <div className='flex mk:flex-row flex-col items-start gap-10'>
+                    <div className='flex mk:flex-row flex-col items-center justify-between gap-16'>
                         <div className='w-full'>
-                            <p className='text-lg font-normal border-b text-black/80 border-black/40'>
-                                {addedPrograms.length} Course{addedPrograms.length > 1 && 's'} in Cart
-                            </p>
                             {addedPrograms.map(({ programLabel, programImg, reviews, programText, programPrice, projectPath, programNamesOnCart }, index) => (
                                 <div key={index}>
-                                    <div className='w-full'>
-                                        <div className='mt-5 flex sm:flex-row flex-col items-center gap-3'>
-                                            <img className='lg:w-[320px] w-[220px] lg:h-[200px]' src={programImg} alt={programLabel} />
-                                            <div className='flex flex-col items-center sm:items-start gap-2'>
-                                                <p className='text-2xl font-semibold sm:text-start text-center'>{programNamesOnCart}</p>
-                                                <p className='text-2xl font-medium'>{programLabel}</p>
-                                                <p className='font-normal text-[15px] sm:text-start text-center'>{programText}</p>
-                                                <p className='font-medium text-2xl'>${programPrice}</p>
-                                                <div className="flex mt-7 items-center gap-3">
+                                    <div className='w-full bg-[#F5F5F5] sa:p-8 p-4 rounded-[20px]'>
+                                        <div className='sa:mt-5 flex lg:flex-row mk:flex-col mh:flex-row flex-col lg:items-start items-center gap-5'>
+                                            <img className='xl:w-[320px] rounded-[20px] sa:w-[220px] xl:h-[200px]' src={programImg} alt={programLabel} />
+                                            <div className='flex flex-col mk:items-center mh:items-start items-center lg:items-start gap-1'>
+                                                <p className='sa:text-2xl text-xl font-semibold text-[#C0943E] mh:text-start text-center'>{programNamesOnCart}</p>
+                                                <p className='sa:text-2xl text-xl font-medium'>{programLabel}</p>
+                                                <p className='font-normal sa:text-[17px] lg:text-start mk:text-center mh:text-start text-center'>{programText}</p>
+                                                {/* <p className='font-medium text-2xl'>${programPrice}</p> */}
+                                                <div className="flex mt-3 items-center gap-3">
                                                     <img className="sa:w-[160px] w-[130px]" src={stars} alt="reviews" />
                                                     <p>({reviews}+ Reviews)</p>
                                                 </div>
@@ -195,59 +195,53 @@ const Cart = ({ addedPrograms, suggestedPrograms }) => {
                                                         localStorage.setItem('programsData', JSON.stringify(updated));
                                                         window.dispatchEvent(new Event('cartUpdated'));
                                                     }}
-                                                    className='text-red-500 text-sm cursor-pointer'>
-                                                    Remove
+                                                    className='text-red-500 mt-3 text-sm flex mk:items-center mh:items-start items-center lg:items-start gap-2 cursor-pointer'>
+                                                    Remove <TbTrash />
                                                 </p>
                                             </div>
-
                                         </div>
-                                        <hr className='border border-[#797979B2] mt-5' />
                                     </div>
                                 </div>
                             ))}
                         </div>
 
-                        {/* ✅ SINGLE Total/Action Section after the cart items */}
-                        <div className='w-full mk:w-1/2'>
-                            <p className='text-lg font-normal border-b text-black/80 border-black/40'>Subtotal:</p>
-                            <div className='mt-3 flex flex-col items-start gap-3'>
-                                <p className='text-[38px] font-medium'>${subtotal.toFixed(2)} (#{subtotalInNG.toLocaleString()})</p>
-                                <button
-                                    onClick={() => setOpenModal(true)}
-                                    className='text-[20px] font-normal flex items-center justify-center gap-4 py-[14px] px-[10px] w-full bg-[#1b4574] rounded-md text-white'>
-                                    Proceed to Checkout <FaArrowRight />
-                                </button>
-                                <hr className='w-full h-[1.5px] bg-black/20 mt-12' />
-                                <button
-                                    className='text-[20px] font-normal flex items-center justify-center gap-4 py-[14px] px-[10px] w-full bg-[#ffffff] rounded-md text-[#002B5B] border border-[#002B5B]'>
-                                    Apply Coupon
-                                </button>
+                        <div className='w-full mk:w-[500px] bg-[#F5F5F5] text-black rounded-[20px] p-8'>
+                            <div className='flex items-center justify-between border-b border-[#979797] pb-4'>
+                                <p className='sa:text-lg font-medium'>Order Summary</p>
+                                <p className='sa:text-lg font-normal text-black'>
+                                    {addedPrograms.length} Course{addedPrograms.length > 1 && 's'}
+                                </p>
                             </div>
+                            <div className='flex items-center justify-between border-b pt-4 border-[#979797] pb-4'>
+                                <p className='sa:text-xl text-lg font-semibold'>Total:</p>
+                                <p className='sa:text-xl text-lg font-semibold'>${subtotal.toFixed(2)} <br /> (#{subtotalInNG.toLocaleString()})</p>
+                            </div>
+                            <button
+                                onClick={() => setOpenModal(true)}
+                                className='sa:text-[20px] font-normal mt-7 flex items-center justify-center gap-4 py-[14px] px-[10px] w-full bg-[#C0943E] rounded-full text-white'>
+                                Proceed to Checkout <FaArrowRight />
+                            </button>
                         </div>
                     </div>
 
-
                     {suggestedPrograms.length > 0 && (
                         <>
-                            {/* <hr className='border border-[#797979B2]' /> */}
-                            <p className='font-medium text-[19px] mb-2'>You might also like</p>
-                            <div className='grid md:grid-cols-3 lg:grid-cols-4 gap-6'>
+                            <p className='font-bold sd:text-[32px] text-2xl mt-12 text-center mb-2'>You might also like</p>
+                            <div className='gri flex flex-wrap items-center justify-center mk:grid-cols-4 sd:grid-cols-2 gap-8 md:px-24 px-2'>
                                 {suggestedPrograms.map(({ programImg, programLabel, programText, programPrice, projectPath, programNamesOnCart }, i) => (
-                                    <div key={i} className='bg-[#002B5B26] border-[0.5px] flex flex-col gap-1 border-[#002B5B40] shadow-md rounded-[10px] p-3 justify-between'>
+                                    <div key={i} className='bg-[#002B5B26] h-[480px] mk:w-[370px] sh:w-[250px] flex flex-col gap-1 rounded-[20px] justify-between'>
                                         <div className='flex flex-col gap-2'>
-                                            <Link onClick={() => window.scrollTo(0, 0)} to={projectPath}>
-                                                <img className='w-full h-[170px] rounded-[10px] hover:scale-105 transition-all duration-700 object-cover' src={programImg} alt={programLabel} />
-                                            </Link>
-                                            <p className='text-2xl font-semibold'>{programNamesOnCart}</p>
-                                            <p className='text-[20px] font-medium'>{programLabel}</p>
-                                            <p className='text-[17px] font-normal'>{programText}</p>
+                                            <img className='w-full h-[170px] rounded-t-[20px] hover:scale-95 transition-all duration-700 object-cover' src={programImg} alt="" />
+                                            <p className='sa:text-2xl text-xl pt-4 px-4 font-semibold'>{programNamesOnCart}</p>
+                                            <p className='sa:text-[20px] text-lg pt-3 px-4 font-medium'>{programLabel}</p>
+                                            <p className='sa:text-[17px] pt-3 px-4 font-normal'>{programText}</p>
                                         </div>
-                                        <div className='flex justify-between mt-7 mb-3'>
-                                            <p className='font-medium text-2xl'>${programPrice}</p>
+                                        <div className='flex justify-between sa:mt-7 mb-3 p-4'>
                                             <Link onClick={() => window.scrollTo(0, 0)} to={projectPath}>
-                                                <button className='flex items-center  text-white bg-[#002B5B] rounded-[5px] p-2 font-semibold gap-2'>
+                                                <button
+                                                    className='flex items-center  text-[#C0943E] rounded-[5px] p-2 font-medium gap-2'>
                                                     Enroll Now
-                                                    <HiMiniArrowRight className='mt-1' />
+                                                    <HiMiniArrowRight className='' />
                                                 </button>
                                             </Link>
                                         </div>

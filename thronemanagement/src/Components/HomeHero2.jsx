@@ -1,5 +1,6 @@
 import hero from '../NewImages/homeHero.png'
 import target1 from '../NewImages/target1.png'
+import { HashLink } from 'react-router-hash-link';
 
 const HomeHero2 = () => {
     return (
@@ -24,11 +25,11 @@ const HomeHero2 = () => {
                     Join the elite ranks of global business leaders through our <br className="sh:block hidden" />
                     world-class programs
                 </p>
-                <a href="#apply">
+                <HashLink smooth to="/#program">
                     <button className="py-3 px-[30px] mt-10 rounded-full bg-[#C0943E] text-[#ffffff] text-[18px] font-medium">
                         Enroll Now
                     </button>
-                </a>
+                </HashLink>
             </div>
         </div>
     )

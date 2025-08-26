@@ -2,6 +2,7 @@ import time from '../NewImages/time.png';
 import computer from '../NewImages/computer.png';
 import track from '../NewImages/track.png';
 import LB from '../NewImages/LB.png';
+import { HashLink } from 'react-router-hash-link';
 
 const LearningBenefit = () => {
     return (
@@ -31,11 +32,11 @@ const LearningBenefit = () => {
                         </div>
                         <p className='text-lg'>Designed for efficiency! Complete your program faster with expert guidance and flexible study durations.</p>
                     </div>
-                    <a href="#apply">
+                    <HashLink smooth to="/#program">
                         <button className="py-3 px-[30px] rounded-full bg-[#C0943E] text-[#ffffff] text-[18px] font-medium">
                             Start your Learning Journey
                         </button>
-                    </a>
+                    </HashLink>
                 </div>
                 <img src={LB} className='h-[380px] justify-end' alt="" />
             </div>

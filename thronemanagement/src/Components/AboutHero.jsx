@@ -1,4 +1,5 @@
 import hero from '../NewImages/about.png'
+import { HashLink } from 'react-router-hash-link';
 
 const AboutHero = () => {
     return (
@@ -19,11 +20,11 @@ const AboutHero = () => {
                     TMBI is a Switzerland-registered institution delivering  <br className="sh:block hidden" />
                     executive business education to professionals worldwide
                 </p>
-                <a href="#apply">
+                <HashLink smooth to="/#program">
                     <button className="py-3 px-[30px] mt-10 rounded-full bg-[#C0943E] text-[#ffffff] text-[18px] font-medium">
                         Enroll Now
                     </button>
-                </a>
+                </HashLink>
             </div>
         </div>
     )
