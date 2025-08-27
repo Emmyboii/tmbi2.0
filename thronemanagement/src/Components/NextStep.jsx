@@ -3,7 +3,7 @@ import SWL2 from '../Images/Switzerland.png';
 import chad from '../Images/chad.png';
 import nextBtn from '../Images/nextBtn.png'
 import prevBtn from '../Images/prevBtn.png'
-import nextStep from '../NewImages/nextStep.png'
+import nextStep from '../NewImages/nextStep.webp'
 import SWL from '../Images/SWL.jpg';
 import MEC from '../Images/MEC.jpg';
 import CAR from '../Images/CAR.jpg';

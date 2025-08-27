@@ -1,4 +1,4 @@
-import img from '../NewImages/about2.png'
+import img from '../NewImages/about2.webp'
 
 const WhoWeAre = () => {
     return (

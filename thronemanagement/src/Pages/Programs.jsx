@@ -3,7 +3,7 @@ import { Link, Navigate, useLocation } from 'react-router-dom'
 import ProgramDetails from '../Components/ProgramDetails';
 import { useState } from 'react'
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
-import nextStep from '../NewImages/nextStep.png'
+import nextStep from '../NewImages/nextStep.webp'
 import { HashLink } from 'react-router-hash-link';
 
 const Programs = () => {

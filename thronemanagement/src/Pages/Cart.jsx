@@ -82,12 +82,10 @@ const Cart = ({ addedPrograms, suggestedPrograms }) => {
     }
 
     const handleDocumentChange = (e) => {
-        const selected = e.target.files[0]
-        if (selected) {
-            setDocument(selected)
-            console.log('file selected', selected);
+        if (e.target.files && e.target.files[0]) {
+            setDocument(e.target.files[0]); // Save actual File
         }
-    }
+    };
 
 
     useEffect(() => {
@@ -109,7 +107,7 @@ const Cart = ({ addedPrograms, suggestedPrograms }) => {
         formData.append("programApplied", program);
         formData.append("courseName", selectedCourse);
         formData.append("highestEducationLevel", form.highestEducationLevel);
-        formData.append("document", document);
+        formData.append("document", document, document.name);
 
         try {
             const res = await fetch('https://devm.westus2.cloudapp.azure.com/thorne/api/apply', {
@@ -129,18 +127,19 @@ const Cart = ({ addedPrograms, suggestedPrograms }) => {
 
                 console.log("Application saved:", data);
 
-                const applicantId = data._id;
+                const applicantId = data.data?._id;
 
                 if (applicantId) {
-                    // Redirect to Paystack checkout page
-                    if (selectedPrograms === "Associate Bachelor's Degree" || selectedPrograms === 'Executive MBA') {
-                        window.location.href = `https://devm.westus2.cloudapp.azure.com/thorne/api/apply/${applicantId}/checkout-apply`;
-                    } else {
-                        window.location.href = `https://devm.westus2.cloudapp.azure.com/thorne/api/apply/${applicantId}/checkout`;
-                    }
+                    const url =
+                        selectedPrograms === "Associate Bachelor's Degree" || selectedPrograms === "Executive MBA"
+                            ? `https://devm.westus2.cloudapp.azure.com/thorne/api/apply/${applicantId}/checkout-apply`
+                            : `https://devm.westus2.cloudapp.azure.com/thorne/api/apply/${applicantId}/checkout`;
+
+                    window.open(url, "_blank"); // ✅ opens in new tab
                 } else {
-                    console.error("No applicant_id returned from API");
+                    console.error("No applicant_id returned from API:", data);
                 }
+
             }
         } catch (err) {
             console.error("Error:", err);
@@ -148,6 +147,15 @@ const Cart = ({ addedPrograms, suggestedPrograms }) => {
             setSubmitting(false)
         }
     }
+
+    useEffect(() => {
+        setTimeout(() => {
+            if (modal) {
+                setModal(false)
+                setStatus({ message: '', type: '' })
+            }
+        }, 3500);
+    }, [modal])
 
     return (
         <div className="xl:px-24 sh:px-16 px-7 py-10 flex flex-col gap-8">
@@ -418,7 +426,7 @@ const Cart = ({ addedPrograms, suggestedPrograms }) => {
                                 )}
                                 <button
                                     type='submit'
-                                    className={`text-[21px] text-white font-medium py-2 w-full rounded-[7px] ${submitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#005BC1BF] cursor-pointer'}`}
+                                    className={`text-[21px] text-white font-medium py-2 w-full rounded-[7px] ${submitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#002B5B] cursor-pointer'}`}
                                     disabled={submitting}
                                 >
                                     {submitting ? (

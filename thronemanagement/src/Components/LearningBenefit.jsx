@@ -1,7 +1,7 @@
 import time from '../NewImages/time.png';
 import computer from '../NewImages/computer.png';
 import track from '../NewImages/track.png';
-import LB from '../NewImages/LB.png';
+import LB from '../NewImages/LB.webp';
 import { HashLink } from 'react-router-hash-link';
 
 const LearningBenefit = () => {

@@ -2,7 +2,7 @@ import { HiMiniArrowRight } from 'react-icons/hi2'
 import PUDD2 from '../Images/PUDD2.png'
 import PUDD3 from '../Images/PUDD3.png'
 import PUDD4 from '../Images/PUDD4.png'
-import article from '../NewImages/article.png'
+import article from '../NewImages/article.webp'
 import { Link } from 'react-router-dom'
 
 const FeaturedArticles = () => {

@@ -8,12 +8,12 @@ import linkedin from '../Images/linkedin.png';
 import UDME from '../Images/UDME.png';
 import certificates from '../Images/certificate.png';
 import CV from '../Images/CV.png';
-import LB from '../NewImages/LB.png';
-import req from '../NewImages/req.png';
+import LB from '../NewImages/LB.webp';
+import req from '../NewImages/req.webp';
 import SWL from '../Images/SWL.jpg';
 import MEC from '../Images/MEC.jpg';
 import CAR from '../Images/CAR.jpg';
-import nextStep from '../NewImages/nextStep.png'
+import nextStep from '../NewImages/nextStep.webp'
 import { HashLink } from 'react-router-hash-link';
 
 const EachPrograms = ({ setOpenCart, suggestedPrograms }) => {

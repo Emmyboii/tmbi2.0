@@ -1,9 +1,10 @@
-import { useState } from 'react'
-import applyImg from '../NewImages/apply.png'
-import target2 from '../NewImages/target2.png'
+import { useEffect, useState } from 'react'
+import applyImg from '../NewImages/apply.webp'
+import target2 from '../NewImages/target2.webp'
 
 const Apply = () => {
 
+    const [submitting, setSubmitting] = useState(false)
     const [status, setStatus] = useState({ message: '', type: '' })
     const [modal, setModal] = useState(false)
     const [form, setForm] = useState({
@@ -26,6 +27,8 @@ const Apply = () => {
 
     const apply = async (e) => {
         e.preventDefault();
+
+        setSubmitting(true)
 
         const formData = new FormData();
         formData.append("firstname", form.firstname);
@@ -68,9 +71,19 @@ const Apply = () => {
             // }
         } catch (err) {
             console.error("Error:", err);
+        } finally {
+            setSubmitting(false)
         }
     }
 
+    useEffect(() => {
+        setTimeout(() => {
+            if (modal) {
+                setModal(false)
+                setStatus({ message: '', type: '' })
+            }
+        }, 3500);
+    }, [modal])
 
     return (
         <div id='apply' className='xl:px-32 md:p-16 p-5 py-10 xl:py-20 bg-[#F5F5F5]'>
@@ -238,7 +251,20 @@ const Apply = () => {
                                 </optgroup>
                             </select>
                         </div>
-                        <button type='submit' className='text-[21px] text-white font-medium mt-1 sq:py-4 py-3 w-full bg-[#002B5B] rounded-full'>Submit Application</button>
+                        <button
+                            type='submit'
+                            className={`text-[21px] text-white font-medium mt-1 sq:py-4 py-3 w-full rounded-full ${submitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#002B5B] cursor-pointer'}`}
+                            disabled={submitting}
+                        >
+                            {submitting ? (
+                                <div className='flex items-center justify-center gap-3'>
+                                    <div className='w-6 h-6 rounded-full border-4 border-[#005BC1BF] border-t-transparent animate-spin'></div>
+                                    <p>Loading...</p>
+                                </div>
+                            ) : (
+                                <p>Submit Application</p>
+                            )}
+                        </button>
                     </form>
                 </div>
             </div>

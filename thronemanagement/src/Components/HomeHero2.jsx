@@ -1,5 +1,5 @@
-import hero from '../NewImages/homeHero.png'
-import target1 from '../NewImages/target1.png'
+import hero from '../NewImages/homeHero.webp'
+import target1 from '../NewImages/target1.webp'
 import { HashLink } from 'react-router-hash-link';
 
 const HomeHero2 = () => {

@@ -1,4 +1,4 @@
-import hero from '../NewImages/about.png'
+import hero from '../NewImages/about.webp'
 import { HashLink } from 'react-router-hash-link';
 
 const AboutHero = () => {

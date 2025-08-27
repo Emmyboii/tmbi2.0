@@ -1,6 +1,6 @@
-import different1 from '../NewImages/different1.png'
-import different2 from '../NewImages/different2.png'
-import different3 from '../NewImages/different3.png'
+import different1 from '../NewImages/different1.webp'
+import different2 from '../NewImages/different2.webp'
+import different3 from '../NewImages/different3.webp'
 
 const Different = () => {
     return (

@@ -1,10 +1,10 @@
-import program from '../NewImages/program1.png';
-import PDU1 from '../NewImages/PDU1.png';
-import PDU2 from '../NewImages/PDU2.png';
-import PDU3 from '../NewImages/PDU3.png';
-import PDU4 from '../NewImages/PDU4.png';
-import PDU5 from '../NewImages/PDU5.png';
-import PDU6 from '../NewImages/PDU6.png';
+import program from '../NewImages/program1.webp';
+import PDU1 from '../NewImages/PDU1.webp';
+import PDU2 from '../NewImages/PDU2.webp';
+import PDU3 from '../NewImages/PDU3.webp';
+import PDU4 from '../NewImages/PDU4.webp';
+import PDU5 from '../NewImages/PDU5.webp';
+import PDU6 from '../NewImages/PDU6.webp';
 import nysc from '../Images/nysc.svg';
 import { FaArrowRightLong } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';

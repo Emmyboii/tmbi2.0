@@ -1,8 +1,8 @@
-import learning1 from '../NewImages/learning1.png'
-import learning2 from '../NewImages/learning2.png'
-import learning3 from '../NewImages/learning3.png'
-import learning4 from '../NewImages/learning4.png'
-import learning5 from '../NewImages/learning5.png'
+import learning1 from '../NewImages/learning1.webp'
+import learning2 from '../NewImages/learning2.webp'
+import learning3 from '../NewImages/learning3.webp'
+import learning4 from '../NewImages/learning4.webp'
+import learning5 from '../NewImages/learning5.webp'
 
 const UniqueApproach = () => {
     return (
