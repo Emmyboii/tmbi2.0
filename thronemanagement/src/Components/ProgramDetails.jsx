@@ -105,7 +105,7 @@ const ProgramDetails = [
                 duration: '1 Month',
                 mode: 'Online & Self-Paced',
                 certificate: 'Executive Advanced Diploma Certificate upon completion',
-                note: 'Develop skills to manage projects efficiently using globally recognized frameworks and tools for success across industries.'
+                note: 'A comprehensive program designed to teach you how to effectively plan, organize, and execute projects of any scale. From using globally recognized frameworks to mastering scheduling, budgeting, and resource allocation, this course equips you with the confidence and tools to lead cross-functional teams and deliver successful outcomes across industries.'
             },
             {
                 addToCart: false,
@@ -122,7 +122,7 @@ const ProgramDetails = [
                 duration: '1 Month',
                 mode: 'Online & Self-Paced',
                 certificate: 'Executive Advanced Diploma Certificate upon completion',
-                note: 'Train in digital communication, content strategy, and brand management to lead social engagement for businesses.'
+                note: 'An intensive program that prepares you to design winning social media campaigns, analyze performance metrics, and grow digital communities. Learn how to create engaging content, manage brand reputation, and leverage advertising tools to drive measurable results for businesses and entrepreneurs in today’s competitive online space.'
             },
             {
                 addToCart: false,
@@ -139,8 +139,7 @@ const ProgramDetails = [
                 duration: '1 Month',
                 mode: 'Online & Self-Paced',
                 certificate: 'Executive Advanced Diploma Certificate upon completion',
-                note: 'Build communication and conflict resolution skills to handle customer needs and elevate satisfaction standards.'
-
+                note: 'This course is designed to help you deliver exceptional customer experiences by mastering communication, empathy, and conflict resolution. You will learn how to anticipate client needs, manage challenging situations, and build strong, lasting relationships that drive loyalty and satisfaction in any service-focused organization.'
             },
             {
                 addToCart: false,
@@ -157,8 +156,7 @@ const ProgramDetails = [
                 duration: '1 Month',
                 mode: 'Online & Self-Paced',
                 certificate: 'Executive Advanced Diploma Certificate upon completion',
-                note: 'Learn financial reporting, budgeting, and essential accounting principles for smarter business decisions.'
-
+                note: 'A practical program tailored to give you the foundations of accounting, including financial reporting, analysis, and budgeting. Learn how to interpret financial statements, apply accounting principles, and use financial data to make smarter business decisions that support growth and profitability in any organization.'
             },
             {
                 addToCart: false,
@@ -175,8 +173,7 @@ const ProgramDetails = [
                 duration: '1 Month',
                 mode: 'Online & Self-Paced',
                 certificate: 'Executive Advanced Diploma Certificate upon completion',
-                note: 'Equip yourself with techniques to promote brands, attract customers, and drive revenue across platforms.'
-
+                note: 'A results-driven course designed to give you both traditional and digital marketing expertise. From branding and consumer behavior to campaign strategy and analytics, this program equips you with practical tools to attract, engage, and convert audiences while driving measurable growth and revenue for businesses of any size.'
             },
             {
                 addToCart: false,
@@ -193,8 +190,7 @@ const ProgramDetails = [
                 duration: '1 Month',
                 mode: 'Online & Self-Paced',
                 certificate: 'Executive Advanced Diploma Certificate upon completion',
-                note: 'Gain insight into recruitment, team building, and employee relations for organizational performance.'
-
+                note: 'A career-focused program that introduces you to the essential aspects of HR, including recruitment, employee training, performance management, and workplace culture. Gain insights into how HR strategies align with organizational goals and learn to create systems that foster productivity, engagement, and retention.'
             },
             {
                 addToCart: false,
@@ -211,8 +207,7 @@ const ProgramDetails = [
                 duration: '1 Month',
                 mode: 'Online & Self-Paced',
                 certificate: 'Executive Advanced Diploma Certificate upon completion',
-                note: 'Learn to manage supply chains from end-to-end, optimizing inventory, logistics, and vendor networks.'
-
+                note: 'This program equips you with practical knowledge in procurement, logistics, and operations to optimize supply chains from start to finish. Learn how to balance costs, improve efficiency, and build resilient systems that meet global standards and keep businesses running smoothly in competitive markets.'
             },
             {
                 addToCart: false,
@@ -229,8 +224,7 @@ const ProgramDetails = [
                 duration: '1 Month',
                 mode: 'Online & Self-Paced',
                 certificate: 'Executive Advanced Diploma Certificate upon completion',
-                note: 'Build core sales strategies, lead pipelines, and understand consumer behavior to close deals faster.'
-
+                note: 'A high-impact program designed to sharpen your sales expertise, from prospecting and pipeline management to negotiation and closing techniques. Discover how to lead sales teams, analyze consumer behavior, and apply data-driven strategies to consistently exceed targets and drive sustainable business growth.'
             },
             {
                 addToCart: false,
@@ -247,8 +241,7 @@ const ProgramDetails = [
                 duration: '1 Month',
                 mode: 'Online & Self-Paced',
                 certificate: 'Executive Advanced Diploma Certificate upon completion',
-                note: 'Mitigate financial, operational, and strategic risks with smart frameworks and decision-making tools.'
-
+                note: 'This course teaches you how to identify, assess, and mitigate risks in financial, operational, and strategic areas of business. Through practical frameworks and case studies, you will gain the ability to protect organizations from uncertainty while creating strategies that strengthen long-term growth and stability.'
             },
             {
                 addToCart: false,
@@ -265,8 +258,7 @@ const ProgramDetails = [
                 duration: '1 Month',
                 mode: 'Online & Self-Paced',
                 certificate: 'Executive Advanced Diploma Certificate upon completion',
-                note: 'Grasp IT systems, cybersecurity principles, and business applications for digital transformation.'
-
+                note: 'A future-focused program that helps you build essential IT knowledge, including systems management, cybersecurity, and digital innovation. Learn how to support business operations with technology, protect data from security threats, and apply digital tools that enable growth, efficiency, and transformation in any industry.'
             },
         ],
     },
@@ -295,7 +287,7 @@ const ProgramDetails = [
                 duration: "2 Years",
                 mode: "Online & Self-Paced",
                 certificate: "Associate Bachelor's Degrees upon completion",
-                note: "This degree blends communication strategies with digital media tools, giving you the academic depth and practical skills to lead online engagement campaigns with confidence."
+                note: "This program offers an in-depth exploration of social media platforms, digital storytelling, and online engagement strategies. Students will learn to analyze consumer behavior, design content that resonates with global audiences, and implement campaigns that drive measurable results. With a balance of academic theory and practical projects, graduates will be equipped to manage brands, foster online communities, and navigate the fast-paced digital landscape with confidence."
             },
             {
                 addToCart: false,
@@ -311,7 +303,7 @@ const ProgramDetails = [
                 duration: "2 Years",
                 mode: "Online & Self-Paced",
                 certificate: "Associate Bachelor's Degrees upon completion",
-                note: "This program equips you with the tools to resolve conflicts, build client loyalty, and deliver exceptional service experiences across industries."
+                note: "This program builds a strong academic and practical foundation in customer relationship management, service quality, and communication skills. Learners will study theories of consumer psychology while applying conflict resolution, negotiation, and client retention techniques in real-world scenarios. By the end of the degree, students will be prepared to enhance organizational reputation, drive customer loyalty, and excel in diverse service-based industries."
             },
             {
                 addToCart: false,
@@ -327,7 +319,7 @@ const ProgramDetails = [
                 duration: "2 Years",
                 mode: "Online & Self-Paced",
                 certificate: "Associate Bachelor's Degrees upon completion",
-                note: "Dive into the core areas of talent development, workforce planning, and employment law, preparing for professional success and academic progression in HR."
+                note: "This degree equips students with a deep understanding of human capital management, organizational psychology, and employment law. From talent acquisition and employee development to performance management and workplace culture, learners will develop both academic knowledge and practical skills for managing people in modern organizations. Graduates will be positioned to pursue careers in HR leadership or continue their studies in advanced business programs."
             },
             {
                 addToCart: false,
@@ -343,7 +335,7 @@ const ProgramDetails = [
                 duration: "2 Years",
                 mode: "Online & Self-Paced",
                 certificate: "Associate Bachelor's Degrees upon completion",
-                note: "Explore project lifecycles, budgeting, and stakeholder communication to prepare for hands-on roles and future studies in management."
+                note: "This program provides a comprehensive academic foundation in project planning, budgeting, and execution. Students will study project lifecycles, risk analysis, and stakeholder communication while applying frameworks like Agile and Waterfall. The degree prepares graduates to handle complex business initiatives and opens doors to leadership opportunities or advanced studies in management disciplines."
             },
             {
                 addToCart: false,
@@ -359,7 +351,7 @@ const ProgramDetails = [
                 duration: "2 Years",
                 mode: "Online & Self-Paced",
                 certificate: "Associate Bachelor's Degrees upon completion",
-                note: "This course builds analytical and decision-making skills to manage uncertainty and protect business value in a wide range of industries."
+                note: "This program focuses on the principles of risk assessment, crisis management, and corporate governance. Learners will gain insight into financial, operational, and strategic risks, with hands-on training in tools and frameworks used across industries. Graduates will develop strong analytical and decision-making abilities, enabling them to safeguard organizational value and adapt to uncertainty in global markets."
             },
             {
                 addToCart: false,
@@ -375,7 +367,7 @@ const ProgramDetails = [
                 duration: "2 Years",
                 mode: "Online & Self-Paced",
                 certificate: "Associate Bachelor's Degrees upon completion",
-                note: "From understanding buyer behavior to building high-performing sales teams, this program prepares students for real-world sales leadership roles."
+                note: "This degree blends business theory with practical sales leadership training. Students will explore buyer psychology, pipeline management, and negotiation techniques while developing leadership skills for managing sales teams. With academic depth and real-world applications, graduates will be prepared to excel in competitive markets and advance into higher-level business studies or managerial roles."
             },
             {
                 addToCart: false,
@@ -391,7 +383,7 @@ const ProgramDetails = [
                 duration: "2 Years",
                 mode: "Online & Self-Paced",
                 certificate: "Associate Bachelor's Degrees upon completion",
-                note: "This course blends IT principles with administrative management to help students navigate modern information ecosystems efficiently."
+                note: "This degree combines information science, data management, and organizational systems to prepare students for the digital workplace. Learners will study principles of IT infrastructure, cybersecurity basics, and data governance while applying theoretical frameworks to practical business scenarios. Graduates will be capable of managing modern information ecosystems and supporting innovation in diverse industries."
             },
             {
                 addToCart: false,
@@ -407,7 +399,7 @@ const ProgramDetails = [
                 duration: "2 Years",
                 mode: "Online & Self-Paced",
                 certificate: "Associate Bachelor's Degrees upon completion",
-                note: "The curriculum connects theory with industry practices equipping you to manage procurement, inventory, and distribution systems."
+                note: "This program integrates global trade principles with logistics, procurement, and operations management. Students will learn to optimize supply chains, manage vendor relationships, and leverage technology to improve efficiency. With case studies and simulations, the degree prepares graduates for impactful roles in multinational corporations and equips them for further specialization in logistics and operations."
             },
             {
                 addToCart: false,
@@ -423,7 +415,7 @@ const ProgramDetails = [
                 duration: "2 Years",
                 mode: "Online & Self-Paced",
                 certificate: "Associate Bachelor's Degrees upon completion",
-                note: "This degree opens doors in digital marketing, consumer behavior, and strategy, providing real-world insights into driving business growth."
+                note: "This program develops expertise in consumer behavior, branding, and digital marketing strategies. Learners will explore market research, analytics, and campaign design, gaining both theoretical knowledge and practical skills. The degree opens doors to roles in advertising, public relations, and business development while laying a solid foundation for graduate-level studies in marketing and strategy."
             },
             {
                 addToCart: false,
@@ -439,7 +431,7 @@ const ProgramDetails = [
                 duration: "2 Years",
                 mode: "Online & Self-Paced",
                 certificate: "Associate Bachelor's Degrees upon completion",
-                note: "This program combines academic theory with accounting software training to prepare learners for entry-level finance roles and continued study."
+                note: "This program offers a strong academic foundation in accounting principles, auditing, and financial analysis. Students will master the use of accounting software while studying corporate finance, taxation, and ethical decision-making. By combining theory with hands-on practice, graduates will be prepared for entry-level roles in finance and accounting or continue their academic journey into bachelor’s and master’s level studies."
             }
         ]
     },
@@ -469,7 +461,7 @@ const ProgramDetails = [
                 duration: "6 Months - 2 Years",
                 mode: "Online & Self-Paced",
                 certificate: "Executive MBA certificate upon completion",
-                note: "This program blends analytical and managerial expertise with real-world scenarios, equipping executives to lead effectively in a dynamic business world."
+                note: "This program blends analytical and managerial expertise with real-world scenarios, equipping executives to lead effectively in a dynamic business world. You will strengthen your decision-making ability, master strategic growth frameworks, and develop the agility to manage people, resources, and innovation at scale. Designed for ambitious leaders, it prepares you to create value, build resilience, and thrive in global business environments."
             },
             {
                 addToCart: false,
@@ -485,7 +477,7 @@ const ProgramDetails = [
                 duration: "6 Months - 2 Years",
                 mode: "Online & Self-Paced",
                 certificate: "Executive MBA certificate upon completion",
-                note: "Prepare to lead in information-driven organizations with a curriculum that emphasizes digital ecosystems, data ethics, and scalable solutions."
+                note: "Prepare to lead in information-driven organizations with a curriculum that emphasizes digital ecosystems, data ethics, and scalable solutions. Beyond theory, the program explores cutting-edge technologies, cybersecurity protocols, and IT governance models. Graduates gain the skills to manage enterprise-wide information systems, optimize digital workflows, and shape organizational strategies for long-term success in a data-centric world."
             },
             {
                 addToCart: false,
@@ -501,7 +493,7 @@ const ProgramDetails = [
                 duration: "6 Months - 2 Years",
                 mode: "Online & Self-Paced",
                 certificate: "Executive MBA certificate upon completion",
-                note: "This program empowers senior HR professionals with tools to shape workplace culture, influence policy, and drive people-centered innovation."
+                note: "This program empowers senior HR professionals with tools to shape workplace culture, influence policy, and drive people-centered innovation. You’ll master executive-level strategies in employee engagement, change management, and labor relations while understanding the impact of HR on business performance. Graduates emerge ready to design future-ready organizations that align talent with growth and adaptability."
             },
             {
                 addToCart: false,
@@ -517,7 +509,7 @@ const ProgramDetails = [
                 duration: "6 Months - 2 Years",
                 mode: "Online & Self-Paced",
                 certificate: "Executive MBA certificate upon completion",
-                note: "Designed for professionals aiming to lead in finance, this program balances accounting theory with advanced tools and executive insights."
+                note: "Designed for professionals aiming to lead in finance, this program balances accounting theory with advanced tools and executive insights. You’ll build expertise in corporate finance, risk-based auditing, and international financial reporting standards. With a focus on strategic leadership, the curriculum equips you to influence boardroom decisions, ensure compliance, and drive fiscal sustainability at the highest level."
             },
             {
                 addToCart: false,
@@ -533,7 +525,7 @@ const ProgramDetails = [
                 duration: "6 Months - 2 Years",
                 mode: "Online & Self-Paced",
                 certificate: "Executive MBA certificate upon completion",
-                note: "This program trains executives to assess, anticipate, and manage complex risks across global operations and industries."
+                note: "This program trains executives to assess, anticipate, and manage complex risks across global operations and industries. You will learn advanced frameworks for financial, operational, and reputational risk, as well as regulatory compliance. Through simulations and case studies, students gain the expertise to turn uncertainty into opportunity, strengthening organizational resilience and long-term sustainability."
             },
             {
                 addToCart: false,
@@ -549,7 +541,7 @@ const ProgramDetails = [
                 duration: "6 Months - 2 Years",
                 mode: "Online & Self-Paced",
                 certificate: "Executive MBA certificate upon completion",
-                note: "The curriculum focuses on executive project leadership and the integration of cross-functional strategies for long-term success."
+                note: "The curriculum focuses on executive project leadership and the integration of cross-functional strategies for long-term success. Participants will refine their skills in strategic planning, agile management, and cross-border collaboration. Designed for leaders of large-scale initiatives, the program prepares you to deliver outcomes that align with corporate goals while managing budgets, teams, and risks effectively."
             },
             {
                 addToCart: false,
@@ -565,7 +557,7 @@ const ProgramDetails = [
                 duration: "6 Months - 2 Years",
                 mode: "Online & Self-Paced",
                 certificate: "Executive MBA certificate upon completion",
-                note: "This program develops senior marketing leaders with a sharp focus on branding, market behavior, digital trends, and customer experience."
+                note: "This program develops senior marketing leaders with a sharp focus on branding, market behavior, digital trends, and customer experience. You’ll analyze global case studies, explore consumer psychology, and use advanced analytics to design innovative campaigns. The curriculum prepares you to lead creative and data-driven marketing teams, positioning brands for sustainable growth and competitive advantage worldwide."
             },
             {
                 addToCart: false,
@@ -581,7 +573,7 @@ const ProgramDetails = [
                 duration: "6 Months - 2 Years",
                 mode: "Online & Self-Paced",
                 certificate: "Executive MBA certificate upon completion",
-                note: "Train to lead global supply systems with a focus on resilience, cost-efficiency, sustainability, and operational excellence."
+                note: "Train to lead global supply systems with a focus on resilience, cost-efficiency, sustainability, and operational excellence. The program combines logistics theory with emerging technologies such as AI, blockchain, and predictive analytics. Graduates develop the capacity to build future-ready supply chains that can withstand disruption while driving profitability and customer satisfaction."
             },
             {
                 addToCart: false,
@@ -597,7 +589,7 @@ const ProgramDetails = [
                 duration: "6 Months - 2 Years",
                 mode: "Online & Self-Paced",
                 certificate: "Executive MBA certificate upon completion",
-                note: "Focused on high-level sales leadership, this program combines behavioral science, analytics, and performance management to scale results."
+                note: "Focused on high-level sales leadership, this program combines behavioral science, analytics, and performance management to scale results. Students gain executive insight into customer psychology, digital sales transformation, and strategic negotiation. With practical simulations and leadership coaching, the program prepares you to drive revenue growth, inspire teams, and deliver consistent business performance."
             }
         ]
     },
@@ -629,8 +621,7 @@ const ProgramDetails = [
                 duration: '2 Months',
                 mode: 'Online & Self-Paced',
                 certificate: 'Executive Mini MBA Certificate upon completion',
-                note: 'A complete program in leadership, operations, and strategy for professionals aiming to scale careers or businesses.'
-
+                note: 'A fast-tracked, high-impact business program designed to help professionals analyze operations, lead teams, and make data-informed decisions with confidence. You will connect strategy to execution, manage resources effectively, and apply practical frameworks that improve performance and accelerate career or business growth.'
             },
             {
                 addToCart: false,
@@ -647,8 +638,7 @@ const ProgramDetails = [
                 duration: '2 Months',
                 mode: 'Online & Self-Paced',
                 certificate: 'Executive Mini MBA Certificate upon completion',
-                note: 'Advanced project planning, budgeting, and execution skills for professionals leading cross-functional teams.'
-
+                note: 'Develop the capabilities to scope projects, allocate budgets, manage risks, and align stakeholders around clear deliverables. You will practice industry-standard methods (including agile principles), improve collaboration across functions, and consistently deliver outcomes on time and within budget in real-world settings.'
             },
             {
                 addToCart: false,
@@ -665,8 +655,7 @@ const ProgramDetails = [
                 duration: '2 Months',
                 mode: 'Online & Self-Paced',
                 certificate: 'Executive Mini MBA Certificate upon completion',
-                note: 'Specialize in digital branding, audience targeting, and platform analytics to manage successful campaigns.'
-
+                note: 'Learn to design platform-specific strategies, produce compelling content, and interpret analytics that drive measurable results. From community building to paid campaigns and reporting, you’ll gain the strategic and operational skills needed to grow brand visibility and convert engagement into tangible business outcomes.'
             },
             {
                 addToCart: false,
@@ -683,8 +672,7 @@ const ProgramDetails = [
                 duration: '2 Months',
                 mode: 'Online & Self-Paced',
                 certificate: 'Executive Mini MBA Certificate upon completion',
-                note: 'Enhance loyalty and retention through service excellence, emotional intelligence, and client-centric strategies.'
-
+                note: 'Strengthen communication, empathy, and problem-solving to turn challenges into loyalty-building moments. You will learn escalation frameworks, feedback loops, and service metrics that improve retention, enhance brand reputation, and create consistent, high-quality experiences across all customer touchpoints.'
             },
             {
                 addToCart: false,
@@ -701,8 +689,7 @@ const ProgramDetails = [
                 duration: '2 Months',
                 mode: 'Online & Self-Paced',
                 certificate: 'Executive Mini MBA Certificate upon completion',
-                note: 'Build competence in financial statements, costing, and interpretation for smart managerial decisions.'
-
+                note: 'Build confidence reading financial statements, managing budgets, and evaluating performance indicators that guide better decisions. You’ll translate numbers into insights, understand cost drivers, and apply practical accounting concepts that support planning, profitability, and long-term sustainability.'
             },
             {
                 addToCart: false,
@@ -719,8 +706,7 @@ const ProgramDetails = [
                 duration: '2 Months',
                 mode: 'Online & Self-Paced',
                 certificate: 'Executive Mini MBA Certificate upon completion',
-                note: 'Learn advanced marketing tactics to drive conversion, increase visibility, and retain customers.'
-
+                note: 'Master the essentials of positioning, messaging, and funnel design, while using research and analytics to refine campaigns. You will craft strategies that attract, convert, and retain customers, integrating digital channels with practical tactics that deliver measurable, repeatable growth.'
             },
             {
                 addToCart: false,
@@ -737,8 +723,7 @@ const ProgramDetails = [
                 duration: '2 Months',
                 mode: 'Online & Self-Paced',
                 certificate: 'Executive Mini MBA Certificate upon completion',
-                note: 'Develop organizational HR frameworks for effective recruitment, training, and employee performance tracking.'
-
+                note: 'Design HR processes that attract top talent, build capability, and align performance with business goals. You will explore workforce planning, coaching frameworks, compliance basics, and culture-building practices that help teams thrive and organizations scale responsibly.'
             },
             {
                 addToCart: false,
@@ -755,8 +740,7 @@ const ProgramDetails = [
                 duration: '2 Months',
                 mode: 'Online & Self-Paced',
                 certificate: 'Executive Mini MBA Certificate upon completion',
-                note: 'Handle end-to-end logistics and procurement operations with efficiency, control, and transparency.'
-
+                note: 'Gain the skills to forecast demand, negotiate with vendors, and optimize inventory for cost and service. You will streamline processes from sourcing to delivery, build resilience against disruptions, and implement metrics that improve visibility and operational excellence across the chain.'
             },
             {
                 addToCart: false,
@@ -773,8 +757,7 @@ const ProgramDetails = [
                 duration: '2 Months',
                 mode: 'Online & Self-Paced',
                 certificate: 'Executive Mini MBA Certificate upon completion',
-                note: 'Learn forecasting, team coordination, and CRM to lead successful, scalable sales operations.'
-
+                note: 'Build a repeatable sales engine by combining prospecting, qualification, forecasting, and coaching best practices. You will lead teams with clarity, leverage CRM insights to improve conversion, and design compensation and performance systems that scale results responsibly.'
             },
             {
                 addToCart: false,
@@ -791,8 +774,7 @@ const ProgramDetails = [
                 duration: '2 Months',
                 mode: 'Online & Self-Paced',
                 certificate: 'Executive Mini MBA Certificate upon completion',
-                note: 'Apply risk mitigation strategies to protect assets and ensure sustainable business continuity.'
-
+                note: 'Develop a systematic approach to spotting vulnerabilities, prioritizing threats, and implementing controls that safeguard value. You will practice scenario planning, compliance alignment, and crisis response to ensure continuity and maintain stakeholder confidence in changing environments.'
             },
             {
                 addToCart: false,
@@ -809,8 +791,7 @@ const ProgramDetails = [
                 duration: '2 Months',
                 mode: 'Online & Self-Paced',
                 certificate: 'Executive Mini MBA Certificate upon completion',
-                note: 'Navigate the IT landscape with expertise in digital tools, cloud platforms, and cybersecurity essentials.'
-
+                note: 'Connect business goals to technology choices by exploring systems architecture, cybersecurity basics, and cloud-enabled workflows. You will evaluate digital tools, improve data stewardship, and champion transformation initiatives that increase efficiency, innovation, and competitive advantage.'
             },
         ],
     },

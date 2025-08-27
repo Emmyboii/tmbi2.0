@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       screens: {
         '3xl': '2050px',
-        'lf': '1000px',
+        'lf': '1130px',
         'mf': '950px',
         'mp': '980px',
         'mc': '900px',
@@ -15,6 +15,7 @@ module.exports = {
         'mm': '800px',
         'mh': '700px',
         'sh': '600px',
+        'sq': '630px',
         'sd': '550px',
         'sa': '500px',
         'sp': '450px',

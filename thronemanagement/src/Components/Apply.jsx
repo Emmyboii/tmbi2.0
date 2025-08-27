@@ -73,16 +73,16 @@ const Apply = () => {
 
 
     return (
-        <div id='apply' className='xl:py-20 xl:px-32 sh:pl-16 bg-[#F5F5F5] sh:pr-10 sp:px-7 pt-7 px-4'>
-            <p className="py-3 px-[30px] rounded-full mx-auto w-[300px] flex items-center justify-center gap-3 border-[3px] border-[#C0943E] bg-transparent text-[#C0943E] text-[18px] font-medium">
-                <img src={target2} alt="" />
+        <div id='apply' className='xl:px-32 md:p-16 p-5 py-10 xl:py-20 bg-[#F5F5F5]'>
+            <p className="sq:py-3 py-2 px-[30px] rounded-full mx-auto sq:w-[300px] w-[290px] flex items-center justify-center gap-3 border-[3px] border-[#C0943E] bg-transparent text-[#C0943E] text-[18px] font-medium">
+                <img className='sm:w-auto w-8' src={target2} alt="" />
                 Limited Slots Available
             </p>
             <p className='text-black lf:text-[40px] mt-12 sp:text-[32px] text-2xl text-center font-bold'>Apply For Scholarships</p>
-            <div className='flex md:flex-row flex-col justify-between md:gap-5 gap-10 mt-20'>
-                <img className='md:max-w-[40%] 3xl:max-w-[30%] max-w-[400px] w-full' src={applyImg} alt="" />
-                <div className='relative md:pr-10'>
-                    <form onSubmit={apply} className='rounded-[40px] flex flex-col gap-6 relative z-10 shadow-custom-sp shadow-[#00000040] px-16 py-14 bg-white'>
+            <div className='flex mk:flex-row flex-col-reverse items-center mk:items-stretch justify-between md:gap-5 gap-10 sq:mt-20 mt-10'>
+                <img className='3xl:max-w-[30%] lf:max-w-[500px] mk:h-auto sa:h-[700px] mk:max-w-[50%]' src={applyImg} alt="" />
+                <div className='relative'>
+                    <form onSubmit={apply} className='rounded-[40px] flex flex-col gap-6 relative z-10 shadow-custom-sp shadow-[#00000040] lg:px-16 px-5 py-14 bg-white'>
 
                         {modal && (
                             <div className={`${status.type === 'error' ? 'bg-red-500' : 'bg-green-500'} text-white absolute top-[0px] z-50 right-0 p-3 rounded-md flex items-center text-center justify-between`}>
@@ -96,7 +96,7 @@ const Apply = () => {
                         <div className='flex flex-col gap-1'>
                             <p className='text-lg font-[350]'>First Name</p>
                             <input
-                                className='border-2 border-[#797979B2] outline-none rounded-[12px] w-full py-4 px-3'
+                                className='border-2 border-[#797979B2] outline-none rounded-[12px] w-full sq:py-4 py-3 sq:px-3 px-2'
                                 type="text"
                                 value={form.firstname}
                                 onChange={handleChange}
@@ -109,7 +109,7 @@ const Apply = () => {
                         <div className='flex flex-col gap-1'>
                             <p className='text-lg font-[350]'>Last Name</p>
                             <input
-                                className='border-2 border-[#797979B2] outline-none rounded-[12px] w-full py-4 px-3'
+                                className='border-2 border-[#797979B2] outline-none rounded-[12px] w-full sq:py-4 py-3 sq:px-3 px-2'
                                 type="text"
                                 value={form.lastname}
                                 onChange={handleChange}
@@ -122,7 +122,7 @@ const Apply = () => {
                         <div className='flex flex-col gap-1'>
                             <p className='text-lg font-[350]'>Whatsapp Number</p>
                             <input
-                                className='border-2 border-[#797979B2] outline-none rounded-[12px] w-full py-4 px-3'
+                                className='border-2 border-[#797979B2] outline-none rounded-[12px] w-full sq:py-4 py-3 sq:px-3 px-2'
                                 type="number"
                                 value={form.phone}
                                 onChange={handleChange}
@@ -135,7 +135,7 @@ const Apply = () => {
                         <div className='flex flex-col gap-1'>
                             <p className='text-lg font-[350]'>Email</p>
                             <input
-                                className='border-2 border-[#797979B2] outline-none rounded-[12px] w-full py-4 px-3'
+                                className='border-2 border-[#797979B2] outline-none rounded-[12px] w-full sq:py-4 py-3 sq:px-3 px-2'
                                 type="email"
                                 value={form.email}
                                 onChange={handleChange}
@@ -148,7 +148,7 @@ const Apply = () => {
                         <div className='flex flex-col gap-1'>
                             <p className='text-lg font-[350]'>Highest Education Level</p>
                             <select
-                                className='border-2 border-[#797979B2] outline-none rounded-[12px] w-full py-4 px-3'
+                                className='border-2 border-[#797979B2] outline-none rounded-[12px] w-full sq:py-4 py-3 sq:px-3 px-2'
                                 value={form.highestEducationLevel}
                                 name="highestEducationLevel"
                                 onChange={handleChange}
@@ -167,7 +167,7 @@ const Apply = () => {
                         <div className='flex flex-col gap-1'>
                             <p className='text-lg font-[350]'>Available Programs</p>
                             <select
-                                className='border-2 border-[#797979B2] outline-none rounded-[12px] w-full py-4 px-3'
+                                className='border-2 border-[#797979B2] outline-none rounded-[12px] w-full sq:py-4 py-3 sq:px-3 px-2'
                                 name="courseName"
                                 value={form.courseName}
                                 onChange={handleChange}
@@ -238,7 +238,7 @@ const Apply = () => {
                                 </optgroup>
                             </select>
                         </div>
-                        <button type='submit' className='text-[21px] text-white font-medium mt-1 py-4 w-full bg-[#002B5B] rounded-full'>Submit Application</button>
+                        <button type='submit' className='text-[21px] text-white font-medium mt-1 sq:py-4 py-3 w-full bg-[#002B5B] rounded-full'>Submit Application</button>
                     </form>
                 </div>
             </div>

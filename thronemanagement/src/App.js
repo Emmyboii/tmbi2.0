@@ -1,7 +1,7 @@
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
 import Home2 from "./Pages/Home2";
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Programs from "./Pages/Programs";
 import EachPrograms from "./Components/EachPrograms";
 import Cart from "./Components/Cart";
@@ -17,6 +17,7 @@ function App() {
 
   const [openCart, setOpenCart] = useState(false)
   const [addedPrograms, setAddedPrograms] = useState([]);
+  const location = useLocation()
 
   useEffect(() => {
     const fetchCartItems = () => {
@@ -58,6 +59,13 @@ function App() {
     return () => window.removeEventListener('cartUpdated', fetchCartItems);
   }, []);
 
+  function shuffleArray(array) {
+    return array
+      .map(item => ({ item, sort: Math.random() })) // add random sort key
+      .sort((a, b) => a.sort - b.sort) // sort randomly
+      .map(({ item }) => item); // extract items back
+  }
+
   const suggestedPrograms = (() => {
     const stored = localStorage.getItem('programsData');
     const allPrograms = stored ? JSON.parse(stored) : ProgramDetails;
@@ -83,9 +91,9 @@ function App() {
       }
     }
 
-    // Step 2: Ensure minimum 3–5 suggestions
+    // Step 2: Ensure minimum 3 suggestions
     let i = 0;
-    while (suggestions.length < 3 || (suggestions.length < 5 && cartLabels.length > 1)) {
+    while (suggestions.length < 3) {
       const currentLabel = cartLabels[i % cartLabels.length];
 
       for (const category of allPrograms) {
@@ -101,12 +109,14 @@ function App() {
       }
 
       i++;
-      if (i > 10) break; // avoid infinite loop
+      if (i > 10) break; // safety
     }
 
-    return suggestions;
+    // ✅ Shuffle results and enforce max of 5
+    return shuffleArray(suggestions).slice(0, 5);
   })();
 
+  const hideNavbarAndFooter = location.pathname === '/404'
 
   useEffect(() => {
     if (openCart) {
@@ -136,7 +146,9 @@ function App() {
           setOpenCart(false)
         }
       }}>
-        <Navbar addedPrograms={addedPrograms} />
+        {!hideNavbarAndFooter && (
+          <Navbar addedPrograms={addedPrograms} />
+        )}
         <Routes>
           <Route path="/" element={<Home2 />} />
           <Route path="/about" element={<About />} />
@@ -155,7 +167,9 @@ function App() {
           setOpenCart(false)
         }
       }}>
-        <Footer />
+        {!hideNavbarAndFooter && (
+          <Footer />
+        )}
       </div>
     </div>
   );

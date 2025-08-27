@@ -150,40 +150,54 @@ const Cart = ({ addedPrograms, suggestedPrograms }) => {
     }
 
     return (
-        <div className='xl:px-24 sh:px-16 sh:pr-10 px-7 py-10 flex flex-col gap-8'>
+        <div className="xl:px-24 sh:px-16 px-7 py-10 flex flex-col gap-8">
             {addedPrograms.length > 0 ? (
-                <p className='text-[30px] font-bold text-[#000000]'>Cart</p>
+                <p className="text-[30px] font-bold text-[#000000]">Cart</p>
             ) : (
-                <p className='text-[30px] text-center font-bold text-[#000000]'>Cart</p>
+                <p className="text-[30px] text-center font-bold text-[#000000]">Cart</p>
             )}
 
-            <hr className='w-full border-[#F5F5F5] border' />
+            <hr className="w-full border-[#F5F5F5] border" />
 
             {addedPrograms.length > 0 ? (
                 <>
-                    <div className='flex mk:flex-row flex-col items-center justify-between gap-16'>
-                        <div className='w-full'>
-                            {addedPrograms.map(({ programLabel, programImg, reviews, programText, programPrice, projectPath, programNamesOnCart }, index) => (
-                                <div key={index}>
-                                    <div className='w-full bg-[#F5F5F5] sa:p-8 p-4 rounded-[20px]'>
-                                        <div className='sa:mt-5 flex lg:flex-row mk:flex-col mh:flex-row flex-col lg:items-start items-center gap-5'>
-                                            <img className='xl:w-[320px] rounded-[20px] sa:w-[220px] xl:h-[200px]' src={programImg} alt={programLabel} />
-                                            <div className='flex flex-col mk:items-center mh:items-start items-center lg:items-start gap-1'>
-                                                <p className='sa:text-2xl text-xl font-semibold text-[#C0943E] mh:text-start text-center'>{programNamesOnCart}</p>
-                                                <p className='sa:text-2xl text-xl font-medium'>{programLabel}</p>
-                                                <p className='font-normal sa:text-[17px] lg:text-start mk:text-center mh:text-start text-center'>{programText}</p>
-                                                {/* <p className='font-medium text-2xl'>${programPrice}</p> */}
-                                                <div className="flex mt-3 items-center gap-3">
-                                                    <img className="sa:w-[160px] w-[130px]" src={stars} alt="reviews" />
+                    {/* ✅ Responsive Cart Layout */}
+                    <div className="flex flex-col lg:flex-row items-start gap-10">
+
+                        {/* Left - Programs */}
+                        <div className="w-full flex flex-col gap-6">
+                            {addedPrograms.map(
+                                ({ programLabel, programImg, reviews, programText, projectPath, programNamesOnCart }, index) => (
+                                    <div key={index} className="bg-[#F5F5F5] p-5 rounded-[20px]">
+                                        <div className="flex flex-col md:flex-row gap-5 items-center md:items-start">
+
+                                            {/* ✅ Responsive Image */}
+                                            <img
+                                                className="w-full md:w-[220px] lg:w-[300px] rounded-[20px] object-cover"
+                                                src={programImg}
+                                                alt={programLabel}
+                                            />
+
+                                            {/* Text */}
+                                            <div className="flex flex-col gap-2 text-center md:text-left">
+                                                <p className="text-xl md:text-2xl font-semibold text-[#C0943E]">{programNamesOnCart}</p>
+                                                <p className="text-lg font-medium">{programLabel}</p>
+                                                <p className="text-sm md:text-base">{programText}</p>
+
+                                                {/* Reviews */}
+                                                <div className="flex mt-3 items-center justify-center md:justify-start gap-3">
+                                                    <img className="w-[120px] md:w-[160px]" src={stars} alt="reviews" />
                                                     <p>({reviews}+ Reviews)</p>
                                                 </div>
+
+                                                {/* Remove */}
                                                 <p
                                                     onClick={() => {
-                                                        const stored = localStorage.getItem('programsData');
+                                                        const stored = localStorage.getItem("programsData");
                                                         let allPrograms = stored ? JSON.parse(stored) : ProgramDetails;
 
-                                                        const updated = allPrograms.map(category => {
-                                                            const updatedDetails = category.programDetails.map(p => {
+                                                        const updated = allPrograms.map((category) => {
+                                                            const updatedDetails = category.programDetails.map((p) => {
                                                                 if (p.projectPath === projectPath) {
                                                                     return { ...p, addToCart: false };
                                                                 }
@@ -192,65 +206,77 @@ const Cart = ({ addedPrograms, suggestedPrograms }) => {
                                                             return { ...category, programDetails: updatedDetails };
                                                         });
 
-                                                        localStorage.setItem('programsData', JSON.stringify(updated));
-                                                        window.dispatchEvent(new Event('cartUpdated'));
+                                                        localStorage.setItem("programsData", JSON.stringify(updated));
+                                                        window.dispatchEvent(new Event("cartUpdated"));
                                                     }}
-                                                    className='text-red-500 mt-3 text-sm flex mk:items-center mh:items-start items-center lg:items-start gap-2 cursor-pointer'>
+                                                    className="text-red-500 mt-3 text-sm flex items-center gap-2 cursor-pointer justify-center md:justify-start"
+                                                >
                                                     Remove <TbTrash />
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
+                                )
+                            )}
                         </div>
 
-                        <div className='w-full mk:w-[500px] bg-[#F5F5F5] text-black rounded-[20px] p-8'>
-                            <div className='flex items-center justify-between border-b border-[#979797] pb-4'>
-                                <p className='sa:text-lg font-medium'>Order Summary</p>
-                                <p className='sa:text-lg font-normal text-black'>
-                                    {addedPrograms.length} Course{addedPrograms.length > 1 && 's'}
+                        {/* Right - Order Summary ✅ */}
+                        <div className="w-full lg:w-[400px] bg-[#F5F5F5] rounded-[20px] p-6 flex flex-col">
+                            <div className="flex items-center justify-between border-b border-[#979797] pb-4">
+                                <p className="text-lg font-medium">Order Summary</p>
+                                <p className="text-lg">
+                                    {addedPrograms.length} Course{addedPrograms.length > 1 && "s"}
                                 </p>
                             </div>
-                            <div className='flex items-center justify-between border-b pt-4 border-[#979797] pb-4'>
-                                <p className='sa:text-xl text-lg font-semibold'>Total:</p>
-                                <p className='sa:text-xl text-lg font-semibold'>${subtotal.toFixed(2)} <br /> (#{subtotalInNG.toLocaleString()})</p>
+                            <div className="flex items-center justify-between border-b pt-4 border-[#979797] pb-4">
+                                <p className="text-lg font-semibold">Total:</p>
+                                <p className="text-lg font-semibold">
+                                    ${subtotal.toFixed(2)} <br /> (#{subtotalInNG.toLocaleString()})
+                                </p>
                             </div>
                             <button
                                 onClick={() => setOpenModal(true)}
-                                className='sa:text-[20px] font-normal mt-7 flex items-center justify-center gap-4 py-[14px] px-[10px] w-full bg-[#C0943E] rounded-full text-white'>
+                                className="mt-6 py-3 w-full bg-[#C0943E] rounded-full text-white font-medium flex items-center justify-center gap-3"
+                            >
                                 Proceed to Checkout <FaArrowRight />
                             </button>
                         </div>
                     </div>
 
+                    {/* ✅ Suggested Programs */}
                     {suggestedPrograms.length > 0 && (
                         <>
-                            <p className='font-bold sd:text-[32px] text-2xl mt-12 text-center mb-2'>You might also like</p>
-                            <div className='gri flex flex-wrap items-center justify-center mk:grid-cols-4 sd:grid-cols-2 gap-8 md:px-24 px-2'>
-                                {suggestedPrograms.map(({ programImg, programLabel, programText, programPrice, projectPath, programNamesOnCart }, i) => (
-                                    <div key={i} className='bg-[#002B5B26] h-[480px] mk:w-[370px] sh:w-[250px] flex flex-col gap-1 rounded-[20px] justify-between'>
-                                        <div className='flex flex-col gap-2'>
-                                            <img className='w-full h-[170px] rounded-t-[20px] hover:scale-95 transition-all duration-700 object-cover' src={programImg} alt="" />
-                                            <p className='sa:text-2xl text-xl pt-4 px-4 font-semibold'>{programNamesOnCart}</p>
-                                            <p className='sa:text-[20px] text-lg pt-3 px-4 font-medium'>{programLabel}</p>
-                                            <p className='sa:text-[17px] pt-3 px-4 font-normal'>{programText}</p>
+                            <p className="font-bold text-2xl md:text-3xl mt-12 text-center mb-6">You might also like</p>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                                {suggestedPrograms.map(
+                                    ({ programImg, programLabel, programText, projectPath, programNamesOnCart }, i) => (
+                                        <div
+                                            key={i}
+                                            className="bg-[#002B5B26] flex flex-col rounded-[20px] overflow-hidden"
+                                        >
+                                            <img
+                                                className="w-full h-[180px] object-cover"
+                                                src={programImg}
+                                                alt=""
+                                            />
+                                            <div className="flex flex-col gap-2 p-4">
+                                                <p className="text-xl font-semibold">{programNamesOnCart}</p>
+                                                <p className="text-lg font-[545]">{programLabel}</p>
+                                                <p className="text-sm">{programText}</p>
+                                            </div>
+                                            <div className="flex justify-between items-center p-4">
+                                                <Link onClick={() => window.scrollTo(0, 0)} to={projectPath}>
+                                                    <button className="flex items-center text-[#C0943E] gap-2 font-medium">
+                                                        Enroll Now <HiMiniArrowRight />
+                                                    </button>
+                                                </Link>
+                                            </div>
                                         </div>
-                                        <div className='flex justify-between sa:mt-7 mb-3 p-4'>
-                                            <Link onClick={() => window.scrollTo(0, 0)} to={projectPath}>
-                                                <button
-                                                    className='flex items-center  text-[#C0943E] rounded-[5px] p-2 font-medium gap-2'>
-                                                    Enroll Now
-                                                    <HiMiniArrowRight className='' />
-                                                </button>
-                                            </Link>
-                                        </div>
-                                    </div>
-                                ))}
+                                    )
+                                )}
                             </div>
                         </>
                     )}
-
                     {openModal && (
                         <div className='inset-0 fixed z-50 justify-center flex bg-opacity-30 p-2 items-center bg-black/50' ref={modalRef} onClick={onClickRef}>
                             <form onSubmit={apply} className='rounded-[30px] overflow-y-aut h-ful relative overflow-x-hidden 3xl:w-[60%] sm:w-[70%] sa:m-5 w-full flex flex-col 3xl:gap-6 gap-3 z-50  shadow-md shadow-[#00000040] border border-[#797979B2] 2xl:p-8 p-4 bg-white'>
@@ -407,15 +433,10 @@ const Cart = ({ addedPrograms, suggestedPrograms }) => {
                             </form>
                         </div>
                     )}
-
                 </>
-
             ) : (
-                <div>
-                    <p className='text-xl text-center'>No Course added to cart yet.</p>
-                </div>
+                <p className="text-xl text-center">No Course added to cart yet.</p>
             )}
-
         </div>
     )
 }

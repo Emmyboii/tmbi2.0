@@ -13,10 +13,10 @@ const AboutHero = () => {
             }}
         >
             <div className="text-white max-w-[900px] px-3">
-                <p className="mh:text-[60px] sh:text-[50px] sp:text-[35px] text-[26px] sh:leading-[73px] font-semibold">
+                <p className="mh:text-[60px] sh:text-[50px] sp:text-[35px] sk:text-[26px] text-[22px] sh:leading-[73px] font-semibold">
                     Shaping Global Business Leaders Through Accessible, Practical Education
                 </p>
-                <p className="text-[20px] font-normal mt-5">
+                <p className="sm:text-[20px] text-[17px] font-normal mt-5">
                     TMBI is a Switzerland-registered institution delivering  <br className="sh:block hidden" />
                     executive business education to professionals worldwide
                 </p>

@@ -36,7 +36,7 @@ const Navbar = ({ addedPrograms }) => {
   }, [smScreens])
 
   return (
-    <div className='flex items-center 3xl:text-xl xl:text-lg text-sm justify-between xl:px-16 w-full sticky z-50 top-0 left-0 mf:px-2 sa:px-10 px-4 py-4 bg-[#002B5B] text-white'>
+    <div className='flex items-center 3xl:text-xl xl:text-lg text-sm justify-between mf:px-16 px-5 w-full sticky z-50 top-0 left-0 py-4 bg-[#002B5B] text-white'>
       <div>
         <Link to='/'>
           <img className='2xl:w-40 w-32' src={Logo} alt="" />
@@ -118,7 +118,7 @@ const Navbar = ({ addedPrograms }) => {
             <p>Cart</p>
             <div className='relative'>
               <MdOutlineShoppingCart className='text-2xl' />
-              <p className="bg-red-500 w-6 h-6 flex items-center justify-center rounded-full 
+              <p className="bg-red-500 sp:w-6 w-4 sp:h-6 h-4 flex items-center justify-center rounded-full 
                top-[-13px] right-[-13px] text-white text-sm leading-none absolute m-0 p-0">
                 {addedPrograms.length}
               </p>
@@ -134,8 +134,8 @@ const Navbar = ({ addedPrograms }) => {
             <p>Cart</p>
             <div className='relative'>
               <MdOutlineShoppingCart className='text-xl' />
-              <p className="bg-red-500 w-6 h-6 flex items-center justify-center rounded-full 
-               top-[-13px] right-[-13px] text-white text-sm leading-none absolute m-0 p-0">
+              <p className="bg-red-500 sp:w-6 w-5 sp:h-6 h-5 flex items-center justify-center rounded-full 
+               top-[-13px] sp:right-[-13px] right-[-10px] text-white text-sm leading-none absolute m-0 p-0">
                 {addedPrograms.length}
               </p>
 
@@ -145,14 +145,14 @@ const Navbar = ({ addedPrograms }) => {
         <MdMenu onClick={() => setOpenMenu(!openMenu)} className='cursor-pointer sa:text-[30px] text-2xl mf:hidden block' />
       </div>
 
-      <div className={`absolute sa:top-[87px] text-black top-16 left-0 z-50 sa:p-7 p-4 flex mf:hidden flex-col gap-6 bg-white transition-all duration-300 w-full
+      <div className={`absolute sa:top-[87px] top-[90px] left-0 z-50 sa:p-7 p-4 flex mf:hidden flex-col gap-6 bg-[#002B5B] text-white transition-all duration-300 w-full
   ${openMenu ? 'min-h-[250px] opacity-100 pointer-events-auto' : 'h-0 opacity-0 pointer-events-none'}`}>
         <div className='flex flex-col items-start gap-6 xl:text-[14px] text-xs font-normal'>
           <Link to='/'>
             <p onClick={() => setOpenMenu(false)} className='flex cursor-pointer gap-[5px] items-center'>
               Home
             </p>
-          </Link> <hr className='border w-full border-black/40' />
+          </Link> <hr className='border w-full border-white' />
           <div
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -164,7 +164,7 @@ const Navbar = ({ addedPrograms }) => {
 
             {programs && (
               <div
-                className='bg-white shadow-lg absolute left-32 z-50 gap-3 flex flex-col top-24 rounded p-5 border border-gray-200'>
+                className='bg-white text-black shadow-lg absolute left-32 z-50 gap-3 flex flex-col top-24 rounded p-5 border border-gray-200'>
                 <Link onClick={() => {
                   setOpenMenu(false)
                   setPrograms(false)
@@ -227,14 +227,14 @@ const Navbar = ({ addedPrograms }) => {
 
               </div>
             )}
-          </div> <hr className='border w-full border-black/40' />
+          </div> <hr className='border w-full border-white' />
 
           <Link to='/articles'>
             <p onClick={() => setOpenMenu(false)} className='flex cursor-pointer gap-[5px] items-center'>
               Articles
             </p>
           </Link>
-          <hr className='border w-full border-black/40' />
+          <hr className='border w-full border-white' />
           <Link to='/about'>
             <p onClick={() => setOpenMenu(false)} className='flex cursor-pointer gap-[5px] items-center'>
               About Us

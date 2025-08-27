@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { FaLinkedin } from "react-icons/fa6";
-import { FaWhatsapp } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa6";
+import { FaLinkedin, FaWhatsapp, FaFacebook, FaInstagram } from "react-icons/fa6";
 
 const POSTS_PER_PAGE = 11;
 
@@ -71,17 +68,17 @@ const Articles = () => {
 
   // Render featured style post
   const renderFeatured = (post) => (
-    <div key={post.id} className="flex items-center justify-center gap-5 relative cursor-pointer my-10">
+    <div key={post.id} className="flex flex-col lg:flex-row items-center justify-center gap-5 relative my-10">
       <img
-        className="w-[700px] rounded-[20px]"
+        className="w-full lg:w-[700px] rounded-[20px] object-cover"
         src={`http://localhost:1337${post.image?.url}`}
         alt={post.title}
       />
-      <div className="flex flex-col items-start gap-7 bg-[#F5F5F5] rounded-[20px] p-8 ml-[-90px]">
-        <p className="text-[38px] font-semibold leading-tight">{post.title}</p>
-        <p className="text-[#000000CC] text-2xl font-normal">{post?.note}</p>
+      <div className="flex flex-col items-start gap-7 bg-[#F5F5F5] rounded-[20px] p-6 md:p-8 lg:ml-[-90px] w-full lg:w-auto">
+        <p className="sm:text-2xl text-xl md:text-[38px] font-semibold leading-tight">{post.title}</p>
+        <p className="text-[#000000CC] sm:text-lg text-base md:text-2xl font-normal">{post?.note}</p>
         <Link onClick={() => window.scrollTo(0, 0)} to={`/articles/${post.url}`}>
-          <button className="py-[16px] px-8 bg-[#C0943E] text-[#ffffff] rounded-full">
+          <button className="py-[12px] px-6 md:py-[16px] md:px-8 bg-[#C0943E] text-[#ffffff] rounded-full">
             Read more
           </button>
         </Link>
@@ -90,28 +87,32 @@ const Articles = () => {
   );
 
   return (
-    <div className="xl:px-32 sh:px-16 px-7 py-20 flex flex-col gap-8">
-      {currentPosts.map((post, index) => {
-        if (index === 0 || index === 7) {
-          // 1st and 8th posts featured
-          return renderFeatured(post);
-        } else {
-          // 2–7 and 9–11 are grid
-          return (
-            <div key={post.id} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
-              {renderCard(post)}
-            </div>
-          );
-        }
-      })}
+    <div className="xl:px-32 md:p-16 p-5 py-10 xl:py-20 flex flex-col gap-8">
+      {/* Posts */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
+        {currentPosts.map((post, index) => {
+          if (index === 0 || index === 7) {
+            // 1st and 8th posts featured, take full width
+            return (
+              <div key={post.id} className="col-span-1 sm:col-span-2 lg:col-span-3">
+                {renderFeatured(post)}
+              </div>
+            );
+          } else {
+            return renderCard(post);
+          }
+        })}
+      </div>
 
       {/* Pagination */}
-      <div className="flex justify-center mt-10 gap-2">
-        {/* Previous button */}
+      <div className="flex justify-center mt-10 flex-wrap gap-2">
+        {/* Prev */}
         <button
           onClick={() => setPage((p) => Math.max(p - 1, 1))}
           disabled={page === 1}
-          className={`px-4 py-2 rounded ${page === 1 ? "bg-gray-30 cursor-not-allowed" : "bg-[#C0943E text-white"
+          className={`px-4 py-2 rounded ${page === 1
+            ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+            : "bg-[#C0943E] text-white"
             }`}
         >
           Prev
@@ -126,7 +127,7 @@ const Articles = () => {
               onClick={() => setPage(pageNum)}
               className={`px-4 py-2 rounded ${page === pageNum
                 ? "bg-[#005BC199] text-white font-bold"
-                : "bg-gray-20 text-gray-700 hover:bg-gray-300"
+                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                 }`}
             >
               {pageNum}
@@ -134,22 +135,28 @@ const Articles = () => {
           );
         })}
 
-        {/* Next button */}
+        {/* Next */}
         <button
           onClick={() => setPage((p) => Math.min(p + 1, totalPages))}
           disabled={page === totalPages}
-          className={`px-4 py-2 rounded ${page === totalPages ? "bg-gray-30 cursor-not-allowed" : "bg-[#C0943E text-white"
+          className={`px-4 py-2 rounded ${page === totalPages
+            ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+            : "bg-[#C0943E] text-white"
             }`}
         >
           Next
         </button>
       </div>
 
-      <div className='flex mt-7 items-center ronded-[20px]'>
-        <div className='bg-[#F5F5F5] h-[410px] flex flex-col items-center justify-center gap-6 w-full rounded-s-[20px]'>
-          <p className='text-4xl'>Follow TMBI</p>
-          <p className='text-[#0C0033] text-lg'>Follow us on social media for updates, insights, and opportunities.</p>
-          <div className='flex items-center md:justify-center text-[40px] gap-4'>
+      {/* Follow + Newsletter */}
+      <div className="flex flex-col lg:flex-row mt-7 rounded-[20px] overflow-hidden">
+        {/* Follow */}
+        <div className="bg-[#F5F5F5] h-auto py-10 flex flex-col items-center justify-center gap-6 w-full lg:w-1/2 text-center lg:text-left">
+          <p className="text-2xl md:text-4xl">Follow TMBI</p>
+          <p className="text-[#0C0033] text-base md:text-lg max-w-md">
+            Follow us on social media for updates, insights, and opportunities.
+          </p>
+          <div className="flex items-center justify-center text-[30px] md:text-[40px] gap-4">
             <a href="https://ng.linkedin.com/company/tmbis-ng-trs" rel='noreferrer' target='_blank' className='underline'>
               <FaLinkedin />
             </a>
@@ -164,18 +171,23 @@ const Articles = () => {
             </a>
           </div>
         </div>
-        <div className='bg-[#002B5B] text-white h-[410px] flex flex-col items-center justify-center gap-6  w-full rounded-e-[20px]'>
-          <div className='max-w-[460px] flex flex-col items-center justify-center gap-6 '>
-            <p className='text-4xl'>Subscribe to our newsletter</p>
-            <p className='text-lg text-center'>Enter your email address to subscribe to our articles and receive notifications of new posts by email.</p>
+
+        {/* Newsletter */}
+        <div className="bg-[#002B5B] text-white h-auto py-10 flex flex-col items-center justify-center gap-6 w-full lg:w-1/2 px-6">
+          <div className="max-w-[460px] flex flex-col items-center justify-center gap-6 w-full">
+            <p className="sm:text-2xl text-xl md:text-4xl text-center">Subscribe to our newsletter</p>
+            <p className="text-base md:text-lg text-center">
+              Enter your email address to subscribe to our articles and receive notifications of new posts by email.
+            </p>
             <input
               type="email"
               name="email"
-              id=""
-              className='bg-white rounded p-5 w-full'
+              className='bg-white text-black rounded p-4 w-full'
               placeholder='Enter Email Address'
             />
-            <button className='py-[16px] px-16 border-2 border-[#FFFFFF80] bg-white text-[#002B5B] rounded-full'>Submit</button>
+            <button className='py-[12px] px-10 md:py-[16px] md:px-16 border-2 border-[#FFFFFF80] bg-white text-[#002B5B] rounded-full'>
+              Submit
+            </button>
           </div>
         </div>
       </div>

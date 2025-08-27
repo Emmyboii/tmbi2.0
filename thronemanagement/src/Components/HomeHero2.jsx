@@ -14,14 +14,14 @@ const HomeHero2 = () => {
             }}
         >
             <div className="text-white max-w-[900px] px-3">
-                <p className="py-3 px-[30px] rounded-full mx-auto w-[270px] flex items-center justify-center gap-3 border-[3px] border-white bg-transparent text-[#ffffff] text-[18px] font-medium">
-                    <img src={target1} alt="" />
+                <p className="sm:py-3 py-1 sm:px-[30px] px-4 rounded-full mx-auto sm:w-[270px] w-[220px] flex items-center justify-center gap-3 border-[3px] border-white bg-transparent text-[#ffffff] sm:text-[18px] text-base font-medium">
+                    <img className='sm:w-auto w-8' src={target1} alt="" />
                     Welcome to TMBI
                 </p>
-                <p className="mh:text-[60px] sh:text-[50px] mt-12 sp:text-[35px] text-[26px] sh:leading-[83px] font-semibold">
+                <p className="md:text-[60px] sh:text-[50px] mt-12 sp:text-[35px] text-[26px] md:leading-[83px] font-semibold">
                     <span className='text-[#C0943E]'>Business Education</span> for Ambitious Professionals Worldwide
                 </p>
-                <p className="text-[20px] font-normal mt-5">
+                <p className="sa:text-[20px] text-lg font-normal mt-5">
                     Join the elite ranks of global business leaders through our <br className="sh:block hidden" />
                     world-class programs
                 </p>

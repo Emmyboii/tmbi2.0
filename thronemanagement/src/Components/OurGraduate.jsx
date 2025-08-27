@@ -79,10 +79,10 @@ const OurGraduate = () => {
     }
 
     return (
-        <div className='xl:px-32 xl:pt-20 xl:pb-32 sh:p-16 p-5 sh:pb-10 relative bg-gradient-to-b from-[#002B5B] to-[#005BC1]'>
-            <p className='text-[#ffffff] lf:text-[40px] mm:text-[32px] sa:text-[27px] text-[21px] text-center font-bold'>Hear from Our Graduates</p>
+        <div className='lf:px-32 pt-20 pb-36 relative bg-gradient-to-b from-[#002B5B] to-[#005BC1]'>
+            <p className='text-[#ffffff] lf:text-[40px] mm:text-[32px] text-[27px] text-center font-bold'>Hear from Our Graduates</p>
             <Slider {...settings} className='mt-7'>
-                <div className='px-6'>
+                <div className='mf:px-6 px-3'>
                     <div className='py-5 px-3 w-full bg-white min-h-[300px] my-5 justify-between rounded-[25px] border border-[#79797980] shadow-md shadow-[#00000040] flex flex-col gap-2'>
                         <img className='w-[39px] h-[60px]' src={chert} alt="" />
                         <p className='text-[12px] font-normal'>
@@ -98,7 +98,7 @@ const OurGraduate = () => {
                         </div>
                     </div>
                 </div>
-                <div className='px-6'>
+                <div className='mf:px-6 px-3'>
                     <div className='py-5 px-3 w-full bg-white min-h-[300px] my-5 justify-between rounded-[25px] border border-[#79797980] shadow-md shadow-[#00000040] flex flex-col gap-2'>
                         <img className='w-[127px] h-[55px]' src={baobab} alt="" />
                         <p className='text-[12px] font-normal'>
@@ -114,7 +114,7 @@ const OurGraduate = () => {
                         </div>
                     </div>
                 </div>
-                <div className='px-6'>
+                <div className='mf:px-6 px-3'>
                     <div className='py-5 px-3 w-full bg-white min-h-[300px] my-5 justify-between rounded-[25px] border border-[#79797980] shadow-md shadow-[#00000040] flex flex-col gap-2'>
                         <img className='w-[121px] h-[47px]' src={dataville} alt="" />
                         <p className='text-[12px] font-normal'>
@@ -130,7 +130,7 @@ const OurGraduate = () => {
                         </div>
                     </div>
                 </div>
-                <div className='px-6'>
+                <div className='mf:px-6 px-3'>
                     <div className='py-5 px-3 w-full bg-white min-h-[300px] my-5 justify-between rounded-[25px] border border-[#79797980] shadow-md shadow-[#00000040] flex flex-col gap-2'>
                         <img className='w-[105px] h-[41px]' src={chivita} alt="" />
                         <p className='text-[12px] font-normal'>
@@ -146,7 +146,7 @@ const OurGraduate = () => {
                         </div>
                     </div>
                 </div>
-                <div className='px-6'>
+                <div className='mf:px-6 px-3'>
                     <div className='py-5 px-3 w-full bg-white min-h-[300px] my-5 justify-between rounded-[25px] border border-[#79797980] shadow-md shadow-[#00000040] flex flex-col gap-2'>
                         <img className='w-[105px] h-[41px]' src={chivita} alt="" />
                         <p className='text-[12px] font-normal'>
@@ -162,7 +162,7 @@ const OurGraduate = () => {
                         </div>
                     </div>
                 </div>
-                <div className='px-6'>
+                <div className='mf:px-6 px-3'>
                     <div className='py-5 px-3 w-full bg-white min-h-[300px] my-5 justify-between rounded-[25px] border border-[#79797980] shadow-md shadow-[#00000040] flex flex-col gap-2'>
                         <img className='w-[105px] h-[41px]' src={chivita} alt="" />
                         <p className='text-[12px] font-normal'>
