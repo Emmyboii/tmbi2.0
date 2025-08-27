@@ -1,42 +1,35 @@
-// path: ./config/database.js
+import path from 'path';
 
-import { parse } from "pg-connection-string";
+export default ({ env }) => ({
+  connection: {
+    client: env('DATABASE_CLIENT', 'sqlite'),
 
-module.exports = ({ env }) => {
-  const databaseUrl = env("DATABASE_URL");
-
-  if (!databaseUrl) {
-    throw new Error("DATABASE_URL is not set in .env");
-  }
-
-  const config = parse(databaseUrl);
-
-  return {
-    connection: {
-      client: "postgres",
-      connection: {
-        host: config.host,
-        port: config.port,
-        database: config.database,
-        user: config.user,
-        password: config.password,
-        ssl: env.bool("DATABASE_SSL", false)
-          ? {
-            rejectUnauthorized: env.bool(
-              "DATABASE_SSL_REJECT_UNAUTHORIZED",
-              false
-            ),
+    connection:
+      env('DATABASE_CLIENT') === 'postgres'
+        ? {
+            connectionString: env('DATABASE_URL'),
+            ssl:
+              env.bool('DATABASE_SSL', false) && {
+                rejectUnauthorized: env.bool(
+                  'DATABASE_SSL_REJECT_UNAUTHORIZED',
+                  true
+                ),
+              },
           }
-          : false,
-      },
-      pool: {
-        min: env.int("DATABASE_POOL_MIN", 2),
-        max: env.int("DATABASE_POOL_MAX", 10),
-      },
-      acquireConnectionTimeout: env.int(
-        "DATABASE_CONNECTION_TIMEOUT",
-        60000
-      ),
+        : {
+            filename: path.join(
+              __dirname,
+              '..',
+              '..',
+              env('DATABASE_FILENAME', '.tmp/data.db')
+            ),
+          },
+
+    pool: {
+      min: env.int('DATABASE_POOL_MIN', 2),
+      max: env.int('DATABASE_POOL_MAX', 10),
     },
-  };
-};
+
+    acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 60000),
+  },
+});
