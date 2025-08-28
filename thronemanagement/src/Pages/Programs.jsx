@@ -61,7 +61,7 @@ const Programs = () => {
                                 >
                                     <div>
                                         <img
-                                            className="w-full h-[150px] sm:h-[180px] md:h-[200px] object-cover rounded-t-2xl hover:scale-95 transition-all duration-500"
+                                            className="w-full h-[150px] sm:h-[180px] md:h-[200px] object-cover rounded-t-2xl hover:scale-95 transition-all duration-700"
                                             src={programImg}
                                             alt=""
                                         />

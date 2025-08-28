@@ -210,7 +210,7 @@ const EachPrograms = ({ setOpenCart, suggestedPrograms }) => {
                     </div>
                 )}
 
-                <div className="mt-32 xl:px-32 md:p-16 p-5 py-10 xl:py-20 bg-[#F5F5F5]">
+                <div className="mt-4 xl:px-32 md:p-16 p-5 py-10 xl:py-20 bg-[#F5F5F5]">
                     <p className="text-2xl md:text-3xl lg:text-[32px] text-center md:text-left font-bold">
                         Program Details
                     </p>
