@@ -59,7 +59,7 @@ const NextStep = () => {
 
     return (
         <div className="xl:px-32 md:p-16 p-5 py-10 xl:py-20 flex flex-col gap-60 pb-9" >
-            <div className='z-20 flex flex-col gap-8' >
+            <div id='accredications' className='z-20 flex flex-col gap-8' >
                 {location.pathname === '/' ? (
                     <p className='text-black lf:text-[40px] mt-12 sp:text-[32px] text-2xl text-center font-bold'>International Recognition</p>
                 ) : (

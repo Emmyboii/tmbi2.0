@@ -6,7 +6,7 @@ import { HashLink } from 'react-router-hash-link';
 
 const LearningBenefit = () => {
     return (
-        <div className='xl:px-32 md:p-14 p-5 py-10 xl:py-20 text-black'>
+        <div id='learningBenefits' className='xl:px-32 md:p-14 p-5 py-10 xl:py-20 text-black'>
             <p className='text-[#0D0D0D] lf:text-[40px] mm:text-[32px] text-[25px] mc:text-start text-center font-bold'>Our Learning Benefits</p>
 
             <div className="flex mc:flex-row flex-col-reverse justify-between mt-10 items-center gap-14">

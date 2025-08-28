@@ -32,7 +32,7 @@ const ArticlesDetails = () => {
             .catch((err) => console.error(err));
     }, [slug]);
 
-    if (!post) return <p className="text-center py-20">Loading...</p>;
+    if (!post) return <p className="text-center py-20">Loading article...</p>;
 
     const { title, content, image, publishedAt } = post;
 

@@ -136,7 +136,7 @@ const Apply = () => {
                             <p className='text-lg font-[350]'>Whatsapp Number</p>
                             <input
                                 className='border-2 border-[#797979B2] outline-none rounded-[12px] w-full sq:py-4 py-3 sq:px-3 px-2'
-                                type="number"
+                                type="tel"
                                 value={form.phone}
                                 onChange={handleChange}
                                 name="phone"

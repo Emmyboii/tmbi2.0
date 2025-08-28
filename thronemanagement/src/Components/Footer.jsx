@@ -4,6 +4,7 @@ import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { FaRegCopyright } from "react-icons/fa6";
+import { HashLink } from "react-router-hash-link";
 
 const Footer = () => {
     return (
@@ -11,39 +12,39 @@ const Footer = () => {
             <div className="grid mp:grid-cols-3 sa:grid-cols-2  mp:gap-0 gap-10 w-full">
                 <div className="flex flex-col items-start gap-6 w-full">
                     <p className="uppercase sm:text-[20px] text-[17px] text-[#C3F9FF] font-normal">Quick Links</p>
-                    <Link to='' className="text-start">
+                    <HashLink to='/#program' className="text-start">
                         <p className="text-sm">Programs</p>
-                    </Link>
-                    <Link to='' className="text-start">
+                    </HashLink>
+                    <HashLink to='' className="text-start">
                         <p className="text-sm">Admissions</p>
-                    </Link>
-                    <Link to='' className="text-start">
+                    </HashLink>
+                    <HashLink to='/#learningBenefits' className="text-start">
                         <p className="text-sm">Why Choose Us</p>
-                    </Link>
-                    <Link to='' className="text-start">
+                    </HashLink>
+                    <HashLink to='/#testimonials' className="text-start">
                         <p className="text-sm">Testimonials</p>
-                    </Link>
-                    <Link to='' className="text-start">
+                    </HashLink>
+                    <a href="http://surl.li/mumpei" rel='noreferrer' target='_blank' className="text-start">
                         <p className="text-sm">Contact Us</p>
-                    </Link>
+                    </a>
                 </div>
                 <div className="flex flex-col items-start gap-6 w-full">
                     <p className="uppercase sm:text-[20px] text-[17px] text-[#C3F9FF] font-normal">resources</p>
-                    <Link to='' className="text-start">
+                    <HashLink to='/associate-bachelor-degree' className="text-start">
                         <p className="text-sm">Courses</p>
-                    </Link>
-                    <Link to='' className="text-start">
+                    </HashLink>
+                    <HashLink to='' className="text-start">
                         <p className="text-sm">Certifications</p>
-                    </Link>
-                    <Link to='' className="text-start">
+                    </HashLink>
+                    <HashLink to='' className="text-start">
                         <p className="text-sm">Degrees</p>
-                    </Link>
-                    <Link to='' className="text-start">
+                    </HashLink>
+                    <HashLink to='' className="text-start">
                         <p className="text-sm">Scholarships</p>
-                    </Link>
-                    <Link to='' className="text-start">
+                    </HashLink>
+                    <HashLink to='/#accredications' className="text-start">
                         <p className="text-sm">Accredications</p>
-                    </Link>
+                    </HashLink>
                 </div>
                 <div className="flex flex-col items-start gap-6 w-full mp:col-span-1 col-span-2">
                     <p className="uppercase text-[20px] text-[#C3F9FF] font-normal">contact us</p>

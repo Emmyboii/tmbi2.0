@@ -76,7 +76,12 @@ const ProgramsDesignedForYou2 = () => {
                             <p className='lf:text-xl text-[17px] font-normal leading-tight'>
                                 Our Associate Bachelor’s Degree program equips you with the knowledge and skills to thrive in a rapidly evolving world. Taught by world-class professors and lecturers, the curriculum is designed to instill key values, strategic thinking, and problem-solving skills essential for tackling modern management challenges.
                             </p>
-                            <p onClick={() => navigate('/associate-bachelor-degree')} className='flex items-center cursor-pointer gap-2 text-[#C0943E] font-medium text-xl'>Explore Courses <FaArrowRightLong /></p>
+                            <p
+                                onClick={() => {
+                                    navigate('/associate-bachelor-degree')
+                                    window.scrollTo(0, 0)
+                                }}
+                                className='flex items-center cursor-pointer gap-2 text-[#C0943E] font-medium text-xl'>Explore Courses <FaArrowRightLong /></p>
                         </div>
                     </div>
                     <div className='rounded-3xl bg-[#F2F2F7]'>
@@ -90,7 +95,12 @@ const ProgramsDesignedForYou2 = () => {
                             <p className='lf:text-xl text-[17px] font-normal leading-tight'>
                                 This Executive Advanced Diploma offers in-depth business and management training across specialized fields. Developed by industry experts, it provides practical tools, critical thinking, and leadership capabilities essential for career advancement in any sector.
                             </p>
-                            <p onClick={() => navigate('/executive-advanced-diploma')} className='flex items-center cursor-pointer gap-2 text-[#C0943E] font-medium text-xl'>Explore Courses <FaArrowRightLong /></p>
+                            <p
+                                onClick={() => {
+                                    navigate('/executive-advanced-diploma')
+                                    window.scrollTo(0, 0)
+                                }}
+                                className='flex items-center cursor-pointer gap-2 text-[#C0943E] font-medium text-xl'>Explore Courses <FaArrowRightLong /></p>
                         </div>
                     </div>
                     <div className='rounded-3xl bg-[#F2F2F7]'>
@@ -104,7 +114,12 @@ const ProgramsDesignedForYou2 = () => {
                             <p className='lf:text-xl text-[17px] font-normal leading-tight'>
                                 The Executive MBA program is a comprehensive, one-year journey for ambitious professionals ready to step into senior leadership roles. Through a rigorous, globally-relevant curriculum, you’ll gain advanced business skills, strategic insight, and a powerful professional network to thrive in today’s evolving global marketplace.
                             </p>
-                            <p onClick={() => navigate('/executive-mba')} className='flex items-center cursor-pointer gap-2 text-[#C0943E] font-medium text-xl'>Explore Courses <FaArrowRightLong /></p>
+                            <p
+                                onClick={() => {
+                                    navigate('/executive-mba')
+                                    window.scrollTo(0, 0)
+                                }}
+                                className='flex items-center cursor-pointer gap-2 text-[#C0943E] font-medium text-xl'>Explore Courses <FaArrowRightLong /></p>
                         </div>
                     </div>
                     <div className='rounded-3xl bg-[#F2F2F7]'>
@@ -118,7 +133,12 @@ const ProgramsDesignedForYou2 = () => {
                             <p className='lf:text-xl text-[17px] font-normal leading-tight'>
                                 Our Executive Diploma is a fast-paced, one-month program designed for professionals seeking targeted business knowledge and practical expertise. Delivered online and self-paced, the curriculum blends essential management concepts with real-world applications to help you lead and make confident decisions quickly.
                             </p>
-                            <p onClick={() => navigate('/executive-diploma')} className='flex items-center cursor-pointer gap-2 text-[#C0943E] font-medium text-xl'>Explore Courses <FaArrowRightLong /></p>
+                            <p
+                                onClick={() => {
+                                    navigate('/executive-diploma')
+                                    window.scrollTo(0, 0)
+                                }}
+                                className='flex items-center cursor-pointer gap-2 text-[#C0943E] font-medium text-xl'>Explore Courses <FaArrowRightLong /></p>
                         </div>
                     </div>
                     <div className='rounded-3xl bg-[#F2F2F7]'>
@@ -132,7 +152,12 @@ const ProgramsDesignedForYou2 = () => {
                             <p className='lf:text-xl text-[17px] font-normal leading-tight'>
                                 Our Executive Mini MBA program delivers focused, high-impact business education for professionals seeking fast, flexible upskilling. Designed by experienced business educators, it sharpens your leadership, strategic thinking, and decision-making ideal for today’s dynamic business environment.
                             </p>
-                            <p onClick={() => navigate('/mini-mba')} className='flex items-center cursor-pointer gap-2 text-[#C0943E] font-medium text-xl'>Explore Courses <FaArrowRightLong /></p>
+                            <p
+                                onClick={() => {
+                                    navigate('/mini-mba')
+                                    window.scrollTo(0, 0)
+                                }}
+                                className='flex items-center cursor-pointer gap-2 text-[#C0943E] font-medium text-xl'>Explore Courses <FaArrowRightLong /></p>
                         </div>
                     </div>
                     <div className='rounded-3xl bg-[#F2F2F7]'>
@@ -146,7 +171,12 @@ const ProgramsDesignedForYou2 = () => {
                             <p className='lf:text-xl text-[17px] font-normal leading-tight'>
                                 Our Professional Courses are designed for quick skill acquisition, empowering learners to gain job-ready expertise in just 14 days. Each course combines hands-on learning with foundational theory to enhance your career profile and day-to-day performance in your business or work environment
                             </p>
-                            <p onClick={() => navigate('/professional-certificate')} className='flex items-center cursor-pointer gap-2 text-[#C0943E] font-medium text-xl'>Explore Courses <FaArrowRightLong /></p>
+                            <p
+                                onClick={() => {
+                                    navigate('/professional-certificate')
+                                    window.scrollTo(0, 0)
+                                }}
+                                className='flex items-center cursor-pointer gap-2 text-[#C0943E] font-medium text-xl'>Explore Courses <FaArrowRightLong /></p>
                         </div>
                     </div>
                 </div>

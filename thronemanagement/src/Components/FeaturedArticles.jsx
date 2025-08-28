@@ -57,12 +57,16 @@ const FeaturedArticles = () => {
                 {featuredPost && (
                     <div className='flex flex-col gap-7'>
                         <Link to='/articles'>
-                            <button className='flex items-center sr:text-lg text-base text-[#C0943E] font-medium gap-2'>
+                            <button onClick={() => window.scrollTo(0, 0)} className='flex items-center sr:text-lg text-base text-[#C0943E] font-medium gap-2'>
                                 Browse Featured Articles
                                 <HiMiniArrowRight className='mt-1' />
                             </button>
                         </Link>
-                        <div>
+                        <Link
+                            to={`/articles/${featuredPost.url}`}
+                            key={featuredPost.id}
+                            onClick={() => window.scrollTo(0, 0)}
+                        >
                             <img
                                 className='w-full rounded-[20px] object-cover'
                                 src={`https://tmbis-strapi-backend.onrender.com${featuredPost.image?.url}`}
@@ -79,7 +83,7 @@ const FeaturedArticles = () => {
                                     {featuredPost.readTime || '5 mins read'}
                                 </p>
                             </div>
-                        </div>
+                        </Link>
                     </div>
                 )}
 
@@ -87,7 +91,8 @@ const FeaturedArticles = () => {
                 <div>
                     <p className='sr:text-lg text-base text-[#C0943E] font-medium pb-7'>Latest Articles</p>
                     {latestPosts.map((post) => (
-                        <div
+                        <Link
+                            to={`/articles/${post.url}`}
                             key={post.id}
                             className='sp:grid flex flex-col grid-cols-3 items-center gap-5 border-t pt-8 pb-5'
                         >
@@ -104,7 +109,7 @@ const FeaturedArticles = () => {
                                     <p className='font-extralight text-base'>{post.readTime || '5 mins read'}</p>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>
