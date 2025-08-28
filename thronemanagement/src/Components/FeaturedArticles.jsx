@@ -102,7 +102,7 @@ const FeaturedArticles = () => {
                                 alt={post.title}
                             />
                             <div className='flex flex-col gap-1 col-span-2'>
-                                <p className='text-[#C0943E] font-semibold'>{post.category || 'General'}</p>
+                                <p className='text-[#C0943E] font-semibold'>{post.header || 'General'}</p>
                                 <p className='font-semibold sa:text-[20px] text-base'>{post.title}</p>
                                 <div className='flex flex-col gap-2 w-full'>
                                     <p className='font-extralight text-base'>{post.author || 'Unknown Author'}</p>

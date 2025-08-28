@@ -4,7 +4,7 @@ import { HashLink } from 'react-router-hash-link';
 const AboutHero = () => {
     return (
         <div
-            className="relative w-full py-20 flex items-center justify-center text-center"
+            className="relative w-full sm:py-20 py-10 flex items-center justify-center text-center"
             style={{
                 backgroundImage: `url(${hero})`,
                 backgroundSize: 'cover',

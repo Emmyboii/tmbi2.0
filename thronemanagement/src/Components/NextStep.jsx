@@ -1,6 +1,8 @@
 import CAR2 from '../Images/CAR.png';
 import SWL2 from '../Images/Switzerland.png';
 import chad from '../Images/chad.png';
+import nuc from '../Images/nuc3.png';
+
 import nextBtn from '../Images/nextBtn.png'
 import prevBtn from '../Images/prevBtn.png'
 import nextStep from '../NewImages/nextStep.webp'
@@ -58,14 +60,14 @@ const NextStep = () => {
     }
 
     return (
-        <div className="xl:px-32 md:p-16 p-5 py-10 xl:py-20 flex flex-col gap-60 pb-9" >
+        <div className="xl:px-32 md:p-16 p-5  xl:py-20 flex flex-col gap-60 pb-9" >
             <div id='accredications' className='z-20 flex flex-col gap-8' >
                 {location.pathname === '/' ? (
                     <p className='text-black lf:text-[40px] mt-12 sp:text-[32px] text-2xl text-center font-bold'>International Recognition</p>
                 ) : (
-                    <p className='text-black lf:text-[40px] mt-12 md:text-[32px] sm:text-2xl text-xl text-center font-bold'>Commitment to Quality & Accreditation</p>
+                    <p className='text-black lf:text-[40px] mt-12 md:text-[32px] text-2xl text-center font-bold'>Commitment to Quality & Accreditation</p>
                 )}
-                {location.pathname==='/about'&&(
+                {location.pathname === '/about' && (
                     <p className='text-black md:text-xl sm:text-lg font-normal text-center 3xl:text-2xl'>TMBI follows international academic standards and is in partnership with globally recognized <br className='mp:block hidden' /> accrediting bodies. Programs include verifiable digital certificates.</p>
                 )}
                 <div className='flex md:flex-row flex-col justify-between w-full gap-20 mt-7 items-center'>
@@ -73,11 +75,11 @@ const NextStep = () => {
                         <div className='mf:px-6 px-3'>
                             <div className='flex mh:flex-row flex-col items-center gap-5 z-10 justify-center'>
                                 <div className={'cursor-pointer flex flex-col gap-5 sd:w-[500px] bg-[#F5F5F5] rounded-3xl mk:px-8 px-4 mk:py-24 py-10'}>
-                                    <p className='flex gap-1 items-center mf:text-[25px] 2xl:text-[34px] sd:text-[21px] text-[17px] font-medium'>
+                                    <p className='flex gap-1 items-center mf:text-[25px] sd:text-[21px] text-[17px] font-medium'>
                                         Switzerland
                                         <img src={SWL2} className='w-9' alt="" />
                                     </p>
-                                    <p className='font-normal mf:text-lg 2xl:text-xl sd:text-[16px] text-[14px]'>The State Secretariat for Education, Research and Innovation SERI within the Federal Department of Economic Affairs, Education and Research EAER is the federal government's specialised agency for national and international matters concerning education, research and innovation policy.</p>
+                                    <p className='font-normal mf:text-lg sd:text-[16px] text-[14px]'>The State Secretariat for Education, Research and Innovation SERI within the Federal Department of Economic Affairs, Education and Research EAER is the federal government's specialised agency for national and international matters concerning education, research and innovation policy.</p>
                                 </div>
                                 <img className='mf:w-[450px] mh:w-[350px] w-[450px] relative z-10 border-2 md:hidden block border-[#002B5B33] shadow-md shadow-[#002B5BA6]' src={SWL} alt="" />
                             </div>
@@ -85,11 +87,11 @@ const NextStep = () => {
                         <div className='mf:px-6 px-3'>
                             <div className='flex mh:flex-row flex-col items-center gap-5 z-10 justify-center'>
                                 <div className={'cursor-pointer flex flex-col gap-5 sd:w-[500px] bg-[#F5F5F5] rounded-3xl mk:px-8 px-4 mk:py-24 py-10'}>
-                                    <p className='flex gap-1 items-center mf:text-[25px] 2xl:text-[34px] sd:text-[21px] text-[17px] font-medium'>
+                                    <p className='flex gap-1 items-center mf:text-[25px] sd:text-[21px] text-[17px] font-medium'>
                                         The Republic Of Chad
                                         <img src={chad} className='w-9' alt="" />
                                     </p>
-                                    <p className='font-normal mf:text-lg 2xl:text-xl sd:text-[16px] text-[14px]'>The PIET sets out the Government of Chad's policy on education. It covers all levels of education (from pre- school to higher education).</p>
+                                    <p className='font-normal mf:text-lg sd:text-[16px] text-[14px]'>The PIET sets out the Government of Chad's policy on education. It covers all levels of education (from pre- school to higher education).</p>
                                 </div>
                                 <img className='mf:w-[450px] mh:w-[350px] w-[450px] relative z-10 border-2 md:hidden block border-[#002B5B33] shadow-md shadow-[#002B5BA6]' src={MEC} alt="" />
                             </div>
@@ -97,11 +99,11 @@ const NextStep = () => {
                         <div className='mf:px-6 px-3'>
                             <div className='flex mh:flex-row flex-col items-center gap-5 z-10 justify-center'>
                                 <div className={'cursor-pointer flex flex-col gap-5 sd:w-[500px] bg-[#F5F5F5] rounded-3xl mk:px-8 px-4 mk:py-24 py-10'}>
-                                    <p className='flex gap-2 items-center mf:text-[25px] 2xl:text-[34px] sd:text-[21px] text-[17px] font-medium'>
+                                    <p className='flex gap-2 items-center mf:text-[25px] sd:text-[21px] text-[17px] font-medium'>
                                         Central African Republic
                                         <img src={CAR2} className='w-6' alt="" />
                                     </p>
-                                    <p className='font-normal mf:text-lg 2xl:text-xl sd:text-[16px] text-[14px]'>The Ministry of Higher Education (Ministère de l'Enseignement Supérieur) is a government ministry responsible for overseeing and regulating higher education institutions in the country, as well as developing policies and strategies to improve the quality of education.</p>
+                                    <p className='font-normal mf:text-lg sd:text-[16px] text-[14px]'>The Ministry of Higher Education (Ministère de l'Enseignement Supérieur) is a government ministry responsible for overseeing and regulating higher education institutions in the country, as well as developing policies and strategies to improve the quality of education.</p>
                                 </div>
                                 <img className='mf:w-[450px] mh:w-[350px] w-[450px] relative z-10 border-2 md:hidden block border-[#002B5B33] shadow-md shadow-[#002B5BA6]' src={CAR} alt="" />
                             </div>
@@ -109,19 +111,19 @@ const NextStep = () => {
                         <div className='mf:px-6 px-3'>
                             <div className='flex mh:flex-row flex-col items-center gap-5 z-10 justify-center'>
                                 <div className={'cursor-pointer flex flex-col gap-5 sd:w-[500px] bg-[#F5F5F5] rounded-3xl mk:px-8 px-4 mk:py-24 py-10'}>
-                                    <p className='flex gap-2 items-center mf:text-[25px] 2xl:text-[34px] sd:text-[21px] text-[17px] font-medium'>
+                                    <p className='flex gap-2 items-center mf:text-[25px] sd:text-[21px] text-[17px] font-medium'>
                                         National Universities Commission
-                                        <img src={CAR2} className='w-6' alt="" />
+                                        <img src={nuc} className='w-6' alt="" />
                                     </p>
-                                    <p className='font-normal mf:text-lg 2xl:text-xl sd:text-[16px] text-[14px]'>The Ministry of Higher Education (Ministère de l'Enseignement Supérieur) is a government ministry responsible for overseeing and regulating higher education institutions in the country, as well as developing policies and strategies to improve the quality of education.</p>
+                                    <p className='font-normal mf:text-lg sd:text-[16px] text-[14px]'>The National Universities Commission (NUC) is Nigeria's regulatory body for higher education. It ensures that universities maintain high academic standards, accredits programs, supervises curriculum development, and promotes research and innovation. NUC also advises the government on policies to strengthen tertiary education and aligns universities with national development goals.</p>
                                 </div>
-                                <img className='mf:w-[450px] mh:w-[350px] w-[450px] relative z-10 border-2 md:hidden block border-[#002B5B33] shadow-md shadow-[#002B5BA6]' src={NUC} alt="" />
+                                <img className='mf:w-[450px] mh:w-[350px] w-[450px] relative z-10 border- md:hidden block border-[#002B5B33] shadow-m shadow-[#002B5BA6]' src={NUC} alt="" />
                             </div>
                         </div>
                     </Slider>
                 </div>
             </div >
-            <div className='sa:min-h-[530px] sk:min-h-[450px] min-h-[300px] relative flex items-center bg-gradient-to-b from-[#002B5B] to-[#005BC1] rounded-[30px] shadow-sm shadow-[#4F00EE1A]'>
+            <div className='sa:min-h-[530px] sk:min-h-[450px] min-h-[320px] relative flex items-center bg-gradient-to-b from-[#002B5B] to-[#005BC1] rounded-[30px] shadow-sm shadow-[#4F00EE1A]'>
 
                 <img
                     className='w-[500px] mx-auto absolute -top-24 left-1/2 -translate-x-1/2'

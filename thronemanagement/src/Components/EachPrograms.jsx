@@ -86,7 +86,7 @@ const EachPrograms = ({ setOpenCart, suggestedPrograms }) => {
     return (
         <div className='flex flex-col gap-12'>
             <div
-                className="relative w-full py-20 flex items-center justify-center text-center"
+                className="relative w-full sm:py-20 py-10 flex items-center justify-center text-center"
                 style={{
                     backgroundImage: `url(${programImg})`,
                     backgroundSize: 'cover',
@@ -96,7 +96,7 @@ const EachPrograms = ({ setOpenCart, suggestedPrograms }) => {
             >
                 <div className="absolute inset-0 w-full bg-[#000000D9]"></div>
 
-                <div className="text-white max-w-[1100px] mt-7 z-30 px-3 flex flex-col sa:gap-9 gap-4 items-center">
+                <div className="text-white max-w-[1100px] mt-3 z-30 px-3 flex flex-col sa:gap-9 gap-4 items-center">
                     <p className="sm:text-[20px] text-sm text-[#FFC656] font-semibold">{programName}</p>
                     <p className="mh:text-[60px] sh:text-[50px] sp:text-[35px] text-[26px] leading-tight font-semibold max-w-[1000px]">
                         {programLabel}
@@ -211,7 +211,7 @@ const EachPrograms = ({ setOpenCart, suggestedPrograms }) => {
                 )}
 
                 <div className="mt-32 xl:px-32 md:p-16 p-5 py-10 xl:py-20 bg-[#F5F5F5]">
-                    <p className="text-xl sm:text-2xl md:text-3xl lg:text-[32px] text-center md:text-left font-bold">
+                    <p className="text-2xl md:text-3xl lg:text-[32px] text-center md:text-left font-bold">
                         Program Details
                     </p>
 

@@ -2,7 +2,7 @@ import img from '../NewImages/about2.webp'
 
 const WhoWeAre = () => {
     return (
-        <div className='bg-[#F5F5F5] py-20'>
+        <div className='bg-[#F5F5F5] sm:py-20 py-10'>
             <p className='md:text-start text-center xl:pl-32 sh:pl-10 mb-5 px-5 text-black sh:text-[47px] sp:text-[35px] text-[29px] font-semibold'>Who we are</p>
             <div className='flex md:flex-row flex-col items-center gap-5 xl:pl-32 sh:pl-10 px-5'>
                 <div className='flex flex-col gap-10 w-full text-[17px]'>

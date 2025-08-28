@@ -182,7 +182,7 @@ const Articles = () => {
             <input
               type="email"
               name="email"
-              className='bg-white text-black rounded p-4 w-full'
+              className='bg-white text-black rounded-lg p-4 w-full'
               placeholder='Enter Email Address'
             />
             <button className='py-[12px] px-10 md:py-[16px] md:px-16 border-2 border-[#FFFFFF80] bg-white text-[#002B5B] rounded-full'>

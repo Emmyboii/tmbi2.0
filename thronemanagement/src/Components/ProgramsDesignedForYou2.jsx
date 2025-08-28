@@ -16,7 +16,7 @@ const ProgramsDesignedForYou2 = () => {
     return (
         <div>
             <div
-                className='relative w-full py-20 bg-[#002B5B] flex items-center justify-center text-center'
+                className='relative w-full md:py-20 py-10 bg-[#002B5B] flex items-center justify-center text-center'
                 style={{
                     backgroundImage: `url(${program})`,
                     backgroundSize: 'cover',
@@ -62,7 +62,7 @@ const ProgramsDesignedForYou2 = () => {
                 </div>
             </div>
 
-            <div id='program' className='bg-[#002B5B] xl:px-32 md:p-16 p-5 py-10 xl:py-20 flex flex-col gap-12'>
+            <div id='program' className='bg-[#002B5B] xl:px-32 md:p-16 p-5 xl:py-20 flex flex-col gap-12'>
                 <p className='font-bold mh:text-3xl text-2xl text-center text-white mt-5'>Programs Designed for Future Business Leaders</p>
                 <div className='grid mf:grid-cols-3 sh:grid-cols-2 gap-10 pb-10'>
                     <div className='rounded-3xl bg-[#F2F2F7]'>

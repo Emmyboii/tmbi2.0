@@ -25,7 +25,7 @@ const Programs = () => {
         <div>
             <div className='flex flex-col gap-8'>
                 <div
-                    className="relative w-full py-20 flex items-center justify-center text-center"
+                    className="relative w-full sm:py-20 py-10 flex items-center justify-center text-center"
                     style={{
                         backgroundImage: `url(${heroImg})`,
                         backgroundSize: 'cover',
@@ -51,7 +51,7 @@ const Programs = () => {
                 </div>
 
                 <div id="label" className="pb-20 flex flex-col gap-8">
-                    <p className="text-lg sm:text-2xl md:text-3xl font-semibold text-center">{label}</p>
+                    <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-center">{label}</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 md:px-12">
                         {programDetails.slice(0, visibleCount).map(
                             ({ programImg, programLabel, programText, projectPath }) => (
@@ -102,7 +102,7 @@ const Programs = () => {
                     )}
                 </div>
 
-                <div className='sa:min-h-[530px] xl:mx-32 xl:my-20 sh:m-10 m-5 sk:min-h-[450px] min-h-[430px] relative flex items-center bg-gradient-to-b from-[#002B5B] to-[#005BC1] rounded-[30px] shadow-sm shadow-[#4F00EE1A]'>
+                <div className='sa:min-h-[530px] sk:min-h-[450px] min-h-[320px] xl:mx-32 xl:my-20 sh:m-10 m-5 relative flex items-center bg-gradient-to-b from-[#002B5B] to-[#005BC1] rounded-[30px] shadow-sm shadow-[#4F00EE1A]'>
 
                     <img
                         className='w-[500px] mx-auto absolute -top-24 left-1/2 -translate-x-1/2'

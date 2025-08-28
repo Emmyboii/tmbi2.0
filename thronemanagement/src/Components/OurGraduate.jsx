@@ -83,7 +83,7 @@ const OurGraduate = () => {
     }
 
     return (
-        <div id='testimonials' className='lf:px-32 pt-20 pb-36 relative bg-gradient-to-b from-[#002B5B] to-[#005BC1]'>
+        <div id='testimonials' className='lf:px-32 sm:pt-20 pt-10 sm:pb-36 pb-28 relative bg-gradient-to-b from-[#002B5B] to-[#005BC1]'>
             <p className='text-[#ffffff] lf:text-[40px] mm:text-[32px] text-[27px] text-center font-bold'>Hear from Our Graduates</p>
             <Slider {...settings} className='mt-7'>
                 <div className='mf:px-6 px-3'>
