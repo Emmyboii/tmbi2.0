@@ -87,7 +87,7 @@ const Apply = () => {
 
     return (
         <div id='apply' className='xl:px-32 md:p-16 p-5 py-10 xl:py-20 bg-[#F5F5F5]'>
-            <p className="sq:py-3 py-2 px-[30px] rounded-full mx-auto sa:w-[300px] sk:w-[270px] flex items-center justify-center sk:gap-3 gap-1 border-[3px] border-[#C0943E] bg-transparent text-[#C0943E] sa:text-[18px] text-base font-medium">
+            <p className="sq:py-3 py-2 px-[9px] rounded-full mx-auto sa:w-[300px] sk:w-[270px] w-[300px] flex items-center justify-center sk:gap-3 gap-1 border-[3px] border-[#C0943E] bg-transparent text-[#C0943E] sa:text-[18px] text-base font-medium">
                 <img className='sm:w-auto w-7' src={target2} alt="" />
                 Limited Slots Available
             </p>
