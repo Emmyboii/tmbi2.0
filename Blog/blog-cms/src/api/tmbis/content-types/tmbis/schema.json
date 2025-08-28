@@ -46,6 +46,14 @@
     "note": {
       "type": "text",
       "required": true
+    },
+    "author": {
+      "type": "string",
+      "required": true
+    },
+    "readTime": {
+      "type": "string",
+      "required": true
     }
   }
 }

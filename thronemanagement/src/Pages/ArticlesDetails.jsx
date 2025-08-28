@@ -11,7 +11,7 @@ const ArticlesDetails = () => {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:1337/api/tmbiss?filters[url][$eq]=${slug}&populate=*`)
+            .get(`https://tmbis-strapi-backend.onrender.com/api/tmbiss?filters[url][$eq]=${slug}&populate=*`)
             .then((res) => {
                 const fetchedPost = res.data.data[0];
                 setPost(fetchedPost);
@@ -23,7 +23,7 @@ const ArticlesDetails = () => {
                     // Fetch related posts
                     axios
                         .get(
-                            `http://localhost:1337/api/tmbiss?filters[header][$eq]=${header}&filters[id][$ne]=${id}&populate=*`
+                            `https://tmbis-strapi-backend.onrender.com/api/tmbiss?filters[header][$eq]=${header}&filters[id][$ne]=${id}&populate=*`
                         )
                         .then((res) => setRelatedPosts(res.data.data))
                         .catch((err) => console.error(err));
@@ -39,15 +39,15 @@ const ArticlesDetails = () => {
     return (
         <div className="xl:px-40 md:px-16 sm:px-8 px-4 py-10 flex flex-col gap-8">
             {/* Title */}
-            <p className="sm:text-2xl text-xl md:text-3xl lg:text-[38px] max-w-[1000px] mx-auto text-center font-medium leading-tight">
+            <p className="sm:text-2xl text-xl md:text-3xl lg:text-[38px] max-w-[1000px] mx-auto text-center font-medium">
                 {title}
             </p>
 
             {/* Featured Image */}
             <div className="max-w-[900px] w-full mx-auto flex flex-col gap-4">
                 <img
-                    className="w-full h-auto max-h-[400px] object-cover rounded-lg"
-                    src={`http://localhost:1337${image.url}`}
+                    className="w-full h-auto max-h-[400px] object-cover rounded-[20px]"
+                    src={`https://tmbis-strapi-backend.onrender.com${image.url}`}
                     alt={title}
                 />
                 <p className="text-sm text-gray-600">
@@ -159,7 +159,7 @@ const ArticlesDetails = () => {
                                         className="w-full h-[200px] rounded-t-[20px] object-cover"
                                         src={
                                             related.image?.url
-                                                ? `http://localhost:1337${related.image.url}`
+                                                ? `https://tmbis-strapi-backend.onrender.com${related.image.url}`
                                                 : Logo
                                         }
                                         alt={related.title}

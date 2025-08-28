@@ -11,7 +11,7 @@ const Articles = () => {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    axios.get('http://localhost:1337/api/tmbiss?populate=*')
+    axios.get('https://tmbis-strapi-backend.onrender.com/api/tmbiss?populate=*')
       .then(res => setPosts(res.data.data || []))
       .catch(err => {
         console.error(err);
@@ -49,7 +49,7 @@ const Articles = () => {
     >
       <img
         className="w-full h-[200px] rounded-t-[20px] object-cover"
-        src={`http://localhost:1337${post.image?.url}`}
+        src={`https://tmbis-strapi-backend.onrender.com${post.image?.url}`}
         alt={post.title}
       />
       <div className="flex flex-col p-[13px] gap-4 m-2">
@@ -71,11 +71,11 @@ const Articles = () => {
     <div key={post.id} className="flex flex-col lg:flex-row items-center justify-center gap-5 relative my-10">
       <img
         className="w-full lg:w-[700px] rounded-[20px] object-cover"
-        src={`http://localhost:1337${post.image?.url}`}
+        src={`https://tmbis-strapi-backend.onrender.com${post.image?.url}`}
         alt={post.title}
       />
       <div className="flex flex-col items-start gap-7 bg-[#F5F5F5] rounded-[20px] p-6 md:p-8 lg:ml-[-90px] w-full lg:w-auto">
-        <p className="sm:text-2xl text-xl md:text-[38px] font-semibold leading-tight">{post.title}</p>
+        <p className="sm:text-2xl text-xl md:text-[38px] font-semibold leading-8">{post.title}</p>
         <p className="text-[#000000CC] sm:text-lg text-base md:text-2xl font-normal">{post?.note}</p>
         <Link onClick={() => window.scrollTo(0, 0)} to={`/articles/${post.url}`}>
           <button className="py-[12px] px-6 md:py-[16px] md:px-8 bg-[#C0943E] text-[#ffffff] rounded-full">
