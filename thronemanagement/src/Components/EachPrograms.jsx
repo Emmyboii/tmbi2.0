@@ -107,8 +107,8 @@ const EachPrograms = ({ setOpenCart, suggestedPrograms }) => {
                         <img className="sa:w-[160px] w-[130px]" src={stars} alt="reviews" />
                         <p className='mt-1 text-lg'>{reviews}+ Reviews</p>
                     </div>
-                    <div className="flex sk:flex-row flex-col self-start sk:self-center sk:gap-14 gap-4">
-                        <div className="flex items-center gap-3">
+                    <div className="flex sk:flex-row flex-col self-center sk:gap-14 gap-4">
+                        <div className="flex items-center text-start gap-3">
                             <img className="sa:size-[40px] size-[20px]" src={durations} alt="Duration" />
                             <div>
                                 <p className="font-medium sa:text-lg text-base">Duration</p>
