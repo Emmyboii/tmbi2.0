@@ -69,7 +69,7 @@ const FeaturedArticles = () => {
                         >
                             <img
                                 className='w-full rounded-[20px] object-cover'
-                                src={`https://tmbis-strapi-backend.onrender.com${featuredPost.image?.url}`}
+                                src={`${featuredPost.image?.url}`}
                                 alt={featuredPost.title}
                             />
                             <p className='sd:text-[34px] sp:text-[27px] sr:text-[20px] leading-tight text-base mt-7 font-medium'>
@@ -98,7 +98,7 @@ const FeaturedArticles = () => {
                         >
                             <img
                                 className='w-full object-cover sp:min-h-[110px] rounded-[10px]'
-                                src={`https://tmbis-strapi-backend.onrender.com${post.image?.url}`}
+                                src={`${post.image?.url}`}
                                 alt={post.title}
                             />
                             <div className='flex flex-col gap-1 col-span-2'>

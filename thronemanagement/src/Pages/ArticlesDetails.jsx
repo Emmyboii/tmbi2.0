@@ -47,7 +47,7 @@ const ArticlesDetails = () => {
             <div className="max-w-[900px] w-full mx-auto flex flex-col gap-4">
                 <img
                     className="w-full h-auto max-h-[400px] object-cover rounded-[20px]"
-                    src={`https://tmbis-strapi-backend.onrender.com${image.url}`}
+                    src={`${image.url}`}
                     alt={title}
                 />
                 <p className="text-sm text-gray-600">
@@ -159,7 +159,7 @@ const ArticlesDetails = () => {
                                         className="w-full h-[200px] rounded-t-[20px] object-cover"
                                         src={
                                             related.image?.url
-                                                ? `https://tmbis-strapi-backend.onrender.com${related.image.url}`
+                                                ? `${related.image.url}`
                                                 : Logo
                                         }
                                         alt={related.title}
