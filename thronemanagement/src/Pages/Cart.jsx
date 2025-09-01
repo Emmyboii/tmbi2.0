@@ -447,7 +447,7 @@ const Cart = ({ addedPrograms, suggestedPrograms }) => {
                                         <div className='flex mk:flex-row flex-col mk:gap-2 pb-2'>
                                             <p className='sd:text-lg font-[350'>Upload Certificate {selectedPrograms === `Associate Bachelor's Degree` ? '(SSCE)' : '(OND, HND or BSc)'}</p>
                                             <small className="text-gray-500 mt-1">
-                                                Allowed formats: PDF, DOC, DOCX, JPG, PNG — <span className="font-semibold">Max size 5MB</span>
+                                                Allowed formats: PDF, DOC, DOCX, JPG, PNG — <span className="font-semibold">Max size 10MB</span>
                                             </small>
                                         </div>
                                         <label htmlFor="certificate">
