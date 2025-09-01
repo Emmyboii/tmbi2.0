@@ -17,7 +17,7 @@ const Cart = ({ addedPrograms, suggestedPrograms }) => {
     const [openModal, setOpenModal] = useState(false)
     const [upload, setUpload] = useState(false)
     const [submitting, setSubmitting] = useState(false)
-    const [document, setDocument] = useState(null)
+    const [documents, setDocuments] = useState(null)
     const [program, setProgram] = useState('')
     const [applicationFee, setApplicationFee] = useState('')
     const [status, setStatus] = useState({ message: '', type: '' })
@@ -38,6 +38,25 @@ const Cart = ({ addedPrograms, suggestedPrograms }) => {
     useEffect(() => {
         applicationFees();
     }, [selectedPrograms]);
+
+    useEffect(() => {
+        if (openModal) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = 'auto'
+            setForm({
+                firstname: '',
+                lastname: '',
+                email: '',
+                phone: '',
+                highestEducationLevel: '',
+            })
+        }
+
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, [openModal])
 
     useEffect(() => {
         if (selectedPrograms === `Associate Bachelor's Degree`) {
@@ -83,7 +102,7 @@ const Cart = ({ addedPrograms, suggestedPrograms }) => {
 
     const handleDocumentChange = (e) => {
         if (e.target.files && e.target.files[0]) {
-            setDocument(e.target.files[0]); // Save actual File
+            setDocuments(e.target.files[0]); // Save actual File
         }
     };
 
@@ -96,8 +115,17 @@ const Cart = ({ addedPrograms, suggestedPrograms }) => {
 
     const apply = async (e) => {
         e.preventDefault();
+        setSubmitting(true);
 
-        setSubmitting(true)
+        // ✅ File size validation (5MB)
+        const maxFileSize = 5 * 1024 * 1024; // 5MB
+        if (document && document.size > maxFileSize) {
+            setStatus({ message: "File too large. Maximum size allowed is 5MB.", type: "error" });
+            setModal(true);
+            setSubmitting(false);
+            return;
+        }
+
 
         const formData = new FormData();
         formData.append("firstname", form.firstname);
@@ -107,46 +135,62 @@ const Cart = ({ addedPrograms, suggestedPrograms }) => {
         formData.append("programApplied", program);
         formData.append("courseName", selectedCourse);
         formData.append("highestEducationLevel", form.highestEducationLevel);
-        formData.append("document", document, document.name);
+        if (documents) {
+            formData.append("document", documents, documents.name);
+        }
 
         try {
-            const res = await fetch('https://devm.westus2.cloudapp.azure.com/thorne/api/apply', {
-                method: 'POST',
-                body: formData
-            })
+            const res = await fetch("https://devm.westus2.cloudapp.azure.com/thorne/api/apply", {
+                method: "POST",
+                body: formData,
+            });
             const data = await res.json();
 
             if (!res.ok) {
-                setStatus({ message: 'Sorry, an error occured. Please try again later or contact the admin', type: 'error' })
-                setModal(true)
-                return
+                setStatus({
+                    message: "Sorry, an error occurred. Please try again later or contact the admin",
+                    type: "error",
+                });
+                setModal(true);
+                return;
+            }
+
+            setStatus({ message: "Application Submitted successfully", type: "success" });
+            setModal(true);
+
+            console.log("Application saved:", data);
+
+            const applicantId = data.data?._id;
+
+            if (!applicantId) {
+                console.error("No applicant_id returned from API:", data);
+                return;
+            }
+
+            // ✅ Fetch checkout details
+            const res2 = await fetch(
+                selectedPrograms === "Associate Bachelor's Degree" || selectedPrograms === "Executive MBA"
+                    ? `https://devm.westus2.cloudapp.azure.com/thorne/api/apply/${applicantId}/checkout-apply`
+                    : `https://devm.westus2.cloudapp.azure.com/thorne/api/apply/${applicantId}/checkout-course`
+            );
+
+            const data2 = await res2.json();
+            console.log("Checkout response:", data2);
+
+            const url = data2.authorization_url;
+
+            if (url && /^https?:\/\//i.test(url)) {
+                // fallback if tab was blocked/closed
+                window.open(url, "_blank", "noopener,noreferrer");
             } else {
-
-                setStatus({ message: 'Application Submitted successfully', type: 'success' })
-                setModal(true)
-
-                console.log("Application saved:", data);
-
-                const applicantId = data.data?._id;
-
-                if (applicantId) {
-                    const url =
-                        selectedPrograms === "Associate Bachelor's Degree" || selectedPrograms === "Executive MBA"
-                            ? `https://devm.westus2.cloudapp.azure.com/thorne/api/apply/${applicantId}/checkout-apply`
-                            : `https://devm.westus2.cloudapp.azure.com/thorne/api/apply/${applicantId}/checkout`;
-
-                    window.open(url, "_blank"); // ✅ opens in new tab
-                } else {
-                    console.error("No applicant_id returned from API:", data);
-                }
-
+                console.error("No valid authorization_url in response:", data2);
             }
         } catch (err) {
             console.error("Error:", err);
         } finally {
-            setSubmitting(false)
+            setSubmitting(false);
         }
-    }
+    };
 
     useEffect(() => {
         setTimeout(() => {
@@ -338,6 +382,7 @@ const Cart = ({ addedPrograms, suggestedPrograms }) => {
                                             onChange={handleChange}
                                             name="phone"
                                             id=""
+                                            maxLength={11}
                                             required
                                             placeholder='+2348109876543'
                                         />
@@ -399,7 +444,12 @@ const Cart = ({ addedPrograms, suggestedPrograms }) => {
                                 </div>
                                 {upload && (
                                     <div className='w-full'>
-                                        <p className='sd:text-lg font-[350] pb-2'>Upload Certificate {selectedPrograms === `Associate Bachelor's Degree` ? '(SSCE)' : '(OND, HND or BSc)'}</p>
+                                        <div className='flex mk:flex-row flex-col mk:gap-2 pb-2'>
+                                            <p className='sd:text-lg font-[350'>Upload Certificate {selectedPrograms === `Associate Bachelor's Degree` ? '(SSCE)' : '(OND, HND or BSc)'}</p>
+                                            <small className="text-gray-500 mt-1">
+                                                Allowed formats: PDF, DOC, DOCX, JPG, PNG — <span className="font-semibold">Max size 5MB</span>
+                                            </small>
+                                        </div>
                                         <label htmlFor="certificate">
                                             <input
                                                 type="file"
@@ -409,6 +459,7 @@ const Cart = ({ addedPrograms, suggestedPrograms }) => {
                                                 onChange={handleDocumentChange}
                                             />
                                         </label>
+
                                     </div>
                                 )}
                                 {upload && (
