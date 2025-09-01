@@ -1,5 +1,6 @@
 import learning1 from '../NewImages/learning1.webp'
 import learning2 from '../NewImages/learning2.webp'
+import learning2_0 from '../NewImages/learning2.0.png'
 import learning3 from '../NewImages/learning3.webp'
 import learning4 from '../NewImages/learning4.webp'
 import learning5 from '../NewImages/learning5.webp'
@@ -25,8 +26,13 @@ const UniqueApproach = () => {
                 </div>
                 <div className='mk:col-span-2 flex mk:flex-row flex-col sq:h-[500px] items-center bg-[#F2F2F7] justify-center rounded-3xl'>
                     <img
-                        className='mk:rounded-s-3xl rounded-t-3xl mk:rounded-se-none mk:h-[500px] sd:h-[260px] h-[200px] md:mt-[-40px] mk:mt-0 sq:mt-[-20px] w-full lg:w-[320px] mk:w-[250px] object-cover'
+                        className='mk:rounded-s-3xl mk:block hidden rounded-t-3xl mk:rounded-se-none mk:h-[500px] sd:h-[260px] h-[200px] md:mt-[-40px] mk:mt-0 sq:mt-[-20px] w-full lg:w-[320px] mk:w-[250px] object-cover'
                         src={learning2}
+                        alt=""
+                    />
+                     <img
+                        className='mk:rounded-s-3xl mk:hidden block rounded-t-3xl mk:rounded-se-none mk:h-[500px] sd:h-[260px] h-[200px] md:mt-[-40px] mk:mt-0 sq:mt-[-20px] w-full lg:w-[320px] mk:w-[250px] object-cover'
+                        src={learning2_0}
                         alt=""
                     />
                     <div className='flex flex-col gap-4 sp:px-7 px-3 rounded-b-3xl lg:py-10 py-6'>

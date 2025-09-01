@@ -68,55 +68,17 @@ const ProgramsDesignedForYou2 = () => {
                     <div className='rounded-3xl bg-[#F2F2F7]'>
                         <img
                             className='rounded-t-3xl h-[260px] w-full object-cover'
-                            src={PDU1}
+                            src={PDU6}
                             alt=""
                         />
                         <div className='flex flex-col justify-between 3xl:h-[340px] mf:h-[500px] sh:h-[454px] gap-4 px-6 py-7 items-start'>
-                            <p className=' text-[#0D0D0D] lf:text-2xl text-[21px] font-semibold'>Associate Bachelors Degree</p>
+                            <p className=' text-[#0D0D0D] lf:text-2xl text-[21px] font-semibold'>Professional Certificates</p>
                             <p className='lf:text-xl text-[17px] font-normal leading-tight'>
-                                Our Associate Bachelor’s Degree program equips you with the knowledge and skills to thrive in a rapidly evolving world. Taught by world-class professors and lecturers, the curriculum is designed to instill key values, strategic thinking, and problem-solving skills essential for tackling modern management challenges.
+                                Our Professional Courses are designed for quick skill acquisition, empowering learners to gain job-ready expertise in just 14 days. Each course combines hands-on learning with foundational theory to enhance your career profile and day-to-day performance in your business or work environment
                             </p>
                             <p
                                 onClick={() => {
-                                    navigate('/associate-bachelor-degree')
-                                    window.scrollTo(0, 0)
-                                }}
-                                className='flex items-center cursor-pointer gap-2 text-[#C0943E] font-medium text-xl'>Explore Courses <FaArrowRightLong /></p>
-                        </div>
-                    </div>
-                    <div className='rounded-3xl bg-[#F2F2F7]'>
-                        <img
-                            className='rounded-t-3xl h-[260px] w-full object-cover'
-                            src={PDU2}
-                            alt=""
-                        />
-                        <div className='flex flex-col justify-between 3xl:h-[340px] mf:h-[500px] sh:h-[454px] gap-4 px-6 py-7 items-start'>
-                            <p className=' text-[#0D0D0D] lf:text-2xl text-[21px] font-semibold'>Advanced Diploma</p>
-                            <p className='lf:text-xl text-[17px] font-normal leading-tight'>
-                                This Executive Advanced Diploma offers in-depth business and management training across specialized fields. Developed by industry experts, it provides practical tools, critical thinking, and leadership capabilities essential for career advancement in any sector.
-                            </p>
-                            <p
-                                onClick={() => {
-                                    navigate('/executive-advanced-diploma')
-                                    window.scrollTo(0, 0)
-                                }}
-                                className='flex items-center cursor-pointer gap-2 text-[#C0943E] font-medium text-xl'>Explore Courses <FaArrowRightLong /></p>
-                        </div>
-                    </div>
-                    <div className='rounded-3xl bg-[#F2F2F7]'>
-                        <img
-                            className='rounded-t-3xl h-[260px] w-full object-cover'
-                            src={PDU3}
-                            alt=""
-                        />
-                        <div className='flex flex-col justify-between 3xl:h-[340px] mf:h-[500px] sh:h-[454px] gap-4 px-6 py-7 items-start'>
-                            <p className=' text-[#0D0D0D] lf:text-2xl text-[21px] font-semibold'>Executive MBA</p>
-                            <p className='lf:text-xl text-[17px] font-normal leading-tight'>
-                                The Executive MBA program is a comprehensive, one-year journey for ambitious professionals ready to step into senior leadership roles. Through a rigorous, globally-relevant curriculum, you’ll gain advanced business skills, strategic insight, and a powerful professional network to thrive in today’s evolving global marketplace.
-                            </p>
-                            <p
-                                onClick={() => {
-                                    navigate('/executive-mba')
+                                    navigate('/professional-certificate')
                                     window.scrollTo(0, 0)
                                 }}
                                 className='flex items-center cursor-pointer gap-2 text-[#C0943E] font-medium text-xl'>Explore Courses <FaArrowRightLong /></p>
@@ -163,17 +125,55 @@ const ProgramsDesignedForYou2 = () => {
                     <div className='rounded-3xl bg-[#F2F2F7]'>
                         <img
                             className='rounded-t-3xl h-[260px] w-full object-cover'
-                            src={PDU6}
+                            src={PDU2}
                             alt=""
                         />
                         <div className='flex flex-col justify-between 3xl:h-[340px] mf:h-[500px] sh:h-[454px] gap-4 px-6 py-7 items-start'>
-                            <p className=' text-[#0D0D0D] lf:text-2xl text-[21px] font-semibold'>Professional Certificates</p>
+                            <p className=' text-[#0D0D0D] lf:text-2xl text-[21px] font-semibold'>Advanced Diploma</p>
                             <p className='lf:text-xl text-[17px] font-normal leading-tight'>
-                                Our Professional Courses are designed for quick skill acquisition, empowering learners to gain job-ready expertise in just 14 days. Each course combines hands-on learning with foundational theory to enhance your career profile and day-to-day performance in your business or work environment
+                                This Executive Advanced Diploma offers in-depth business and management training across specialized fields. Developed by industry experts, it provides practical tools, critical thinking, and leadership capabilities essential for career advancement in any sector.
                             </p>
                             <p
                                 onClick={() => {
-                                    navigate('/professional-certificate')
+                                    navigate('/executive-advanced-diploma')
+                                    window.scrollTo(0, 0)
+                                }}
+                                className='flex items-center cursor-pointer gap-2 text-[#C0943E] font-medium text-xl'>Explore Courses <FaArrowRightLong /></p>
+                        </div>
+                    </div>
+                    <div className='rounded-3xl bg-[#F2F2F7]'>
+                        <img
+                            className='rounded-t-3xl h-[260px] w-full object-cover'
+                            src={PDU3}
+                            alt=""
+                        />
+                        <div className='flex flex-col justify-between 3xl:h-[340px] mf:h-[500px] sh:h-[454px] gap-4 px-6 py-7 items-start'>
+                            <p className=' text-[#0D0D0D] lf:text-2xl text-[21px] font-semibold'>Executive MBA</p>
+                            <p className='lf:text-xl text-[17px] font-normal leading-tight'>
+                                The Executive MBA program is a comprehensive, one-year journey for ambitious professionals ready to step into senior leadership roles. Through a rigorous, globally-relevant curriculum, you’ll gain advanced business skills, strategic insight, and a powerful professional network to thrive in today’s evolving global marketplace.
+                            </p>
+                            <p
+                                onClick={() => {
+                                    navigate('/executive-mba')
+                                    window.scrollTo(0, 0)
+                                }}
+                                className='flex items-center cursor-pointer gap-2 text-[#C0943E] font-medium text-xl'>Explore Courses <FaArrowRightLong /></p>
+                        </div>
+                    </div>
+                    <div className='rounded-3xl bg-[#F2F2F7]'>
+                        <img
+                            className='rounded-t-3xl h-[260px] w-full object-cover'
+                            src={PDU1}
+                            alt=""
+                        />
+                        <div className='flex flex-col justify-between 3xl:h-[340px] mf:h-[500px] sh:h-[454px] gap-4 px-6 py-7 items-start'>
+                            <p className=' text-[#0D0D0D] lf:text-2xl text-[21px] font-semibold'>Associate Bachelors Degree</p>
+                            <p className='lf:text-xl text-[17px] font-normal leading-tight'>
+                                Our Associate Bachelor’s Degree program equips you with the knowledge and skills to thrive in a rapidly evolving world. Taught by world-class professors and lecturers, the curriculum is designed to instill key values, strategic thinking, and problem-solving skills essential for tackling modern management challenges.
+                            </p>
+                            <p
+                                onClick={() => {
+                                    navigate('/associate-bachelor-degree')
                                     window.scrollTo(0, 0)
                                 }}
                                 className='flex items-center cursor-pointer gap-2 text-[#C0943E] font-medium text-xl'>Explore Courses <FaArrowRightLong /></p>

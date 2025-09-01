@@ -81,7 +81,7 @@ const NextStep = () => {
                                     </p>
                                     <p className='font-normal mf:text-lg sd:text-[16px] text-[14px]'>The State Secretariat for Education, Research and Innovation SERI within the Federal Department of Economic Affairs, Education and Research EAER is the federal government's specialised agency for national and international matters concerning education, research and innovation policy.</p>
                                 </div>
-                                <img className='mf:w-[450px] mh:w-[350px] w-[450px] relative z-10 border-2 md:hidden block border-[#002B5B33] shadow-md shadow-[#002B5BA6]' src={SWL} alt="" />
+                                <img className='mf:w-[450px] mh:w-[350px] w-[450px] relative z-10 md:hidden block border-[#002B5B33] shadow-m shadow-[#002B5BA6] border-2' src={SWL} alt="" />
                             </div>
                         </div>
                         <div className='mf:px-6 px-3'>
@@ -93,7 +93,7 @@ const NextStep = () => {
                                     </p>
                                     <p className='font-normal mf:text-lg sd:text-[16px] text-[14px]'>The PIET sets out the Government of Chad's policy on education. It covers all levels of education (from pre- school to higher education).</p>
                                 </div>
-                                <img className='mf:w-[450px] mh:w-[350px] w-[450px] relative z-10 border-2 md:hidden block border-[#002B5B33] shadow-md shadow-[#002B5BA6]' src={MEC} alt="" />
+                                <img className='mf:w-[450px] mh:w-[350px] w-[450px] relative z-10 md:hidden block' src={MEC} alt="" />
                             </div>
                         </div>
                         <div className='mf:px-6 px-3'>
@@ -105,7 +105,7 @@ const NextStep = () => {
                                     </p>
                                     <p className='font-normal mf:text-lg sd:text-[16px] text-[14px]'>The Ministry of Higher Education (Ministère de l'Enseignement Supérieur) is a government ministry responsible for overseeing and regulating higher education institutions in the country, as well as developing policies and strategies to improve the quality of education.</p>
                                 </div>
-                                <img className='mf:w-[450px] mh:w-[350px] w-[450px] relative z-10 border-2 md:hidden block border-[#002B5B33] shadow-md shadow-[#002B5BA6]' src={CAR} alt="" />
+                                <img className='mf:w-[450px] mh:w-[350px] w-[450px] relative z-10 md:hidden block' src={CAR} alt="" />
                             </div>
                         </div>
                         <div className='mf:px-6 px-3'>
@@ -117,7 +117,7 @@ const NextStep = () => {
                                     </p>
                                     <p className='font-normal mf:text-lg sd:text-[16px] text-[14px]'>The National Universities Commission (NUC) is Nigeria's regulatory body for higher education. It ensures that universities maintain high academic standards, accredits programs, supervises curriculum development, and promotes research and innovation. NUC also advises the government on policies to strengthen tertiary education and aligns universities with national development goals.</p>
                                 </div>
-                                <img className='mf:w-[450px] mh:w-[350px] w-[450px] relative z-10 border- md:hidden block border-[#002B5B33] shadow-m shadow-[#002B5BA6]' src={NUC} alt="" />
+                                <img className='mf:w-[450px] mh:w-[350px] w-[450px] relative z-10 md:hidden block' src={NUC} alt="" />
                             </div>
                         </div>
                     </Slider>
