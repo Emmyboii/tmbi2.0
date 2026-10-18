@@ -1,27 +1,80 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { FaLinkedin, FaWhatsapp, FaFacebook, FaInstagram } from "react-icons/fa6";
+import Logo from '../Images/articleLogo.png';
+import { ENDPOINTS } from '../config/api';
+import { SOCIAL_LINKS } from '../config/site';
 
 const POSTS_PER_PAGE = 11;
 
 const Articles = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
 
-  useEffect(() => {
-    axios.get('https://tmbis-strapi-backend.onrender.com/api/tmbiss?populate=*')
-      .then(res => setPosts(res.data.data || []))
+  const fetchPosts = useCallback(() => {
+    let isMounted = true;
+    setLoading(true);
+    setError(null);
+
+    axios.get(ENDPOINTS.articles())
+      .then(res => { if (isMounted) setPosts(res.data?.data || []); })
       .catch(err => {
-        console.error(err);
+        if (!isMounted) return;
+        setError({
+          code: err?.response?.status || 'NETWORK',
+          message:
+            err?.response?.data?.error?.message ||
+            err?.message ||
+            'Unable to reach the articles service.',
+        });
         setPosts([]);
       })
-      .finally(() => setLoading(false));
+      .finally(() => { if (isMounted) setLoading(false); });
+
+    return () => { isMounted = false; };
   }, []);
 
+  useEffect(() => fetchPosts(), [fetchPosts]);
+
   if (loading) {
-    return <p className="text-center py-20">Loading posts...</p>;
+    return (
+      <div className="mx-auto w-full max-w-[1440px] xl:px-32 md:p-16 p-5 py-10 xl:py-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" aria-busy="true" aria-label="Loading posts">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <div key={i} className="bg-[#F5F5F5] rounded-[20px] animate-pulse">
+            <div className="w-full h-[200px] rounded-t-[20px] bg-black/5" />
+            <div className="flex flex-col p-[13px] gap-4 m-2">
+              <div className="h-4 w-20 rounded bg-black/10" />
+              <div className="h-5 w-full rounded bg-black/10" />
+              <div className="h-4 w-24 rounded bg-black/10" />
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="mx-auto w-full max-w-[1440px] xl:px-32 md:p-16 p-5 py-10 xl:py-20">
+        <div className="flex flex-col items-center justify-center text-center gap-4 py-16 px-6 border border-black/10 rounded-[20px] bg-[#F5F5F5]">
+          <p className="text-[#C0943E] text-xl font-semibold">Couldn&apos;t load articles</p>
+          <p className="text-gray-600 text-sm">
+            Error code: <span className="font-semibold">{error.code}</span>
+          </p>
+          <p className="text-gray-500 text-xs max-w-md">{error.message}</p>
+          <button
+            type="button"
+            onClick={fetchPosts}
+            className="mt-2 text-base text-[#C0943E] font-medium border border-[#C0943E] rounded-full px-6 py-2 hover:bg-[#C0943E] hover:text-white transition-colors"
+          >
+            Try again
+          </button>
+        </div>
+      </div>
+    );
   }
 
   if (!posts.length) {
@@ -49,18 +102,21 @@ const Articles = () => {
     >
       <img
         className="w-full h-[200px] rounded-t-[20px] object-cover"
-        src={`${post.image?.url}`}
-        alt={post.title}
+        src={post.image?.url || Logo}
+        onError={(e) => { e.currentTarget.src = Logo; }}
+        alt={post.title || 'Article'}
       />
       <div className="flex flex-col p-[13px] gap-4 m-2">
         <p className="uppercase text-[#C0943E] text-sm font-normal">{post.header}</p>
         <p className="text-lg font-semibold leading-tight">{post.title}</p>
         <p className="font-light">
-          {new Date(post.publishedAt).toLocaleDateString("en-US", {
-            day: '2-digit',
-            month: 'short',
-            year: 'numeric'
-          })}
+          {post.publishedAt
+            ? new Date(post.publishedAt).toLocaleDateString("en-US", {
+                day: '2-digit',
+                month: 'short',
+                year: 'numeric'
+              })
+            : ''}
         </p>
       </div>
     </Link>
@@ -71,8 +127,9 @@ const Articles = () => {
     <div key={post.id} className="flex flex-col lg:flex-row items-center justify-center gap-5 relative my-10">
       <img
         className="w-full lg:w-[700px] rounded-[20px] object-cover"
-        src={`${post.image?.url}`}
-        alt={post.title}
+        src={post.image?.url || Logo}
+        onError={(e) => { e.currentTarget.src = Logo; }}
+        alt={post.title || 'Article'}
       />
       <div className="flex flex-col items-start gap-7 bg-[#F5F5F5] rounded-[20px] p-6 md:p-8 lg:ml-[-90px] w-full lg:w-auto">
         <p className="sm:text-2xl text-xl md:text-[38px] font-semibold leading-8">{post.title}</p>
@@ -87,7 +144,7 @@ const Articles = () => {
   );
 
   return (
-    <div className="xl:px-32 md:p-16 p-5 py-10 xl:py-20 flex flex-col gap-8">
+    <div className="mx-auto w-full max-w-[1440px] xl:px-32 md:p-16 p-5 py-10 xl:py-20 flex flex-col gap-8">
       {/* Posts */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
         {currentPosts.map((post, index) => {
@@ -157,16 +214,16 @@ const Articles = () => {
             Follow us on social media for updates, insights, and opportunities.
           </p>
           <div className="flex items-center justify-center text-[30px] md:text-[40px] gap-4">
-            <a href="https://ng.linkedin.com/company/tmbis-ng-trs" rel='noreferrer' target='_blank' className='underline'>
+            <a href={SOCIAL_LINKS.linkedin} rel='noreferrer' target='_blank' className='underline'>
               <FaLinkedin />
             </a>
-            <a href="http://surl.li/mumpei" rel='noreferrer' target='_blank' className='underline'>
+            <a href={SOCIAL_LINKS.whatsapp} rel='noreferrer' target='_blank' className='underline'>
               <FaWhatsapp />
             </a>
-            <a href="https://www.instagram.com/thronemanagementand_business/" rel='noreferrer' target='_blank' className='underline'>
+            <a href={SOCIAL_LINKS.instagram} rel='noreferrer' target='_blank' className='underline'>
               <FaInstagram />
             </a>
-            <a href="https://web.facebook.com/thronemanagement" rel='noreferrer' target='_blank' className='underline'>
+            <a href={SOCIAL_LINKS.facebook} rel='noreferrer' target='_blank' className='underline'>
               <FaFacebook />
             </a>
           </div>

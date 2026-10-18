@@ -1,7 +1,6 @@
 import { FaCheck, FaTimes } from 'react-icons/fa'
-import { useEffect, useState } from 'react';
-import ProgramDetails from './ProgramDetails';
 import { Link, useNavigate } from 'react-router-dom';
+import { setProgramCartState } from '../utils/programs';
 
 const Cart = ({ openCart, setOpenCart, addedPrograms, suggestedPrograms }) => {
 
@@ -9,24 +8,10 @@ const Cart = ({ openCart, setOpenCart, addedPrograms, suggestedPrograms }) => {
 
     const subtotal = addedPrograms.reduce((acc, item) => acc + parseFloat(item.programPrice), 0);
 
-    const [onScroll, setOnScroll] = useState(false)
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setOnScroll(window.scrollY > 40)
-        }
-
-        window.addEventListener('scroll', handleScroll)
-
-        handleScroll();
-
-        return () => window.removeEventListener('scroll', handleScroll)
-    }, [])
-
     return (
         <>
             {openCart && addedPrograms.length > 0 && (
-                <div className={`fixed sh:max-w-[420px] 3xl:max-w-[700px] flex flex-col z-50 gap-3 w-full sh:right-10 h-[90%] overflow-y-auto bg-white shadow-custom-input shadow-[#002B5B80] pt-5 pb-5 px-3 ${onScroll ? 'sh:top-2 top-0' : 'sh:top-[92px] top-[0px]'}`}>
+                <div className={`fixed sh:max-w-[420px] 3xl:max-w-[700px] flex flex-col z-50 gap-3 w-full sh:right-10 h-[90%] overflow-y-auto bg-white shadow-custom-input shadow-[#002B5B80] pt-5 pb-5 px-3 sh:top-[92px] top-[88px]`}>
                     <div className='flex items-center justify-center'>
                         <FaTimes onClick={() => setOpenCart(false)} className='absolute left-2 text-lg cursor-pointer' />
                         <p className='text-[21px] text-center font-medium'>Subtotal ({addedPrograms.length} {addedPrograms.length === 1 ? 'Item' : 'Items'}):  ${subtotal}</p>
@@ -58,21 +43,7 @@ const Cart = ({ openCart, setOpenCart, addedPrograms, suggestedPrograms }) => {
                                     </div>
                                     <p
                                         onClick={() => {
-                                            const stored = localStorage.getItem('programsData');
-                                            let allPrograms = stored ? JSON.parse(stored) : ProgramDetails;
-
-                                            const updated = allPrograms.map(category => {
-                                                const updatedDetails = category.programDetails.map(p => {
-                                                    if (p.projectPath === projectPath) {
-                                                        return { ...p, addToCart: false };
-                                                    }
-                                                    return p;
-                                                });
-                                                return { ...category, programDetails: updatedDetails };
-                                            });
-
-                                            localStorage.setItem('programsData', JSON.stringify(updated));
-                                            window.dispatchEvent(new Event('cartUpdated'));
+                                            setProgramCartState(projectPath, false);
                                             if (addedPrograms.length === 1) {
                                                 setOpenCart(false)
                                             }
@@ -98,21 +69,7 @@ const Cart = ({ openCart, setOpenCart, addedPrograms, suggestedPrograms }) => {
                                         <div className='flex items-center justify-between w-full'>
                                             <button
                                                 onClick={() => {
-                                                    const stored = localStorage.getItem('programsData');
-                                                    let allPrograms = stored ? JSON.parse(stored) : ProgramDetails;
-
-                                                    const updated = allPrograms.map(category => {
-                                                        const updatedDetails = category.programDetails.map(p => {
-                                                            if (p.projectPath === program.projectPath) {
-                                                                return { ...p, addToCart: true };
-                                                            }
-                                                            return p;
-                                                        });
-                                                        return { ...category, programDetails: updatedDetails };
-                                                    });
-
-                                                    localStorage.setItem('programsData', JSON.stringify(updated));
-                                                    window.dispatchEvent(new Event('cartUpdated'));
+                                                    setProgramCartState(program.projectPath, true);
                                                     setOpenCart(true)
                                                 }}
                                                 className='text-[14px] font-medium rounded-md p-[10px] bg-[#002B5B] text-white'

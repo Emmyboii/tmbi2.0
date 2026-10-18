@@ -15,6 +15,9 @@ import MEC from '../Images/MEC.jpg';
 import CAR from '../Images/CAR.jpg';
 import nextStep from '../NewImages/nextStep.webp'
 import { HashLink } from 'react-router-hash-link';
+import { getStoredPrograms, setProgramCartState } from '../utils/programs';
+import { ADVISOR_URL } from '../config/site';
+import Container from './Container';
 
 const EachPrograms = ({ setOpenCart, suggestedPrograms }) => {
     const { pathname } = useLocation();
@@ -40,39 +43,21 @@ const EachPrograms = ({ setOpenCart, suggestedPrograms }) => {
         if (!freshProgram) return;
 
         // Apply addToCart from localStorage if it exists
-        const stored = localStorage.getItem('programsData');
-        if (stored) {
-            const parsed = JSON.parse(stored);
-            const match = parsed.find(cat =>
-                cat.programDetails.some(p => p.projectPath === pathname)
-            );
-            const matchProgram = match?.programDetails.find(p => p.projectPath === pathname);
-            if (matchProgram) {
-                freshProgram.addToCart = matchProgram.addToCart;
-            }
+        const stored = getStoredPrograms();
+        const match = stored.find(cat =>
+            cat.programDetails.some(p => p.projectPath === pathname)
+        );
+        const matchProgram = match?.programDetails.find(p => p.projectPath === pathname);
+        if (matchProgram) {
+            freshProgram.addToCart = matchProgram.addToCart;
         }
 
         setCurrentProgram(freshProgram);
     }, [pathname]);
 
     const handleAddToCart = (projectPath) => {
-        const stored = localStorage.getItem('programsData');
-        let allPrograms = stored ? JSON.parse(stored) : ProgramDetails;
-
-        const updatedPrograms = allPrograms.map(category => {
-            const updatedDetails = category.programDetails.map(program => {
-                if (program.projectPath === projectPath) {
-                    return { ...program, addToCart: true };
-                }
-                return program;
-            });
-            return { ...category, programDetails: updatedDetails };
-        });
-
-        localStorage.setItem('programsData', JSON.stringify(updatedPrograms));
+        setProgramCartState(projectPath, true);
         setOpenCart(true);
-
-        window.dispatchEvent(new Event('cartUpdated'));
         setCurrentProgram(prev => ({ ...prev, addToCart: true }));
     };
 
@@ -136,7 +121,7 @@ const EachPrograms = ({ setOpenCart, suggestedPrograms }) => {
 
                 {/* ✅ Mini, MBA, ABD */}
                 {(Mini || MBA || ABD) && (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:px-40 xl:py-10 sh:p-20 p-6 text-center">
+                    <div className="mx-auto w-full max-w-[1440px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:px-40 xl:py-10 sh:p-20 p-6 text-center">
                         <div className="bg-[#F2F2F7] rounded-[20px] w-full p-6 gap-5 min-h-[250px] flex flex-col items-center justify-center">
                             <img className="size-[33px] lf:size-[48px]" src={certificates} alt="" />
                             <p className="text-[17px] lf:text-[20px] font-medium">Plus Certificate</p>
@@ -169,7 +154,7 @@ const EachPrograms = ({ setOpenCart, suggestedPrograms }) => {
 
                 {/* ✅ Executive Advanced Diploma (EAD) */}
                 {EAD && (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 xl:px-40 xl:py-10 sh:p-20 p-6 text-center">
+                    <div className="mx-auto w-full max-w-[1440px] grid grid-cols-1 sm:grid-cols-2 gap-6 xl:px-40 xl:py-10 sh:p-20 p-6 text-center">
                         <div className="bg-[#F2F2F7] rounded-[20px] w-full p-6 gap-5 min-h-[250px] flex flex-col items-center justify-center">
                             <img className="size-[33px] lf:size-[48px]" src={certificates} alt="" />
                             <p className="text-[17px] lf:text-[20px] font-medium">Plus Certificate</p>
@@ -185,7 +170,7 @@ const EachPrograms = ({ setOpenCart, suggestedPrograms }) => {
 
                 {/* ✅ Executive Diploma (ED) */}
                 {ED && (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 xl:px-40 xl:py-10 sh:p-20 p-6 text-center">
+                    <div className="mx-auto w-full max-w-[1440px] grid grid-cols-1 sm:grid-cols-2 gap-6 xl:px-40 xl:py-10 sh:p-20 p-6 text-center">
                         <div className="bg-[#F2F2F7] rounded-[20px] w-full p-6 gap-5 min-h-[250px] flex flex-col items-center justify-center">
                             <img className="size-[33px] lf:size-[48px]" src={certificates} alt="" />
                             <p className="text-[17px] lf:text-[20px] font-medium">Plus Certificate</p>
@@ -201,7 +186,7 @@ const EachPrograms = ({ setOpenCart, suggestedPrograms }) => {
 
                 {/* ✅ Professional Certificate (PC) */}
                 {PC && (
-                    <div className="grid grid-cols-1 gap-6 xl:px-40 xl:py-10 sh:p-20 p-6 text-center">
+                    <div className="mx-auto w-full max-w-[1440px] grid grid-cols-1 gap-6 xl:px-40 xl:py-10 sh:p-20 p-6 text-center">
                         <div className="bg-[#F2F2F7] rounded-[20px] w-full p-6 gap-5 min-h-[250px] flex flex-col items-center justify-center">
                             <img className="size-[33px] lf:size-[48px]" src={certificates} alt="" />
                             <p className="text-[17px] lf:text-[20px] font-medium">Plus Certificate</p>
@@ -211,6 +196,7 @@ const EachPrograms = ({ setOpenCart, suggestedPrograms }) => {
                 )}
 
                 <div className="mt-4 xl:px-32 md:p-16 p-5 py-10 xl:py-20 bg-[#F5F5F5]">
+                    <Container>
                     <p className="text-2xl md:text-3xl lg:text-[32px] text-center md:text-left font-bold">
                         Program Details
                     </p>
@@ -253,10 +239,12 @@ const EachPrograms = ({ setOpenCart, suggestedPrograms }) => {
 
                         <img src={LB} alt="" className="w-full md:w-sm mx-auto md:mx-0" />
                     </div>
+                    </Container>
                 </div>
 
                 {/* Accreditation Section */}
-                <div className="bg-[#002B5B] text-white flex flex-col gap-6 items-center xl:px-32 md:p-16 p-5 py-10 xl:py-20">
+                <div className="bg-[#002B5B] text-white">
+                    <Container className="flex flex-col gap-6 items-center xl:px-32 md:p-16 p-5 py-10 xl:py-20">
                     <p className="text-2xl sm:text-3xl font-bold">Accreditation</p>
                     <p className="text-base sm:text-lg max-w-3xl text-center">
                         TMBI is registered as a foreign education provider in Switzerland. All Executive Mini MBA programs are certified and meet international business education standards. Graduates receive a verifiable certificate to showcase professional development.
@@ -267,10 +255,12 @@ const EachPrograms = ({ setOpenCart, suggestedPrograms }) => {
                         <img className="w-[250px] sm:w-[300px] md:w-[350px]" src={MEC} alt="" />
                         <img className="w-[250px] sm:w-[300px] md:w-[350px]" src={CAR} alt="" />
                     </div>
+                    </Container>
                 </div>
 
                 {/* Program Requirement */}
-                <div className="xl:px-32 md:p-16 p-5 py-10 xl:py-20 flex flex-col md:flex-row items-center justify-between gap-10 bg-[#F5F5F5]">
+                <div className="bg-[#F5F5F5]">
+                    <Container className="xl:px-32 md:p-16 p-5 py-10 xl:py-20 flex flex-col md:flex-row items-center justify-between gap-10">
                     <div className="w-full md:w-2/3">
                         <p className="text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-bold text-center md:text-left">
                             Program Requirement
@@ -285,9 +275,11 @@ const EachPrograms = ({ setOpenCart, suggestedPrograms }) => {
                     </div>
 
                     <img src={req} alt="" className="w-full max-w-xs sm:max-w-md md:max-w-lg" />
+                    </Container>
                 </div>
             </div>
 
+            <Container>
             <div className='sa:min-h-[530px] sk:min-h-[450px] min-h-[330px] mk:mx-32 xl:mx-32 xl:my-20 sh:m-16 m-5 mx-6 relative flex items-center bg-gradient-to-b from-[#002B5B] to-[#005BC1] rounded-[30px] shadow-sm shadow-[#4F00EE1A]'>
 
                 <img
@@ -309,7 +301,7 @@ const EachPrograms = ({ setOpenCart, suggestedPrograms }) => {
                                 Enroll Now
                             </button>
                         </HashLink>
-                        <a href="http://surl.li/mumpei" rel='noreferrer' target='_blank'>
+                        <a href={ADVISOR_URL} rel='noreferrer' target='_blank'>
                             <button className="sm:p-3 p-2 sm:text-base text-sm border-2 border-[#C0943E] rounded-full text-[#C0943E] font-semibold">
                                 Speak to an Advisor
                             </button>
@@ -317,6 +309,7 @@ const EachPrograms = ({ setOpenCart, suggestedPrograms }) => {
                     </div>
                 </div>
             </div>
+            </Container>
         </div>
     );
 };

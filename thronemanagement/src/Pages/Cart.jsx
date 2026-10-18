@@ -1,4 +1,3 @@
-import ProgramDetails from "../Components/ProgramDetails";
 import stars from "../Images/stargroup2.png";
 import { FaArrowRight } from "react-icons/fa6";
 import { Link } from "react-router-dom";
@@ -6,6 +5,12 @@ import { HiMiniArrowRight } from "react-icons/hi2";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { TbTrash } from "react-icons/tb";
+import { ENDPOINTS } from "../config/api";
+import { setProgramCartState } from "../utils/programs";
+
+// How long the success message stays on screen before we send the user to
+// the payment/checkout page.
+const REDIRECT_DELAY = 2500;
 
 const Cart = ({ addedPrograms, suggestedPrograms }) => {
     const subtotal = addedPrograms.reduce(
@@ -118,13 +123,46 @@ const Cart = ({ addedPrograms, suggestedPrograms }) => {
         }
     }, [selectedPrograms]);
 
+    const resetForm = useCallback(() => {
+        setForm({
+            firstname: "",
+            lastname: "",
+            email: "",
+            phone: "",
+            programApplied: "",
+            highestEducationLevel: "",
+        });
+        setDocuments(null);
+        setStatus({ message: "", type: "" });
+        setModal(false);
+    }, []);
+
+    const openCheckout = (url) => {
+        const newTab = window.open(url, "_blank");
+        if (newTab) {
+            try {
+                newTab.opener = null;
+            } catch (error) {
+                // Some browsers block reassigning opener — safe to ignore
+            }
+            setOpenModal(false);
+            resetForm();
+        } else {
+            // Popup was blocked: redirect this tab so payment can still proceed
+            window.location.href = url;
+        }
+    };
+
     const apply = async (e) => {
         e.preventDefault();
+        if (submitting) return;
+
         setSubmitting(true);
+        setStatus({ message: "", type: "" });
 
         // ✅ File size validation (5MB)
         const maxFileSize = 5 * 1024 * 1024; // 5MB
-        if (document && document.size > maxFileSize) {
+        if (documents && documents.size > maxFileSize) {
             setStatus({
                 message: "File too large. Maximum size allowed is 5MB.",
                 type: "error",
@@ -147,77 +185,101 @@ const Cart = ({ addedPrograms, suggestedPrograms }) => {
         }
 
         try {
-            const res = await fetch(
-                "https://devm.westus2.cloudapp.azure.com/thorne/api/apply",
-                {
-                    method: "POST",
-                    body: formData,
-                },
-            );
+            // ✅ Step 1: Save the application
+            const res = await fetch(ENDPOINTS.apply, {
+                method: "POST",
+                body: formData,
+            });
             const data = await res.json();
 
             if (!res.ok) {
                 setStatus({
-                    message:
-                        "Sorry, an error occurred. Please try again later or contact the admin",
+                    message: `Sorry, an error occurred. Please try again later or contact the admin. (Error code: ${res.status})`,
                     type: "error",
                 });
                 setModal(true);
                 return;
             }
 
+            const applicantId = data.data?._id;
+
+            if (!applicantId) {
+                setStatus({
+                    message:
+                        "Something went wrong while saving your application. Please contact the admin. (Error code: NO_ID)",
+                    type: "error",
+                });
+                setModal(true);
+                return;
+            }
+
+            // ✅ Application saved — reassure the user while we prepare checkout
             setStatus({
-                message: "Application Submitted successfully",
+                message:
+                    "Application Submitted successfully. You will be redirected to the checkout page to complete your payment.",
                 type: "success",
             });
             setModal(true);
 
-            console.log("Application saved:", data);
-
-            const applicantId = data.data?._id;
-
-            if (!applicantId) {
-                console.error("No applicant_id returned from API:", data);
-                return;
-            }
-
-            // ✅ Fetch checkout details
+            // ✅ Step 2: Initialize checkout (the tab only opens if this succeeds)
             const res2 = await fetch(
                 selectedPrograms === "Associate Bachelor's Degree" ||
                     selectedPrograms === "Executive MBA"
-                    ? `https://devm.westus2.cloudapp.azure.com/thorne/api/apply/${applicantId}/checkout-apply`
-                    : `https://devm.westus2.cloudapp.azure.com/thorne/api/apply/${applicantId}/checkout-course`,
+                    ? ENDPOINTS.checkoutApply(applicantId)
+                    : ENDPOINTS.checkoutCourse(applicantId),
             );
 
             const data2 = await res2.json();
-            console.log("Checkout response:", data2);
+
+            if (!res2.ok) {
+                setStatus({
+                    message: `${data2?.message || "Unable to initialize payment. Please try again."} (Error code: ${res2.status})`,
+                    type: "error",
+                });
+                return;
+            }
 
             const url = data2.authorization_url;
 
-            if (url && /^https?:\/\//i.test(url)) {
-                // fallback if tab was blocked/closed
-                window.open(url, "_blank", "noopener,noreferrer");
-            } else {
-                console.error("No valid authorization_url in response:", data2);
+            if (!url || !/^https?:\/\//i.test(url)) {
+                setStatus({
+                    message:
+                        "No valid payment link was returned. Please try again later. (Error code: NO_URL)",
+                    type: "error",
+                });
+                return;
             }
+
+            // ✅ Give the user a moment to read the message, then send them to checkout
+            await new Promise((resolve) => setTimeout(resolve, REDIRECT_DELAY));
+
+            openCheckout(url);
         } catch (err) {
-            console.error("Error:", err);
+            setStatus({
+                message: `${err?.message || "Unable to reach the server"}. Please check your connection and try again. (Error code: NETWORK)`,
+                type: "error",
+            });
+            setModal(true);
         } finally {
             setSubmitting(false);
         }
     };
 
     useEffect(() => {
-        setTimeout(() => {
-            if (modal) {
-                setModal(false);
-                setStatus({ message: "", type: "" });
-            }
-        }, 3500);
-    }, [modal]);
+        // Only auto-dismiss error messages. The success message stays visible
+        // until the user is actually sent to the checkout page.
+        if (!modal || status.type !== "error") return;
+
+        const timer = setTimeout(() => {
+            setModal(false);
+            setStatus({ message: "", type: "" });
+        }, 5000);
+
+        return () => clearTimeout(timer);
+    }, [modal, status.type]);
 
     return (
-        <div className="xl:px-24 sh:px-16 px-7 py-10 flex flex-col gap-8">
+        <div className="mx-auto w-full max-w-[1440px] xl:px-24 sh:px-16 px-7 py-10 flex flex-col gap-8">
             {addedPrograms.length > 0 ? (
                 <p className="text-[30px] font-bold text-[#000000]">Cart</p>
             ) : (
@@ -283,52 +345,9 @@ const Cart = ({ addedPrograms, suggestedPrograms }) => {
                                                 {/* Remove */}
                                                 <p
                                                     onClick={() => {
-                                                        const stored =
-                                                            localStorage.getItem(
-                                                                "programsData",
-                                                            );
-                                                        let allPrograms = stored
-                                                            ? JSON.parse(stored)
-                                                            : ProgramDetails;
-
-                                                        const updated =
-                                                            allPrograms.map(
-                                                                (category) => {
-                                                                    const updatedDetails =
-                                                                        category.programDetails.map(
-                                                                            (
-                                                                                p,
-                                                                            ) => {
-                                                                                if (
-                                                                                    p.projectPath ===
-                                                                                    projectPath
-                                                                                ) {
-                                                                                    return {
-                                                                                        ...p,
-                                                                                        addToCart: false,
-                                                                                    };
-                                                                                }
-                                                                                return p;
-                                                                            },
-                                                                        );
-                                                                    return {
-                                                                        ...category,
-                                                                        programDetails:
-                                                                            updatedDetails,
-                                                                    };
-                                                                },
-                                                            );
-
-                                                        localStorage.setItem(
-                                                            "programsData",
-                                                            JSON.stringify(
-                                                                updated,
-                                                            ),
-                                                        );
-                                                        window.dispatchEvent(
-                                                            new Event(
-                                                                "cartUpdated",
-                                                            ),
+                                                        setProgramCartState(
+                                                            projectPath,
+                                                            false,
                                                         );
                                                     }}
                                                     className="text-red-500 mt-3 text-sm flex items-center gap-2 cursor-pointer justify-center md:justify-start"
@@ -434,16 +453,14 @@ const Cart = ({ addedPrograms, suggestedPrograms }) => {
                         >
                             <form
                                 onSubmit={apply}
-                                className="rounded-[30px] overflow-y-aut h-ful relative overflow-x-hidden 3xl:w-[60%] sm:w-[70%] sa:m-5 w-full flex flex-col 3xl:gap-6 gap-3 z-50  shadow-md shadow-[#00000040] border border-[#797979B2] 2xl:p-8 p-4 bg-white"
+                                className="rounded-[30px] overflow-y-aut h-ful relative overflow-x-hidden max-w-[700px] 3xl:w-[60%] sm:w-[70%] sa:m-5 w-full flex flex-col 3xl:gap-6 gap-3 z-50  shadow-md shadow-[#00000040] border border-[#797979B2] 2xl:p-8 p-4 bg-white"
                             >
                                 {modal && (
                                     <div
                                         className={`${status.type === "error" ? "bg-red-500" : "bg-green-500"} text-white absolute top-[10px] z-50 right-7 p-3 rounded-md flex items-center text-center justify-between`}
                                     >
                                         <p className="md:text-[16px] text-[13px] 3xl:text-[22px] font-bold">
-                                            {status.type === "error"
-                                                ? `${status.message}`
-                                                : `${status.message}. Redirecting...`}
+                                            {status.message}
                                         </p>
                                     </div>
                                 )}

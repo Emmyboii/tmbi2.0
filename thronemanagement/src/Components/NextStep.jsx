@@ -15,6 +15,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useLocation } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
+import { ADVISOR_URL } from '../config/site';
 
 const CustomPrevArrow = (props) => {
     const { onClick } = props
@@ -60,7 +61,7 @@ const NextStep = () => {
     }
 
     return (
-        <div className="xl:px-32 md:p-16 p-5  xl:py-20 flex flex-col gap-60 pb-9" >
+        <div className="mx-auto w-full max-w-[1440px] xl:px-32 md:p-16 p-5  xl:py-20 flex flex-col gap-60 pb-9" >
             <div id='accredications' className='z-20 flex flex-col gap-8' >
                 {location.pathname === '/' ? (
                     <p className='text-black lf:text-[40px] mt-12 sp:text-[32px] text-2xl text-center font-bold'>International Recognition</p>
@@ -144,7 +145,7 @@ const NextStep = () => {
                                 Enroll Now
                             </button>
                         </HashLink>
-                        <a href="http://surl.li/mumpei" rel='noreferrer' target='_blank'>
+                        <a href={ADVISOR_URL} rel='noreferrer' target='_blank'>
                             <button className="sm:p-3 p-2 sm:text-base text-sm border-2 border-[#C0943E] rounded-full text-[#C0943E] font-semibold">
                                 Speak to an Advisor
                             </button>

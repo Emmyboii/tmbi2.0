@@ -1,12 +1,15 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import applyImg from '../NewImages/apply.webp'
 import target2 from '../NewImages/target2.webp'
+import { ENDPOINTS } from '../config/api'
+import Container from './Container'
 
 const Apply = () => {
 
     const [submitting, setSubmitting] = useState(false)
     const [status, setStatus] = useState({ message: '', type: '' })
     const [modal, setModal] = useState(false)
+    const messageRef = useRef(null)
     const [form, setForm] = useState({
         firstname: '',
         lastname: '',
@@ -28,65 +31,91 @@ const Apply = () => {
     const apply = async (e) => {
         e.preventDefault();
 
+        if (submitting) return
+
         setSubmitting(true)
+        setStatus({ message: '', type: '' })
+
+        const programApplied = form.courseName.includes('(ABD)')
+            ? 'ABD'
+            : form.courseName.includes('(MBA)')
+                ? 'MBA'
+                : ''
 
         const formData = new FormData();
         formData.append("firstname", form.firstname);
         formData.append("lastname", form.lastname);
         formData.append("email", form.email);
         formData.append("phone", form.phone);
+        formData.append("programApplied", programApplied);
         formData.append("courseName", form.courseName);
         formData.append("highestEducationLevel", form.highestEducationLevel);
         formData.append("scholarshipApplied", true)
 
         try {
-            const res = await fetch('https://devm.westus2.cloudapp.azure.com/thorne/api/apply', {
+            const res = await fetch(ENDPOINTS.apply, {
                 method: 'POST',
                 body: formData
             })
-            const data = await res.json();
+
+            let data = null;
+            try {
+                data = await res.json();
+            } catch {
+                data = null;
+            }
 
             if (!res.ok) {
-                setStatus({ message: 'Sorry, an error occured. Please try again later or contact the admin', type: 'error' })
+                const serverMessage =
+                    data?.message ||
+                    data?.error ||
+                    'Sorry, an error occured. Please try again later or contact the admin';
+                setStatus({ message: `${serverMessage} (Error code: ${res.status})`, type: 'error' })
                 setModal(true)
                 return
             }
 
             setStatus({ message: 'Application Submitted successfully', type: 'success' })
             setModal(true)
-
-            console.log("Application saved:", data);
-
-            // const applicantId = data._id;
-
-            // if (applicantId) {
-            //     // Redirect to Paystack checkout page
-            //     if (selectedPrograms === "Associate Bachelor's Degree" || selectedPrograms === 'Executive MBA') {
-            //         window.location.href = `https://w3hwvtdm-5000.uks1.devtunnels.ms/api/apply/${applicantId}/checkout-apply`;
-            //     } else {
-            //         window.location.href = `https://w3hwvtdm-5000.uks1.devtunnels.ms/api/apply/${applicantId}/checkout`;
-            //     }
-            // } else {
-            //     console.error("No applicant_id returned from API");
-            // }
+            setForm({
+                firstname: '',
+                lastname: '',
+                email: '',
+                phone: '',
+                courseName: '',
+                highestEducationLevel: '',
+            })
         } catch (err) {
-            console.error("Error:", err);
+            setStatus({
+                message: `${err?.message || 'Unable to reach the server'}. Please check your connection and try again. (Error code: NETWORK)`,
+                type: 'error',
+            })
+            setModal(true)
         } finally {
             setSubmitting(false)
         }
     }
 
     useEffect(() => {
-        setTimeout(() => {
-            if (modal) {
-                setModal(false)
-                setStatus({ message: '', type: '' })
-            }
+        if (!modal) return;
+
+        const timer = setTimeout(() => {
+            setModal(false)
+            setStatus({ message: '', type: '' })
         }, 3500);
+
+        return () => clearTimeout(timer);
     }, [modal])
+
+    useEffect(() => {
+        if (modal && status.message && messageRef.current) {
+            messageRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        }
+    }, [modal, status.type, status.message])
 
     return (
         <div id='apply' className='xl:px-32 md:p-16 p-5 py-10 xl:py-20 bg-[#F5F5F5]'>
+            <Container>
             <p className="sq:py-3 py-2 px-[9px] rounded-full mx-auto sa:w-[300px] sk:w-[270px] w-[300px] flex items-center justify-center sk:gap-3 gap-1 border-[3px] border-[#C0943E] bg-transparent text-[#C0943E] sa:text-[18px] text-base font-medium">
                 <img className='sm:w-auto w-7' src={target2} alt="" />
                 Limited Slots Available
@@ -97,8 +126,12 @@ const Apply = () => {
                 <div className='relative'>
                     <form onSubmit={apply} className='rounded-[40px] flex flex-col gap-6 relative z-10 shadow-custom-sp shadow-[#00000040] lg:px-16 px-5 py-14 bg-white'>
 
-                        {modal && (
-                            <div className={`${status.type === 'error' ? 'bg-red-500' : 'bg-green-500'} text-white absolute top-[0px] z-50 right-0 p-3 rounded-md flex items-center text-center justify-between`}>
+                        {modal && status.message && (
+                            <div
+                                ref={messageRef}
+                                role={status.type === 'error' ? 'alert' : 'status'}
+                                className={`${status.type === 'error' ? 'bg-red-500' : 'bg-green-500'} text-white absolute top-[0px] z-50 right-0 p-3 rounded-md flex items-center text-center justify-between max-w-[calc(100%-1.5rem)] break-words`}
+                            >
                                 <p className='md:text-[16px] text-[13px] 3xl:text-[22px] font-bold'>
                                     {status.type === 'error' ? `${status.message}` : `${status.message}.`}
                                 </p>
@@ -268,6 +301,7 @@ const Apply = () => {
                     </form>
                 </div>
             </div>
+            </Container>
         </div>
     )
 }

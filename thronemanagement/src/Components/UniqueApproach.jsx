@@ -7,9 +7,8 @@ import learning5 from '../NewImages/learning5.webp'
 
 const UniqueApproach = () => {
     return (
-        <div className='xl:px-32 md:p-16 p-5 py-10 xl:py-20'>
+        <div className='mx-auto w-full max-w-[1440px] xl:px-32 md:p-16 p-5 py-10 xl:py-20'>
             <p className='xl:leading-[65px] text-center text-black xl:text-[47px] md:text-4xl text-2xl font-semibold'>Our Unique Approach to Business Learning</p>
-            {/* <p className='bg-gradient-to-r sh:leading-[65px] text-center xl:pl-24 sh:pl-16 sh:pr-10 sc:px-7 px-4 mc:max-w-[68%] from-[#002B5B] to-[#005BC1] bg-clip-text text-transparent sh:text-[47px] sp:text-[35px] text-[29px] font-semibold'>Our Unique Approach to Business Learning</p> */}
             <div className='pt-14 grid mk:grid-cols-3 sd:grid-cols-2 gap-6'>
                 <div className='rounded-3xl sq:h-[500px] bg-[#F2F2F7]'>
                     <img

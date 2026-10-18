@@ -11,7 +11,7 @@ import NextStep from '../Components/NextStep'
 const Home = () => {
   return (
     <div className='py-14'>
-      <img className='absolute z-0 top-[60%]' src={bgFrame} alt="" />
+      <img className='absolute z-0 top-[60%] pointer-events-none select-none' src={bgFrame} alt="" aria-hidden='true' />
       <div className='relative z-10 flex flex-col gap-20'>
         <HomeHero />
         <div className='max-w-[950px] mx-auto'>

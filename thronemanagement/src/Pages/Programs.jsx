@@ -5,6 +5,8 @@ import { useState } from 'react'
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
 import nextStep from '../NewImages/nextStep.webp'
 import { HashLink } from 'react-router-hash-link';
+import { ADVISOR_URL } from '../config/site';
+import Container from '../Components/Container';
 
 const Programs = () => {
 
@@ -33,7 +35,7 @@ const Programs = () => {
                         backgroundRepeat: 'no-repeat',
                     }}
                 >
-                    <div className={`text-white px-3 ${programPrice === ('490' || '10') ? 'max-w-[800px]' : programPrice === '20' ? 'max-w-[500px]' : programPrice === '20' ? 'max-w-[500px]' : 'max-w-[830px]'}`}>
+                    <div className={`text-white px-3 ${programPrice === ('490' || '10') ? 'max-w-[800px]' : programPrice === '20' ? 'max-w-[500px]' : 'max-w-[830px]'}`}>
                         <p className='mh:text-[60px] sh:text-[50px] sp:text-[35px] text-[26px] sh:leading-[65px] font-semibold'>{heroBigText} <span className='text-[#C0943E]'>{heroBigTextColored}</span>{heroBigText2}</p>
                         <p className='sm:text-[20px] text-[17px] sm:leading-8 font-normal mt-5 max-w-[540px] mx-auto'>{heroSmallText}</p>
                         <p className='text-[#C0943E] sm:text-3xl text-2xl font-normal mt-9'>Begin Your Journey for ${programPrice}</p>
@@ -50,7 +52,7 @@ const Programs = () => {
                     </div>
                 </div>
 
-                <div id="label" className="pb-20 flex flex-col gap-8">
+                <div id="label" className="mx-auto w-full max-w-[1440px] pb-20 flex flex-col gap-8">
                     <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-center">{label}</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 md:px-12">
                         {programDetails.slice(0, visibleCount).map(
@@ -102,6 +104,7 @@ const Programs = () => {
                     )}
                 </div>
 
+                <Container>
                 <div className='sa:min-h-[530px] sk:min-h-[450px] min-h-[320px] xl:mx-32 xl:my-20 sh:m-10 m-5 relative flex items-center bg-gradient-to-b from-[#002B5B] to-[#005BC1] rounded-[30px] shadow-sm shadow-[#4F00EE1A]'>
 
                     <img
@@ -123,7 +126,7 @@ const Programs = () => {
                                     Enroll Now
                                 </button>
                             </HashLink>
-                            <a href="http://surl.li/mumpei" rel='noreferrer' target='_blank'>
+                            <a href={ADVISOR_URL} rel='noreferrer' target='_blank'>
                                 <button className="sm:p-3 p-2 sm:text-base text-sm border-2 border-[#C0943E] rounded-full text-[#C0943E] font-semibold">
                                     Speak to an Advisor
                                 </button>
@@ -131,6 +134,7 @@ const Programs = () => {
                         </div>
                     </div>
                 </div>
+                </Container>
             </div>
         </div>
     )

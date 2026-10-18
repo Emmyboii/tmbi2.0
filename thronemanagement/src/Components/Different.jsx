@@ -1,10 +1,12 @@
 import different1 from '../NewImages/different1.webp'
 import different2 from '../NewImages/different2.webp'
 import different3 from '../NewImages/different3.webp'
+import Container from './Container'
 
 const Different = () => {
     return (
         <div className='xl:px-32 md:p-16 p-5 py-10 xl:py-20 text-black bg-gradient-to-b from-[#002B5B] to-[#005BC1]'>
+            <Container>
             <p className='text-white text-center font-bold sm:text-[35px] sd:text-[28.4px] text-2xl'>What Makes TMBI Different</p>
             <div className='flex sm:flex-row flex-col items-center mf:gap-20 sm:gap-10 gap-8 mt-14 justify-center'>
                 <div className='flex flex-col mf:gap-8 gap-4 w-full'>
@@ -29,6 +31,7 @@ const Different = () => {
                     <img className='rounded-[20px] h-[356px] mf:w-auto w-full sm:h-auto object-cover' src={different3} alt="" />
                 </div>
             </div>
+            </Container>
         </div>
     )
 }

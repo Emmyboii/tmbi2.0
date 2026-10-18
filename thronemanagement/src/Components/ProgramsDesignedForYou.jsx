@@ -39,14 +39,14 @@ const ProgramsDesignedForYou = () => {
             <p className='text-[#ffffff] mx-auto px-7 bg-gradient-to-r from-[#002B5B] to-[#005BC1] py-5 bg-clip-text text-transparent lf:text-[40px] mm:text-[32px] sk:text-[25px] text-xl mm:text-start text-center font-semibold'>Programs Designed for Future Business Leaders</p>
             <div className='flex justify-between items-center md:flex-row flex-col gap-20 2xl:gap-32 3xl:gap-48 sh:border-b border-[#797979B2] lf:text-[14px] px-2 mk:text-sm md:text-xs sa:text-base text-xs w-full mx-auto pb-2 mt-10'>
                 <div className='flex items-center border-b md:border-none pb-1 border-[#797979B2] justify-between w-full'>
-                    <p onClick={() => setPrograms('ABD')} className={`py-[10px] px-5 mr-2 cursor-pointer -full text-center rounded-[10px] ${programs === 'ABD' ? 'bg-[#002B5B33]' : ''}`}>Associate Bachelor’s Degree</p>
-                    <p onClick={() => setPrograms('AD')} className={`py-[10px] px-5 cursor-pointer w-ful text-center rounded-[10px] ${programs === 'AD' ? 'bg-[#002B5B33]' : ''}`}>Advanced Diploma</p>
-                    <p onClick={() => setPrograms('MBA')} className={`py-[10px] px-5 cursor-pointer w-ful text-center rounded-[10px] ${programs === 'MBA' ? 'bg-[#002B5B33]' : ''}`}>Executive MBA</p>
+                    <p onClick={() => setPrograms('ABD')} className={`py-[10px] px-5 mr-2 cursor-pointer text-center rounded-[10px] ${programs === 'ABD' ? 'bg-[#002B5B33]' : ''}`}>Associate Bachelor’s Degree</p>
+                    <p onClick={() => setPrograms('AD')} className={`py-[10px] px-5 cursor-pointer text-center rounded-[10px] ${programs === 'AD' ? 'bg-[#002B5B33]' : ''}`}>Advanced Diploma</p>
+                    <p onClick={() => setPrograms('MBA')} className={`py-[10px] px-5 cursor-pointer text-center rounded-[10px] ${programs === 'MBA' ? 'bg-[#002B5B33]' : ''}`}>Executive MBA</p>
                 </div>
                 <div className='flex items-center justify-between border-b sh:border-none pb-1 border-[#797979B2] w-full'>
-                    <p onClick={() => setPrograms('ED')} className={`py-[10px] px-5 cursor-pointer w-ful text-center rounded-[10px] ${programs === 'ED' ? 'bg-[#002B5B33]' : ''}`}>Executive Diploma</p>
-                    <p onClick={() => setPrograms('mini')} className={`py-[10px] px-5 cursor-pointer w-ful text-center rounded-[10px] ${programs === 'mini' ? 'bg-[#002B5B33]' : ''}`}>Mini MBA</p>
-                    <p onClick={() => setPrograms('PC')} className={`py-[10px] px-5 cursor-pointer w-ful text-center rounded-[10px] ${programs === 'PC' ? 'bg-[#002B5B33]' : ''}`}>Professional Certificates</p>
+                    <p onClick={() => setPrograms('ED')} className={`py-[10px] px-5 cursor-pointer text-center rounded-[10px] ${programs === 'ED' ? 'bg-[#002B5B33]' : ''}`}>Executive Diploma</p>
+                    <p onClick={() => setPrograms('mini')} className={`py-[10px] px-5 cursor-pointer text-center rounded-[10px] ${programs === 'mini' ? 'bg-[#002B5B33]' : ''}`}>Mini MBA</p>
+                    <p onClick={() => setPrograms('PC')} className={`py-[10px] px-5 cursor-pointer text-center rounded-[10px] ${programs === 'PC' ? 'bg-[#002B5B33]' : ''}`}>Professional Certificates</p>
                 </div>
             </div>
             <div className='mt-5 mc:grid grid-cols-2 w-full px-4'>
@@ -137,10 +137,6 @@ const ProgramsDesignedForYou = () => {
                             className='max-h-[360px] right-[-50px] z-30 mx-auto mc:absolute relative bottom-0' alt=""
                         />
                     )}
-                    {/* <img
-                        src={programs === 'ABD' ? homeABD : programs === 'AD' ? homeAD : programs === 'MBA' ? homeMBA : programs === 'ED' ? homeED : programs === 'mini' ? homeMini : homePC}
-                        className='max-h-[460px] right-0 z-30 mx-auto mc:absolute relative bottom-0' alt=""
-                    /> */}
                 </div>
             </div>
         </div>

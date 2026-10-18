@@ -16,6 +16,7 @@ import prevBtn from '../NewImages/left.png'
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Container from './Container';
 
 const CustomPrevArrow = (props) => {
     const { onClick } = props
@@ -84,6 +85,7 @@ const OurGraduate = () => {
 
     return (
         <div id='testimonials' className='lf:px-32 sm:pt-20 pt-10 sm:pb-36 pb-28 relative bg-gradient-to-b from-[#002B5B] to-[#005BC1]'>
+            <Container>
             <p className='text-[#ffffff] lf:text-[40px] mm:text-[32px] text-[27px] text-center font-bold'>Hear from Our Graduates</p>
             <Slider {...settings} className='mt-7'>
                 <div className='mf:px-6 px-3'>
@@ -183,6 +185,7 @@ const OurGraduate = () => {
                     </div>
                 </div>
             </Slider>
+            </Container>
 
         </div>
     )

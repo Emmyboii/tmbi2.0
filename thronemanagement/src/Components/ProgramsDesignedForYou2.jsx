@@ -9,6 +9,7 @@ import nysc from '../Images/nysc.svg';
 import { FaArrowRightLong } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
+import Container from './Container';
 
 const ProgramsDesignedForYou2 = () => {
     const navigate = useNavigate()
@@ -62,7 +63,8 @@ const ProgramsDesignedForYou2 = () => {
                 </div>
             </div>
 
-            <div id='program' className='bg-[#002B5B] xl:px-32 md:p-16 p-5 xl:py-20 flex flex-col gap-12'>
+            <div id='program' className='bg-[#002B5B]'>
+                <Container className='xl:px-32 md:p-16 p-5 xl:py-20 flex flex-col gap-12'>
                 <p className='font-bold mh:text-3xl text-2xl text-center text-white mt-5'>Programs Designed for Future Business Leaders</p>
                 <div className='grid mf:grid-cols-3 sh:grid-cols-2 gap-10 pb-10'>
                     <div className='rounded-3xl bg-[#F2F2F7]'>
@@ -180,6 +182,7 @@ const ProgramsDesignedForYou2 = () => {
                         </div>
                     </div>
                 </div>
+                </Container>
             </div>
         </div>
     )

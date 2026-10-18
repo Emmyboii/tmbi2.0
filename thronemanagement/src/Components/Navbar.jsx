@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import Logo from '../NewImages/logo.png'
 import { MdMenu, MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { HashLink } from 'react-router-hash-link';
+import Container from './Container';
 
 const Navbar = ({ addedPrograms }) => {
 
@@ -23,20 +24,9 @@ const Navbar = ({ addedPrograms }) => {
     }, 300); // You can tweak this delay (in milliseconds)
   };
 
-  const [smScreens, setSmScreens] = useState(window.innerWidth < 500)
-
-  useEffect(() => {
-    const handleResize = () => {
-      setSmScreens(window.innerWidth > 900)
-    }
-
-    window.addEventListener('resize', handleResize)
-
-    return () => window.removeEventListener('resize', handleResize)
-  }, [smScreens])
-
   return (
-    <div className='flex items-center 3xl:text-xl xl:text-lg text-sm justify-between mf:px-16 px-5 w-full sticky z-50 top-0 left-0 py-4 bg-[#002B5B] text-white'>
+    <div className='w-full sticky z-50 top-0 left-0 bg-[#002B5B] text-white'>
+      <Container className='flex items-center 3xl:text-xl xl:text-lg text-sm justify-between mf:px-16 px-5 py-4 relative'>
       <div>
         <Link to='/'>
           <img className='2xl:w-40 w-32' src={Logo} alt="" />
@@ -66,7 +56,7 @@ const Navbar = ({ addedPrograms }) => {
               </Link>
 
               <Link onClick={() => setPrograms(false)} to='/executive-mba' className='hover:text-blue-600 transition'>
-                <div className='bg-blac'>
+                <div>
                   <p className='py-2'>Executive MBA</p>
                 </div>
               </Link>
@@ -144,6 +134,7 @@ const Navbar = ({ addedPrograms }) => {
         </Link>
         <MdMenu onClick={() => setOpenMenu(!openMenu)} className='cursor-pointer sa:text-[30px] text-2xl mf:hidden block' />
       </div>
+      </Container>
 
       <div className={`absolute sa:top-[87px] top-[90px] left-0 z-50 sa:p-7 p-4 flex mf:hidden flex-col gap-6 bg-[#002B5B] text-white transition-all duration-300 w-full
   ${openMenu ? 'min-h-[250px] opacity-100 pointer-events-auto' : 'h-0 opacity-0 pointer-events-none'}`}>
@@ -180,7 +171,7 @@ const Navbar = ({ addedPrograms }) => {
                   setPrograms(false)
                 }}
                   to='/executive-mba' className='hover:text-blue-600 transition'>
-                  <div className='bg-blac'>
+                  <div>
                     <p className='py-2'>Executive MBA</p>
                   </div>
                 </Link>
@@ -241,12 +232,6 @@ const Navbar = ({ addedPrograms }) => {
             </p>
           </Link>
         </div>
-        {/* <div className='text-[12px] font-normal w-full flex flex-col gap-3'>
-          <a href=" #program" className='w-full'>
-            <button onClick={() => setOpenMenu(false)} className='py-[10px] px-3 rounded-[5px] w-full border-2 border-[#FFFFFF80] text-white bg-gradient-to-r from-[#C0943E] to-[#5A451D]'>APPLY NOW</button>
-          </a>
-          <button onClick={() => setOpenMenu(false)} className='py-[10px] px-3 rounded-[5px] border-2 border-[#FFFFFF80] text-white bg-gradient-to-r from-[#005BC1] to-[#002B5B]'>EXPLORE PROGRAMS</button>
-        </div> */}
       </div>
     </div>
   )
